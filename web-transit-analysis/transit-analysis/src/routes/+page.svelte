@@ -1,10 +1,10 @@
 <script>
     import LineChart from "../components/LineChart.svelte";
     import ChartContainer from "../components/ChartContainer.svelte";
-
+    import { transit_analysis_data } from "../data/transit_buffer.json";
 </script>
 <main>
-    <ChartContainer type={"lineChart"} chartProps={{ chartWidth: 640, chartHeight: 500 }} />
+    <LineChart title = "abc", data = />
 
 </main>
 
