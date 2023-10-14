@@ -1,70 +1,42 @@
 <script>
     import { scaleLinear } from "d3-scale";
-    import { rollups, sum } from "d3-array";
-    import data from "/src/data/data.json";
+    import data from "/src/data/transit_buffer.json";
     import "../assets/global-styles.css";
 
     export let variable;
+    export let variable2;
+    export let transitName;
     export let yTicks;
     export let colour;
+    export let colour2;
     export let maxHeight;
-    export let type;
-
-    let tripCountByYear = rollups(
-        data,
-        v => sum(v, d => d.TripCount),
-        d => d.Year
-    );
-    console.log(tripCountByYear);
-
-    const monthCodes = {
-        "1": "J",
-        "2": "F",
-        "3": "M",
-        "4": "A",
-        "5": "M",
-        "6": "J",
-        "7": "J",
-        "8": "A",
-        "9": "S",
-        "10": "O",
-        "11": "N",
-        "12": "D"
-    }
-
-    const monthCodesFull = {
-        "1": "January",
-        "2": "February",
-        "3": "March",
-        "4": "April",
-        "5": "May",
-        "6": "June",
-        "7": "July",
-        "8": "August",
-        "9": "September",
-        "10": "October",
-        "11": "November",
-        "12": "December"
-    }
+    
 
     let width = 100;
     let height = 60;
 
     $: height = Math.min(width / 2.42, maxHeight);
+    
+    function filterDesignation(data) {
+        return data.NAME.includes(transitName);
+    }
+    var data1 = data.filter(filterDesignation);
 
-    var monthList = data.map(function (obj) {
-        return obj.Month;
+    var pointList = data1.map(function (obj) {
+        return obj.ID;
     });
 
-    var variableList = data.map(function (obj) {
+
+    var variableList = data1.map(function (obj) {
         return obj[variable];
     });
 
-    const xTicks = monthList;
+
+    const xTicks = pointList;
     const padding = { top: 20, right: 25, bottom: 35, left: 15 };
 
     function formatMobile(tick) {
-        return "'" + tick.toString().slice(-2);
+        return "'" + tick;
     }
 
     // converts thousands and million to K and M i.e. (1,000 ==> 1K , 1,000,000 ==> 1M)
@@ -107,8 +79,8 @@
     <svg width={xTicks.length * barWidth} {height}>
         <!-- this is the year separation lines-->
         <g class="year-tick">
-            {#each data as bike, i}
-                {#if bike.Month === 1 && i > 0}
+            {#each data1 as points, i}
+                {#if points.ID === 1 && i > 0}
                     <line
                         class="year-grid"
                         x1={xScale(i) + barPadding - innerWidth / 600}
@@ -126,18 +98,19 @@
 
         <!-- Second x axis, only appears when the inner window width > 800 -->
         <g class="axis x-axis">
-            {#each data as bike, i}
+            {#each data1 as points, i}
                 {#if innerWidth > 1000}
-                    {#if bike.Month === 1 || i == 0}
-                        <g
-                            class="tick"
-                        >
-                            <text 
-                                x={xScale(i) + 17 + barPadding - innerWidth / 600}
+                    {#if points.ID === 1 || i == 0}
+                        <g class="tick">
+                            <text
+                                x={xScale(i) +
+                                    17 +
+                                    barPadding -
+                                    innerWidth / 600}
                                 y={height - 5}
-                                text-anchor=end
+                                text-anchor="end"
                             >
-                                {bike.Year}
+                                {points.Year}
                             </text>
                         </g>
                     {/if}
@@ -146,59 +119,27 @@
         </g>
         <!--  x axis - monthly-->
         <g class="axis x-axis">
-            {#each data as bike, i}
+            {#each data1 as points, i}
                 {#if innerWidth > 1000}
                     <!-- if the inner window width > 800, show months as label-->
                     <g class="tick" transform="translate({xScale(i)},{height})">
-                        <text x={barWidth / 2 + 9} y="-20">{monthCodes[bike.Month]}</text>
+                        <text x={barWidth / 2 + 9} y="-20">{points.ID}</text>
                     </g>
                 {:else if innerWidth <= 1000}
                     <!-- if the inner window width <=800 show years only-->
-                    {#if bike.Month === 1 || i == 0}
+                    {#if points.ID === 1 || i == 0}
                         <g
                             class="tick"
                             transform="translate({xScale(i)},{height})"
                         >
                             <text x={barWidth / 2 + 13} y="-20"
-                                >{formatMobile(bike.Year)}</text
+                                >{formatMobile(points.ID)}</text
                             >
                         </g>
                     {/if}
                 {/if}
             {/each}
         </g>
-
-        {#if type === "bar"}
-            <g>
-                {#each data as bike, i}
-                    <!-- Controls the width of the bar graph, 
-                    width: controls the spacing between the bars-->
-                    <rect
-                        class="bar"
-                        x={xScale(i) + barPadding}
-                        y={yScale(bike[variable])}
-                        width={barWidth - 2}
-                        height={yScale(0) - yScale(bike[variable])}
-                        on:mouseover={(event) => {
-                            selected_datapoint = bike;
-                            selected_datapoint_i = i;
-                            // setMousePosition(event);
-                        }}
-                        on:mouseout={() => {
-                            selected_datapoint = undefined;
-                        }}
-                        color={colour}
-                    />
-
-                    <!-- <rect class="tip"
-                        x={xScale(i)+barPadding}
-                        y={yScale(bike[variable]) + 0}
-                        width={barWidth - 2}
-                        height={8}
-                    /> -->
-                {/each}
-            </g>
-        {/if}
 
         <!-- y axis -->
         <g class="axis y-axis">
@@ -213,73 +154,121 @@
             {/each}
         </g>
 
-        {#if type === "line"}
-            <g>
-                {#each data as bike, i}
-                    {#if i > 0 && bike[variable] !== null && data[i - 1][variable] !== null}
-                        <line
-                            x1={xScale(i - 1) + barPadding + barWidth/2 - 1}
-                            y1={yScale(data[i - 1][variable])}
-                            x2={xScale(i) + barPadding + barWidth/2 - 1}
-                            y2={yScale(bike[variable])}
-                            stroke={colour}
-                            stroke-width="2"
-                        />
-                    {/if}
+        <g>
+            {#each data1 as points, i}
+                {#if i > 0 && points[variable] !== null && data1[i - 1][variable] !== null}
+                    <line
+                        x1={xScale(i - 1) + barPadding + barWidth / 2 - 1}
+                        y1={yScale(data1[i - 1][variable])}
+                        x2={xScale(i) + barPadding + barWidth / 2 - 1}
+                        y2={yScale(points[variable])}
+                        stroke={colour}
+                        stroke-width="2"
+                    />
+                {/if}
+                {#if i > 0 && points[variable2] !== null && data1[i - 1][variable2] !== null}
+                    <line
+                        x1={xScale(i - 1) + barPadding + barWidth / 2 - 1}
+                        y1={yScale(data1[i - 1][variable2])}
+                        x2={xScale(i) + barPadding + barWidth / 2 - 1}
+                        y2={yScale(points[variable2])}
+                        stroke={colour2}
+                        stroke-width="2"
+                    />
+                {/if}
 
-                    {#if bike[variable] !== null}
-                        <circle
-                            class="point"
-                            r={innerWidth / 400}
-                            cx={xScale(i) + barPadding + barWidth/2 - 1}
-                            cy={yScale(bike[variable])}
-                            fill={colour}
-                            on:mouseover={(event) => {
-                                selected_datapoint = bike;
-                                selected_datapoint_i = i;
-                                setMousePosition(event);
-                            }}
-                            on:mouseout={() => {
-                                selected_datapoint = undefined;
-                            }}
-                        />
-
-                        <rect
-                            class="barLight"
-                            x={xScale(i) + barPadding}
-                            y={yScale(bike[variable])}
-                            width={barWidth - 2}
-                            height={yScale(0) - yScale(bike[variable])}
-                            stroke={colour}
-                            opacity=0.15
-                            on:mouseover={(event) => {
-                                selected_datapoint = bike;
-                                setMousePosition(event);
-                                selected_datapoint_i = i;
-                            }}
-                            on:mouseout={() => {
-                                selected_datapoint = undefined;
-                            }}
-                        />
-                    {/if}
-                {/each}
-            </g>
-        {/if}
-        
+                {#if points[variable] !== null}
+                    <circle
+                        class="point"
+                        r={innerWidth / 400}
+                        cx={xScale(i) + barPadding + barWidth / 2 - 1}
+                        cy={yScale(points[variable])}
+                        fill={colour}
+                        on:mouseover={(event) => {
+                            selected_datapoint = points;
+                            selected_datapoint_i = i;
+                            setMousePosition(event);
+                        }}
+                        on:mouseout={() => {
+                            selected_datapoint = undefined;
+                        }}
+                    />
+                    <circle
+                        class="point"
+                        r={innerWidth / 400}
+                        cx={xScale(i) + barPadding + barWidth / 2 - 1}
+                        cy={yScale(points[variable2])}
+                        fill={colour2}
+                        on:mouseover={(event) => {
+                            selected_datapoint = points;
+                            selected_datapoint_i = i;
+                            setMousePosition(event);
+                        }}
+                        on:mouseout={() => {
+                            selected_datapoint = undefined;
+                        }}
+                    />
+                    <rect
+                        class="barLight"
+                        x={xScale(i) + barPadding}
+                        y={yScale(points[variable])}
+                        width={5}
+                        height={yScale(0) - yScale(points[variable])}
+                        stroke={colour}
+                        opacity="0.15"
+                        on:mouseover={(event) => {
+                            selected_datapoint = points;
+                            setMousePosition(event);
+                            selected_datapoint_i = i;
+                        }}
+                        on:mouseout={() => {
+                            selected_datapoint = undefined;
+                        }}
+                    />
+                    <rect
+                        class="barLight"
+                        x={xScale(i) + barPadding}
+                        y={yScale(points[variable2])}
+                        width={5}
+                        height={yScale(0) - yScale(points[variable2])}
+                        stroke={colour}
+                        opacity="0.15"
+                        on:mouseover={(event) => {
+                            selected_datapoint = points;
+                            setMousePosition(event);
+                            selected_datapoint_i = i;
+                        }}
+                        on:mouseout={() => {
+                            selected_datapoint = undefined;
+                        }}
+                    />
+                {/if}
+            {/each}
+        </g>
     </svg>
 </div>
 
 <div id="hoverLabel">
     <p>
         {#if selected_datapoint != undefined}
-        {monthCodesFull[selected_datapoint.Month] + " " + selected_datapoint.Year.toString().toLocaleString()
-        }:
-        <span id="lightBlue">{selected_datapoint[variable].toLocaleString()}</span>
+            {" 1996 " +
+                selected_datapoint.Station +
+                " " +
+                selected_datapoint.ID.toString().toLocaleString() +
+                " "}:
+            <span id="lightBlue"
+                >{selected_datapoint[variable].toLocaleString()}</span
+            >
+            {" 2021 " +
+                selected_datapoint.Station +
+                " " +
+                selected_datapoint.ID.toString().toLocaleString()}:
+            <span id="lightGreen"
+                >{selected_datapoint[variable2].toLocaleString()}</span
+            >
         {/if}
     </p>
 </div>
-
-
 
 <style>
     .chart {
@@ -290,7 +279,7 @@
     }
     #hoverLabel {
         height: 30px;
-        display: flex; 
+        display: flex;
         align-items: center;
         justify-content: center;
     }
@@ -302,6 +291,10 @@
     }
     #lightBlue {
         color: var(--brandLightBlue);
+    }
+
+    #lightGreen {
+        color: var(--brandLightGreen);
     }
 
     svg {

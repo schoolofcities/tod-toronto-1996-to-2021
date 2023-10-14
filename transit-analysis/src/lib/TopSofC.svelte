@@ -17,7 +17,7 @@
 		overflow: hidden;
    		top: 0px;
 		height: 50px;
-		background-color: var(--brandDarkGreen);
+		background-color: var(--brandGray90);
 		margin-bottom: 20px;
 		border-bottom: 1px solid var(--brandWhite);
 		width: 100%;
