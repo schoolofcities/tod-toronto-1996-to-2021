@@ -2,25 +2,24 @@
     import { scaleLinear } from "d3-scale";
     import jsondata from "../data/data.json";
     import "../assets/global-styles.css";
-
+ 
     //export let data;
     export let variable96;
-    
-    export let colour;
-    export let maxHeight;
-
-    export let transitName;
     export let variable21;
+    export let colour;
     export let colour2;
+    export let maxHeight;
+    export let transitName;
 
-    let width = 100;
+    
+    let width = 200;
     let height = 60;
 
     $: height = Math.min(width / 2.42, maxHeight);
 
     // filtering data
     function filterDesignation(jsondata) {
-        return jsondata.NAME.includes(transitName);
+        return jsondata.NAME===(transitName);
     }
 
     var data = jsondata.filter(filterDesignation);
@@ -45,8 +44,7 @@
     var interval = newMax / 10
     // create yticks
     var yTicks = []
-    for (let i = 0; i <= newMax; i+= interval){
-        console.log(i);
+    for (let i = 0; i <= newMax; i+= interval){;
         yTicks.push(i)
     }
 
@@ -92,7 +90,6 @@
 
     var barPadding = 10; // controls how much spacing the bars will be from the
 
-    console.log(variable96);
 </script>
 
 <div id="barchart" class="chart" bind:clientWidth={width}>
@@ -138,6 +135,7 @@
         </g>
         <!--  x axis - monthly-->
         <g class="axis x-axis">
+            
             {#each data as point, i}
                 {#if innerWidth > 500}
                     <!-- if the inner window width > 800, show months as label-->
@@ -271,15 +269,15 @@
 <div id="hoverLabel">
     <p>
         {#if selected_datapoint != undefined}
-            {selected_datapoint.ID +
-                " " +
-                selected_datapoint.Station.toString().toLocaleString() +
-                " 2006"}:
-
+            <br>
+            {selected_datapoint.Station.toString().toLocaleString() +
+            "(" + selected_datapoint.ID + ")" + " " }:
+               
+            <br>{"2006"}
             <span id="lightBlue"
                 >{selected_datapoint[variable96].toLocaleString()}</span
             >
-            {"2021 "}
+            <br>{"2021 "}
             <span id="lightGreen"
                 >{selected_datapoint[variable21].toLocaleString()}</span
             >
@@ -303,7 +301,7 @@
     #hoverLabel p {
         color: var(--brandWhite);
         font-family: RobotoRegular;
-        font-size: 24px;
+        font-size: 15px;
         text-align: center;
     }
     #lightBlue {
@@ -350,7 +348,7 @@
         transform: translate(-10px, 0px) rotate(-90deg);
     }
     .x-label.tick text {
-        font-size: 20px; /* Adjust the font size as desired */
+        font-size: 15px; /* Adjust the font size as desired */
         fill: #000000; /* Adjust the font color as desired */
     }
 

@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "d3-dsv": "^3.0.1",
-    "flowbite-svelte": "^0.44.18",
-    "flowbite-svelte-icons": "^0.4.4"
-  }
-}
