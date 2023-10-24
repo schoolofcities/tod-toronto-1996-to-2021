@@ -1,0 +1,2765 @@
+{
+    "type": "FeatureCollection",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "EPSG:2952"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "id": 39,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312173.74849999975,
+                    4840521.1447999999
+                ]
+            },
+            "properties": {
+                "FID": 39,
+                "LOCATION_N": "Avenue",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 40,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    310799.46410000045,
+                    4840121.8624000009
+                ]
+            },
+            "properties": {
+                "FID": 40,
+                "LOCATION_N": "Forest Hill",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 41,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314699.86139999982,
+                    4841239.9589000009
+                ]
+            },
+            "properties": {
+                "FID": 41,
+                "LOCATION_N": "Leaside",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 42,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    319824.16629999969,
+                    4842907.5227000006
+                ]
+            },
+            "properties": {
+                "FID": 42,
+                "LOCATION_N": "Sloane",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 43,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    322691.74139999971,
+                    4843368.9517999999
+                ]
+            },
+            "properties": {
+                "FID": 43,
+                "LOCATION_N": "Birchmount",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 44,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    307652.16870000027,
+                    4839135.6855999995
+                ]
+            },
+            "properties": {
+                "FID": 44,
+                "LOCATION_N": "Caledonia",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 45,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311459.32569999993,
+                    4840313.5778000001
+                ]
+            },
+            "properties": {
+                "FID": 45,
+                "LOCATION_N": "Chaplin",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 46,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317781.3515999997,
+                    4842293.2356000002
+                ]
+            },
+            "properties": {
+                "FID": 46,
+                "LOCATION_N": "Science Centre",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 47,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    308810.90110000037,
+                    4839521.8378999997
+                ]
+            },
+            "properties": {
+                "FID": 47,
+                "LOCATION_N": "Fairbank",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 48,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312968.16339999996,
+                    4840751.9530999996
+                ]
+            },
+            "properties": {
+                "FID": 48,
+                "LOCATION_N": "Eglinton",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 49,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    309959.26960000023,
+                    4839877.2756999992
+                ]
+            },
+            "properties": {
+                "FID": 49,
+                "LOCATION_N": "Cedarvale",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 50,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    318176.70820000023,
+                    4842465.3670000006
+                ]
+            },
+            "properties": {
+                "FID": 50,
+                "LOCATION_N": "Aga Khan Park & Museum",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 51,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    323232.19149999972,
+                    4843522.3698999994
+                ]
+            },
+            "properties": {
+                "FID": 51,
+                "LOCATION_N": "Ionview",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 52,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    306810.0223000003,
+                    4838912.0862000007
+                ]
+            },
+            "properties": {
+                "FID": 52,
+                "LOCATION_N": "Keelesdale",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 53,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    323769.04789999966,
+                    4843616.1382999998
+                ]
+            },
+            "properties": {
+                "FID": 53,
+                "LOCATION_N": "Kennedy",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 54,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    315694.22970000003,
+                    4841522.1126000006
+                ]
+            },
+            "properties": {
+                "FID": 54,
+                "LOCATION_N": "Laird",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 55,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    321598.9654000001,
+                    4843033.2177000009
+                ]
+            },
+            "properties": {
+                "FID": 55,
+                "LOCATION_N": "Hakimi Lebovic",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 56,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    316890.01709999982,
+                    4841911.3296000008
+                ]
+            },
+            "properties": {
+                "FID": 56,
+                "LOCATION_N": "Sunnybrook Park",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 57,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    305827.03450000007,
+                    4838603.2995999996
+                ]
+            },
+            "properties": {
+                "FID": 57,
+                "LOCATION_N": "Mount Dennis",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 58,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313650.45280000009,
+                    4840944.3748000003
+                ]
+            },
+            "properties": {
+                "FID": 58,
+                "LOCATION_N": "Mount Pleasant",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 59,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    309411.29140000045,
+                    4839707.8392999992
+                ]
+            },
+            "properties": {
+                "FID": 59,
+                "LOCATION_N": "Oakwood",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 60,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    321111.00910000037,
+                    4842882.3452000003
+                ]
+            },
+            "properties": {
+                "FID": 60,
+                "LOCATION_N": "Pharmacy",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 61,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    320705.62930000015,
+                    4842763.1278000008
+                ]
+            },
+            "properties": {
+                "FID": 61,
+                "LOCATION_N": "O'Connor",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 62,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    321908.66669999994,
+                    4843130.2089000009
+                ]
+            },
+            "properties": {
+                "FID": 62,
+                "LOCATION_N": "Golden Mile",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 63,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    318876.76400000043,
+                    4842728.4998000003
+                ]
+            },
+            "properties": {
+                "FID": 63,
+                "LOCATION_N": "Wynford",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton Crosstown LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 64,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    301872.99419999961,
+                    4833000.0107000005
+                ]
+            },
+            "properties": {
+                "FID": 64,
+                "LOCATION_N": "Kipling",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 65,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    302815.88100000005,
+                    4833931.6823999994
+                ]
+            },
+            "properties": {
+                "FID": 65,
+                "LOCATION_N": "Islington",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 66,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    303889.5334999999,
+                    4834241.3563999999
+                ]
+            },
+            "properties": {
+                "FID": 66,
+                "LOCATION_N": "Royal York",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 67,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    305196.03749999963,
+                    4834459.0886000004
+                ]
+            },
+            "properties": {
+                "FID": 67,
+                "LOCATION_N": "Old Mill",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 68,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    306053.61969999969,
+                    4834427.2688999996
+                ]
+            },
+            "properties": {
+                "FID": 68,
+                "LOCATION_N": "Jane",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 69,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    306719.5047000004,
+                    4834634.9316000007
+                ]
+            },
+            "properties": {
+                "FID": 69,
+                "LOCATION_N": "Runnymede",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 70,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    307524.70079999976,
+                    4834901.2871000003
+                ]
+            },
+            "properties": {
+                "FID": 70,
+                "LOCATION_N": "High Park",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 71,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    308038.45419999957,
+                    4835058.8901000004
+                ]
+            },
+            "properties": {
+                "FID": 71,
+                "LOCATION_N": "Keele",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 72,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    308638.64510000031,
+                    4835248.6883000005
+                ]
+            },
+            "properties": {
+                "FID": 72,
+                "LOCATION_N": "Dundas West",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 73,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    309427.98579999991,
+                    4835465.3519000001
+                ]
+            },
+            "properties": {
+                "FID": 73,
+                "LOCATION_N": "Lansdowne",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 74,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    310003.30510000046,
+                    4835590.7095999997
+                ]
+            },
+            "properties": {
+                "FID": 74,
+                "LOCATION_N": "Dufferin",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 75,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    310773.43290000036,
+                    4835832.8357999995
+                ]
+            },
+            "properties": {
+                "FID": 75,
+                "LOCATION_N": "Ossington",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 76,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311385.55740000028,
+                    4836017.0343999993
+                ]
+            },
+            "properties": {
+                "FID": 76,
+                "LOCATION_N": "Christie",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 77,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311938.29339999985,
+                    4836200.6274999995
+                ]
+            },
+            "properties": {
+                "FID": 77,
+                "LOCATION_N": "Bathurst",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 78,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312920.44330000039,
+                    4836485.9616999999
+                ]
+            },
+            "properties": {
+                "FID": 78,
+                "LOCATION_N": "St. George",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 79,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313681.33609999996,
+                    4836701.5105000008
+                ]
+            },
+            "properties": {
+                "FID": 79,
+                "LOCATION_N": "Bay",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 80,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314015.69330000039,
+                    4836789.6018000003
+                ]
+            },
+            "properties": {
+                "FID": 80,
+                "LOCATION_N": "Bloor-Yonge",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 81,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314731.09729999956,
+                    4836941.5539999995
+                ]
+            },
+            "properties": {
+                "FID": 81,
+                "LOCATION_N": "Sherbourne",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 82,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    315404.12289999984,
+                    4837109.7387000006
+                ]
+            },
+            "properties": {
+                "FID": 82,
+                "LOCATION_N": "Castle Frank",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 83,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    316186.52550000045,
+                    4837441.1361999996
+                ]
+            },
+            "properties": {
+                "FID": 83,
+                "LOCATION_N": "Broadview",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 84,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    316712.71320000011,
+                    4837609.9689000007
+                ]
+            },
+            "properties": {
+                "FID": 84,
+                "LOCATION_N": "Chester",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 85,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317283.36110000033,
+                    4837765.5449000001
+                ]
+            },
+            "properties": {
+                "FID": 85,
+                "LOCATION_N": "Pape",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 86,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317879.23390000034,
+                    4837927.0381000005
+                ]
+            },
+            "properties": {
+                "FID": 86,
+                "LOCATION_N": "Donlands",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 87,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    318483.38680000044,
+                    4838108.9378999993
+                ]
+            },
+            "properties": {
+                "FID": 87,
+                "LOCATION_N": "Greenwood",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 88,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    319062.28940000013,
+                    4838279.2199000008
+                ]
+            },
+            "properties": {
+                "FID": 88,
+                "LOCATION_N": "Coxwell",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 89,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    319876.97360000014,
+                    4838527.3309000004
+                ]
+            },
+            "properties": {
+                "FID": 89,
+                "LOCATION_N": "Woodbine",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 90,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    320760.93850000016,
+                    4838799.6055999994
+                ]
+            },
+            "properties": {
+                "FID": 90,
+                "LOCATION_N": "Main Street",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 91,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    321772.3518000003,
+                    4839428.5879999995
+                ]
+            },
+            "properties": {
+                "FID": 91,
+                "LOCATION_N": "Victoria Park",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 92,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    322593.29000000004,
+                    4841271.0592
+                ]
+            },
+            "properties": {
+                "FID": 92,
+                "LOCATION_N": "Warden",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 93,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    323769.04789999966,
+                    4843616.1382999998
+                ]
+            },
+            "properties": {
+                "FID": 93,
+                "LOCATION_N": "Kennedy",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 94,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314550.81230000034,
+                    4834014.9885000009
+                ]
+            },
+            "properties": {
+                "FID": 94,
+                "LOCATION_N": "Union",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 95,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314093.94079999998,
+                    4834196.5854000002
+                ]
+            },
+            "properties": {
+                "FID": 95,
+                "LOCATION_N": "St. Andrew",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 96,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314649.36459999997,
+                    4834362.5752000008
+                ]
+            },
+            "properties": {
+                "FID": 96,
+                "LOCATION_N": "King",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 97,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313946.39169999957,
+                    4834551.2137000002
+                ]
+            },
+            "properties": {
+                "FID": 97,
+                "LOCATION_N": "Osgoode",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 98,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314540.00779999979,
+                    4834727.9038999993
+                ]
+            },
+            "properties": {
+                "FID": 98,
+                "LOCATION_N": "Queen",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 99,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313809.70880000014,
+                    4834988.4713000003
+                ]
+            },
+            "properties": {
+                "FID": 99,
+                "LOCATION_N": "St. Patrick",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 100,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314405.65259999968,
+                    4835159.6634999998
+                ]
+            },
+            "properties": {
+                "FID": 100,
+                "LOCATION_N": "Dundas",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 101,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313634.70089999959,
+                    4835550.8322000001
+                ]
+            },
+            "properties": {
+                "FID": 101,
+                "LOCATION_N": "Queen's Park",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 102,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314225.14250000007,
+                    4835728.8776999991
+                ]
+            },
+            "properties": {
+                "FID": 102,
+                "LOCATION_N": "College",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 103,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314193.49430000037,
+                    4836152.6634
+                ]
+            },
+            "properties": {
+                "FID": 103,
+                "LOCATION_N": "Wellesley",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 104,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313383.59020000044,
+                    4836384.9371000007
+                ]
+            },
+            "properties": {
+                "FID": 104,
+                "LOCATION_N": "Museum",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 105,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313788.74920000043,
+                    4837466.0795000009
+                ]
+            },
+            "properties": {
+                "FID": 105,
+                "LOCATION_N": "Rosedale",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 106,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313568.38879999984,
+                    4838159.7665999997
+                ]
+            },
+            "properties": {
+                "FID": 106,
+                "LOCATION_N": "Summerhill",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 107,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313393.94079999998,
+                    4838710.5682999995
+                ]
+            },
+            "properties": {
+                "FID": 107,
+                "LOCATION_N": "St. Clair",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 108,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313080.90730000008,
+                    4839786.0130000003
+                ]
+            },
+            "properties": {
+                "FID": 108,
+                "LOCATION_N": "Davisville",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 109,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312985.34929999989,
+                    4840756.9098000005
+                ]
+            },
+            "properties": {
+                "FID": 109,
+                "LOCATION_N": "Eglinton",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 110,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312681.53220000025,
+                    4842781.8760000002
+                ]
+            },
+            "properties": {
+                "FID": 110,
+                "LOCATION_N": "Lawrence",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 111,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312354.9813000001,
+                    4844927.2177000009
+                ]
+            },
+            "properties": {
+                "FID": 111,
+                "LOCATION_N": "York Mills",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 112,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311972.55470000021,
+                    4846843.2465000004
+                ]
+            },
+            "properties": {
+                "FID": 112,
+                "LOCATION_N": "Sheppard-Yonge",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 113,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311822.60410000011,
+                    4847656.1250999998
+                ]
+            },
+            "properties": {
+                "FID": 113,
+                "LOCATION_N": "North York Centre",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 114,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311596.37370000035,
+                    4848870.2356000002
+                ]
+            },
+            "properties": {
+                "FID": 114,
+                "LOCATION_N": "Finch",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 115,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312480.47970000003,
+                    4836560.8304999992
+                ]
+            },
+            "properties": {
+                "FID": 115,
+                "LOCATION_N": "Spadina",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 116,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312290.39230000041,
+                    4837215.4361000005
+                ]
+            },
+            "properties": {
+                "FID": 116,
+                "LOCATION_N": "Dupont",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 117,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311625.8814000003,
+                    4838210.9660999998
+                ]
+            },
+            "properties": {
+                "FID": 117,
+                "LOCATION_N": "St Clair West",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 118,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    309959.26960000023,
+                    4839877.2756999992
+                ]
+            },
+            "properties": {
+                "FID": 118,
+                "LOCATION_N": "Eglinton West",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 119,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    309540.2762000002,
+                    4841066.1623999998
+                ]
+            },
+            "properties": {
+                "FID": 119,
+                "LOCATION_N": "Glencairn",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 120,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    309297.45859999955,
+                    4841790.7906999998
+                ]
+            },
+            "properties": {
+                "FID": 120,
+                "LOCATION_N": "Lawrence West",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 121,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    309000.33440000005,
+                    4842851.6776999999
+                ]
+            },
+            "properties": {
+                "FID": 121,
+                "LOCATION_N": "Yorkdale",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 122,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    308834.40270000044,
+                    4843793.3933000006
+                ]
+            },
+            "properties": {
+                "FID": 122,
+                "LOCATION_N": "Wilson",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 123,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    307822.24820000026,
+                    4845608.7543000001
+                ]
+            },
+            "properties": {
+                "FID": 123,
+                "LOCATION_N": "Sheppard West",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge-University Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 124,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313837.25069999974,
+                    4847416.7313999999
+                ]
+            },
+            "properties": {
+                "FID": 124,
+                "LOCATION_N": "Bayview",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Sheppard Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 125,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314730.7845999999,
+                    4847699.1174999997
+                ]
+            },
+            "properties": {
+                "FID": 125,
+                "LOCATION_N": "Bessarion",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Sheppard Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 126,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    315416.06830000039,
+                    4847903.557
+                ]
+            },
+            "properties": {
+                "FID": 126,
+                "LOCATION_N": "Leslie",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Sheppard Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 127,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317118.76049999986,
+                    4848364.1085000001
+                ]
+            },
+            "properties": {
+                "FID": 127,
+                "LOCATION_N": "Don Mills",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Sheppard Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 128,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    323769.04789999966,
+                    4843616.1382999998
+                ]
+            },
+            "properties": {
+                "FID": 128,
+                "LOCATION_N": "Kennedy",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway (To Be Removed)",
+                "NAME": "Scarborough RT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 129,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    323319.18699999992,
+                    4845640.9249000009
+                ]
+            },
+            "properties": {
+                "FID": 129,
+                "LOCATION_N": "Lawrence East",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway (To Be Removed)",
+                "NAME": "Scarborough RT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 130,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    322823.40039999969,
+                    4847458.4335999992
+                ]
+            },
+            "properties": {
+                "FID": 130,
+                "LOCATION_N": "Ellesmere",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway (To Be Removed)",
+                "NAME": "Scarborough RT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 131,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    323156.82569999993,
+                    4847857.1121999994
+                ]
+            },
+            "properties": {
+                "FID": 131,
+                "LOCATION_N": "Midland",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway (To Be Removed)",
+                "NAME": "Scarborough RT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 132,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    324293.24139999971,
+                    4848304.4166999999
+                ]
+            },
+            "properties": {
+                "FID": 132,
+                "LOCATION_N": "Scarborough Town Centre",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway (To Be Removed)",
+                "NAME": "Scarborough RT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 133,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    324796.38690000027,
+                    4848356.9342
+                ]
+            },
+            "properties": {
+                "FID": 133,
+                "LOCATION_N": "McCowan",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway (To Be Removed)",
+                "NAME": "Scarborough RT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 134,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    307822.24820000026,
+                    4845608.7543000001
+                ]
+            },
+            "properties": {
+                "FID": 134,
+                "LOCATION_N": "Sheppard West",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Toronto-York Spadina Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 135,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    306545.0206000004,
+                    4845960.2579999994
+                ]
+            },
+            "properties": {
+                "FID": 135,
+                "LOCATION_N": "Downsview Park",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Toronto-York Spadina Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 136,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    305525.97279999964,
+                    4847058.1444000006
+                ]
+            },
+            "properties": {
+                "FID": 136,
+                "LOCATION_N": "Finch West",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Toronto-York Spadina Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 137,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    304828.86419999972,
+                    4848239.9727999996
+                ]
+            },
+            "properties": {
+                "FID": 137,
+                "LOCATION_N": "York University",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Toronto-York Spadina Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 138,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    303863.65419999976,
+                    4848617.0821000002
+                ]
+            },
+            "properties": {
+                "FID": 138,
+                "LOCATION_N": "Pioneer Village",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Toronto-York Spadina Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 139,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    302929.96009999979,
+                    4849287.5965999998
+                ]
+            },
+            "properties": {
+                "FID": 139,
+                "LOCATION_N": "Highway 407",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Toronto-York Spadina Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 140,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    302605.39690000005,
+                    4850393.9620999992
+                ]
+            },
+            "properties": {
+                "FID": 140,
+                "LOCATION_N": "Vaughan Metropolitan Centre",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Toronto-York Spadina Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 141,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    324649.14039999992,
+                    4848501.8773999996
+                ]
+            },
+            "properties": {
+                "FID": 141,
+                "LOCATION_N": "Scarborough Town Centre",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Scarborough Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 142,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    323769.04789999966,
+                    4843616.1382999998
+                ]
+            },
+            "properties": {
+                "FID": 142,
+                "LOCATION_N": "Kennedy",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Scarborough Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 195,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317118.76049999986,
+                    4848364.1085000001
+                ]
+            },
+            "properties": {
+                "FID": 195,
+                "LOCATION_N": "Don Mills",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Sheppard East"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 196,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    296618.54069999978,
+                    4843384.9563999996
+                ]
+            },
+            "properties": {
+                "FID": 196,
+                "LOCATION_N": "Humber College",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 197,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    296666.86199999973,
+                    4843861.7327999994
+                ]
+            },
+            "properties": {
+                "FID": 197,
+                "LOCATION_N": "Westmore",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 198,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    297413.93609999958,
+                    4844093.7741999999
+                ]
+            },
+            "properties": {
+                "FID": 198,
+                "LOCATION_N": "Martin Grove",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 199,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    297607.00530000031,
+                    4844575.3137999997
+                ]
+            },
+            "properties": {
+                "FID": 199,
+                "LOCATION_N": "Albion",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 200,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    297797.25899999961,
+                    4844809.3400999997
+                ]
+            },
+            "properties": {
+                "FID": 200,
+                "LOCATION_N": "Stevenson",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 201,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    298188.11230000015,
+                    4844816.0801999997
+                ]
+            },
+            "properties": {
+                "FID": 201,
+                "LOCATION_N": "Kipling",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 202,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    299277.36149999965,
+                    4845143.7661000006
+                ]
+            },
+            "properties": {
+                "FID": 202,
+                "LOCATION_N": "Islington",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 203,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    299780.1950000003,
+                    4845315.6352999993
+                ]
+            },
+            "properties": {
+                "FID": 203,
+                "LOCATION_N": "Pearldale",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 204,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    300159.48539999966,
+                    4845428.7356000002
+                ]
+            },
+            "properties": {
+                "FID": 204,
+                "LOCATION_N": "Duncanwoods",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 205,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    300592.15830000024,
+                    4845556.1055999994
+                ]
+            },
+            "properties": {
+                "FID": 205,
+                "LOCATION_N": "Milvan/Rumike",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 206,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    301386.15940000024,
+                    4845791.2370999996
+                ]
+            },
+            "properties": {
+                "FID": 206,
+                "LOCATION_N": "Weston",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 207,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    301883.20779999997,
+                    4845927.4815999996
+                ]
+            },
+            "properties": {
+                "FID": 207,
+                "LOCATION_N": "Signet/Arrow",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 208,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    302846.71889999975,
+                    4846221.8095999993
+                ]
+            },
+            "properties": {
+                "FID": 208,
+                "LOCATION_N": "Norfinch/Oakdale",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 209,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    303373.25949999969,
+                    4846365.9365999997
+                ]
+            },
+            "properties": {
+                "FID": 209,
+                "LOCATION_N": "Jane",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 210,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    303718.73940000031,
+                    4846455.3285000008
+                ]
+            },
+            "properties": {
+                "FID": 210,
+                "LOCATION_N": "Driftwood",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 211,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    304159.21289999969,
+                    4846590.3299000002
+                ]
+            },
+            "properties": {
+                "FID": 211,
+                "LOCATION_N": "Tobermory",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 212,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    304799.16789999977,
+                    4846790.1425000001
+                ]
+            },
+            "properties": {
+                "FID": 212,
+                "LOCATION_N": "Sentinel",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 213,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    305525.97279999964,
+                    4847058.1444000006
+                ]
+            },
+            "properties": {
+                "FID": 213,
+                "LOCATION_N": "Keele",
+                "STATUS": "In Delivery",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Finch West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 214,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311972.55470000021,
+                    4846843.2465000004
+                ]
+            },
+            "properties": {
+                "FID": 214,
+                "LOCATION_N": "Sheppard-Yonge",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Sheppard Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 215,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312544.35259999987,
+                    4836375.0236000009
+                ]
+            },
+            "properties": {
+                "FID": 215,
+                "LOCATION_N": "Spadina",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 216,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312920.44330000039,
+                    4836485.9616999999
+                ]
+            },
+            "properties": {
+                "FID": 216,
+                "LOCATION_N": "St. George",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 217,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314015.69330000039,
+                    4836789.6018000003
+                ]
+            },
+            "properties": {
+                "FID": 217,
+                "LOCATION_N": "Bloor-Yonge",
+                "STATUS": "Existing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Bloor-Danforth Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 310,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    305827.03450000007,
+                    4838603.2995999996
+                ]
+            },
+            "properties": {
+                "FID": 310,
+                "LOCATION_N": "Mt Dennis",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 311,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    304895.64599999972,
+                    4838280.2320000008
+                ]
+            },
+            "properties": {
+                "FID": 311,
+                "LOCATION_N": "Jane",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton West LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 323,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    323769.04789999966,
+                    4843616.1382999998
+                ]
+            },
+            "properties": {
+                "FID": 323,
+                "LOCATION_N": "Kennedy",
+                "STATUS": "Proposed",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton East LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 324,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    324283.07120000012,
+                    4843872.0086000003
+                ]
+            },
+            "properties": {
+                "FID": 324,
+                "LOCATION_N": "Midland",
+                "STATUS": "Proposed",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton East LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 325,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    324686.85529999994,
+                    4843994.4669000003
+                ]
+            },
+            "properties": {
+                "FID": 325,
+                "LOCATION_N": "Falmouth",
+                "STATUS": "Proposed",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton East LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 326,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    325241.45089999959,
+                    4844158.2468999997
+                ]
+            },
+            "properties": {
+                "FID": 326,
+                "LOCATION_N": "Danforth",
+                "STATUS": "Proposed",
+                "TECHNOLOGY": "LRT",
+                "NAME": "Eglinton East LRT"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 341,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311452.86409999989,
+                    4849681.0873000007
+                ]
+            },
+            "properties": {
+                "FID": 341,
+                "LOCATION_N": "Cummer/Drewry",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge North Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 342,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311233.66289999988,
+                    4850899.5749999993
+                ]
+            },
+            "properties": {
+                "FID": 342,
+                "LOCATION_N": "Steeles",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge North Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 343,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311045.83110000007,
+                    4851911.2710999995
+                ]
+            },
+            "properties": {
+                "FID": 343,
+                "LOCATION_N": "Clark",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Yonge North Subway Extension"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 346,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    324214.4422000004,
+                    4849989.4743000008
+                ]
+            },
+            "properties": {
+                "FID": 346,
+                "LOCATION_N": "McCowan",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Scarborough Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 347,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    325297.84499999974,
+                    4846196.1414000001
+                ]
+            },
+            "properties": {
+                "FID": 347,
+                "LOCATION_N": "Lawrence East",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Scarborough Subway"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 348,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313944.50779999979,
+                    4834557.8286000006
+                ]
+            },
+            "properties": {
+                "FID": 348,
+                "LOCATION_N": "Osgoode",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 349,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    314560.32139999978,
+                    4834737.1982000005
+                ]
+            },
+            "properties": {
+                "FID": 349,
+                "LOCATION_N": "Queen",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 350,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317293.59159999993,
+                    4837756.4531999994
+                ]
+            },
+            "properties": {
+                "FID": 350,
+                "LOCATION_N": "Pape",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 351,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317781.3515999997,
+                    4842293.2356000002
+                ]
+            },
+            "properties": {
+                "FID": 351,
+                "LOCATION_N": "Science Centre",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 352,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    311630.62119999994,
+                    4833007.0376999993
+                ]
+            },
+            "properties": {
+                "FID": 352,
+                "LOCATION_N": "Exhibition / Ontario Place",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 353,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317106.73300000001,
+                    4835041.4502000008
+                ]
+            },
+            "properties": {
+                "FID": 353,
+                "LOCATION_N": "East Harbour",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 354,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    312649.36209999956,
+                    4833784.0278999992
+                ]
+            },
+            "properties": {
+                "FID": 354,
+                "LOCATION_N": "King / Bathurst",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 355,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    313176.84389999975,
+                    4834335.6940000001
+                ]
+            },
+            "properties": {
+                "FID": 355,
+                "LOCATION_N": "Queen / Spadina",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 356,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    315325.26499999966,
+                    4834960.6024999991
+                ]
+            },
+            "properties": {
+                "FID": 356,
+                "LOCATION_N": "Moss Park",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 357,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    315737.2293999996,
+                    4834695.4671
+                ]
+            },
+            "properties": {
+                "FID": 357,
+                "LOCATION_N": "Corktown",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 358,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317248.46410000045,
+                    4835551.3984999992
+                ]
+            },
+            "properties": {
+                "FID": 358,
+                "LOCATION_N": "Leslieville",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 359,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317505.4637000002,
+                    4836400.7212000005
+                ]
+            },
+            "properties": {
+                "FID": 359,
+                "LOCATION_N": "Gerrard",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 360,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    316991.14400000032,
+                    4838833.9118000008
+                ]
+            },
+            "properties": {
+                "FID": 360,
+                "LOCATION_N": "Cosburn",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 361,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317403.65249999985,
+                    4840845.9836999997
+                ]
+            },
+            "properties": {
+                "FID": 361,
+                "LOCATION_N": "Thorncliffe Park",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": 362,
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    317988.37949999981,
+                    4841617.0723000001
+                ]
+            },
+            "properties": {
+                "FID": 362,
+                "LOCATION_N": "Flemingdon Park",
+                "STATUS": "Advancing",
+                "TECHNOLOGY": "Subway",
+                "NAME": "Ontario Line"
+            }
+        }
+    ]
+}

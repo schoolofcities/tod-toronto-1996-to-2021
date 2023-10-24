@@ -2,5 +2,8 @@
   "dependencies": {
     "d3-selection": "^3.0.0",
     "select": "^1.1.2"
+  },
+  "devDependencies": {
+    "leaflet": "^1.9.4"
   }
 }

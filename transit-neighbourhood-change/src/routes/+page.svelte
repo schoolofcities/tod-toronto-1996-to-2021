@@ -2,7 +2,7 @@
     import TopSofC from "../lib/TopSofC.svelte";
     import LineChart from "../lib/line-chart.svelte";
     import "../assets/global-styles.css";
-    import { select } from "d3-selection";
+    import Map from "../lib/map.svelte";
     //import Link from "../lib/Link.svelte";
     //import Button from "../lib/Button.svelte";
     //import DropDown from "../lib/SelectVariable.svelte"
@@ -59,11 +59,17 @@
 </script>
 
 <TopSofC />
+<h1>
+    25 Years of Transit-Oriented Development, What Has Changed?
+</h1>
+
 <p>
-    <br />
-    <br />
-    <br />
+    Here we insert some text about the transit-oriented policy. 
 </p>
+
+
+
+
 
 <select id = "transit" value={transitName} on:change={handleTransitChange}>
     {#each transit_lines as value}
@@ -74,10 +80,10 @@
     {#each censusItems as value}
         <option {value}>{value}</option>
     {/each}
-
 </select>
-<br>
-<br>
+
+
+
 <!-- key is a function that would destroy the element and rebuilt it upon variable change-->
 {#key [transitName, variableName]}
 <LineChart 
@@ -89,11 +95,31 @@
     maxHeight="700"
 />
 {/key}
-<p>
-    <br />
-</p>
 
+<Map/>
+
+
+<h3>
+    Methodology
+</h3>
+<p>
+    The data for this graph is collected in Statistics Canada's Census for the year of 1996
+    and 2021. 
+    <br>
+    Created points every 400m along each transit line. <br>
+    Created 800 metres buffer for each of the points created. <br>
+    Spatial interpolation and weighted average to estimate the amount of each variable that is within the 800m buffers. 
+    
+</p>
 <style>
+    h1{
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+    h3{
+        margin-left: 10%;
+        margin-top: 5%;
+    }
     select {
         padding-left: 0%;
         max-width: 600px;
@@ -124,4 +150,24 @@
     p {
         padding-left: 10%;;
     }
+
+
+    @media only screen and (max-width: 500px) {
+    h1{
+        margin-left: 5%;
+        margin-right: 0%;
+    }
+    h3{
+        margin-left: 5%;
+    }
+    #transit{
+        margin-left: 5%;
+    }
+    #census{
+        margin-left: 5%;
+    }
+    p {
+        padding-left: 5%;;
+    }
+}
 </style>

@@ -2,7 +2,7 @@
     import { scaleLinear } from "d3-scale";
     import jsondata from "../data/data.json";
     import "../assets/global-styles.css";
- 
+
     //export let data;
     export let variable96;
     export let variable21;
@@ -11,7 +11,6 @@
     export let maxHeight;
     export let transitName;
 
-    
     let width = 200;
     let height = 60;
 
@@ -19,7 +18,7 @@
 
     // filtering data
     function filterDesignation(jsondata) {
-        return jsondata.NAME===(transitName);
+        return jsondata.NAME === transitName;
     }
 
     var data = jsondata.filter(filterDesignation);
@@ -30,22 +29,22 @@
     });
 
     // find the max value of the selected 1996 and 2021 variable
-    var yMax = data.map(function(obj){
-        var max = Math.max(obj[variable96], obj[variable21])
-        return max
-    }) 
+    var yMax = data.map(function (obj) {
+        var max = Math.max(obj[variable96], obj[variable21]);
+        return max;
+    });
 
     var max = Math.max.apply(Math, yMax);
 
     // round the numbers for creating yticks
     var digits = max.toExponential().split("e+");
-    var newMax = Math.ceil(parseFloat(digits[0]))*10**parseInt(digits[1])
+    var newMax = Math.ceil(parseFloat(digits[0])) * 10 ** parseInt(digits[1]);
 
-    var interval = newMax / 10
+    var interval = newMax / 10;
     // create yticks
-    var yTicks = []
-    for (let i = 0; i <= newMax; i+= interval){;
-        yTicks.push(i)
+    var yTicks = [];
+    for (let i = 0; i <= newMax; i += interval) {
+        yTicks.push(i);
     }
 
     const xTicks = pointList;
@@ -89,7 +88,6 @@
     };
 
     var barPadding = 10; // controls how much spacing the bars will be from the
-
 </script>
 
 <div id="barchart" class="chart" bind:clientWidth={width}>
@@ -126,8 +124,7 @@
                                     innerWidth / 600}
                                 y={height - 5}
                                 text-anchor="end"
-                            >
-                            </text>
+                            />
                         </g>
                     {/if}
                 {/if}
@@ -135,24 +132,16 @@
         </g>
         <!--  x axis - monthly-->
         <g class="axis x-axis">
-            
             {#each data as point, i}
-                {#if innerWidth > 500}
+                {#if innerWidth > 1700}
                     <!-- if the inner window width > 800, show months as label-->
                     <g class="tick" transform="translate({xScale(i)},{height})">
                         <text x={barWidth / 2 + 9} y="-20">{point.ID}</text>
                     </g>
-                {:else if innerWidth <= 500}
+                {:else if innerWidth <= 1700}
                     <!-- if the inner window width <=800 show years only-->
                     {#if point.ID === 1 || i == 0}
-                        <g
-                            class="tick"
-                            transform="translate({xScale(i)},{height})"
-                        >
-                            <text x={barWidth / 2 + 13} y="-20"
-                                >{""}</text
-                            >
-                        </g>
+                        <p></p>
                     {/if}
                 {/if}
             {/each}
@@ -269,15 +258,18 @@
 <div id="hoverLabel">
     <p>
         {#if selected_datapoint != undefined}
-            <br>
+            <br />
             {selected_datapoint.Station.toString().toLocaleString() +
-            "(" + selected_datapoint.ID + ")" + " " }:
-               
-            <br>{"2006"}
+                "(" +
+                selected_datapoint.ID +
+                ")" +
+                " "}:
+
+            <br />{"2006"}
             <span id="lightBlue"
                 >{selected_datapoint[variable96].toLocaleString()}</span
             >
-            <br>{"2021 "}
+            <br />{"2021 "}
             <span id="lightGreen"
                 >{selected_datapoint[variable21].toLocaleString()}</span
             >
@@ -291,22 +283,42 @@
         max-width: 100%;
         min-width: 500px;
         margin: 0 auto;
+        padding-top: 5%;
     }
+    @media only screen and (max-width: 300px) {
+        .chart {
+            width: 100%;
+            max-width: 100%;
+            min-width: 500px;
+            margin: 0 auto;
+            padding-top: 5%;
+        }
+        #hoverLabel p {
+            color: var(--brandWhite);
+            font-family: RobotoRegular;
+            font-size: 10px;
+            text-align: center;
+        }
+    }
+
     #hoverLabel {
         height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
     #hoverLabel p {
         color: var(--brandWhite);
         font-family: RobotoRegular;
         font-size: 15px;
         text-align: center;
     }
+
     #lightBlue {
         color: var(--brandLightBlue);
     }
+
     #lightGreen {
         color: var(--brandLightGreen);
     }
@@ -327,6 +339,7 @@
         stroke-width: 1px;
         opacity: 0.1;
     }
+
     .tick text {
         fill: var(--brandGray);
         text-anchor: start;
@@ -347,6 +360,7 @@
         text-anchor: middle;
         transform: translate(-10px, 0px) rotate(-90deg);
     }
+
     .x-label.tick text {
         font-size: 15px; /* Adjust the font size as desired */
         fill: #000000; /* Adjust the font color as desired */
@@ -359,16 +373,19 @@
         fill: var(--brandWhite);
         cursor: pointer;
     }
+
     .bar:hover {
         fill: var(--brandLightBlue);
         opacity: 1;
     }
+
     .barLight {
         stroke: var(--brandDarkGreen);
         stroke-width: 1px;
         stroke-opacity: 1;
         fill: var(--brandWhite);
     }
+
     .barLight:hover {
         opacity: 0.4;
         cursor: pointer;
@@ -377,15 +394,18 @@
     .point {
         cursor: pointer;
     }
+
     .point:hover {
         fill: var(--brandLightBlue);
         opacity: 1;
     }
+
     .tip {
         stroke: var(--brandDarkGreen);
         stroke-width: 1px;
         fill: var(--brandYellow);
     }
+
     .year-tick {
         stroke-width: 2px;
         z-index: 6;
