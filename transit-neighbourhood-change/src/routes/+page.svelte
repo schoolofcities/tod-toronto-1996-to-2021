@@ -94,9 +94,10 @@
     colour2="#8DBF2E"
     maxHeight="700"
 />
+<Map/>
 {/key}
 
-<Map/>
+
 
 
 <h3>
@@ -111,6 +112,8 @@
     Spatial interpolation and weighted average to estimate the amount of each variable that is within the 800m buffers. 
     
 </p>
+
+
 <style>
     h1{
         margin-left: 10%;
