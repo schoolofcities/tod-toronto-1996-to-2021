@@ -63,13 +63,18 @@
     25 Years of Transit-Oriented Development, What Has Changed?
 </h1>
 
+<main>
 <p>
-    Here we insert some text about the transit-oriented policy. 
+    Transit-Oriented Development (TOD) is a city building concept that encourages cities to direct their population and economic growth surrouding public transportation systems, especially surrounding subway, LRT and commuter rail stations. 
+    Through promoting TOD, residents can enjoy easy access to public transit and a range of amenities that would allow them to live, work and play within proximity of their homes. 
+    It is expected TOD can help reduce our reliance on cars. In recent years, the Government of Ontario requires municipalities to delineate "Major Transit Station Areas" surrounding their
+    subways, LRTs, BRTs, and GO train stations, these are usually areas within 500 to 800 metres of one of these stations. Municipalities are required to direct and encourage higher density developments to achieve a minimum
+    population and job density. 
+
+    This web page looks at the Subway and LRT system in Toronto, including those that currently exist, under construction, and planned. We take a point every 400 metre along each transit line, then calcuating the results for various census variables. 
 </p>
 
-
-
-
+</main>
 
 <select id = "transit" value={transitName} on:change={handleTransitChange}>
     {#each transit_lines as value}
@@ -94,7 +99,11 @@
     colour2="#8DBF2E"
     maxHeight="700"
 />
-<Map/>
+{/key}
+
+
+{#key transitName}
+<Map transitName = {transitName}/>
 {/key}
 
 
@@ -122,6 +131,11 @@
     h3{
         margin-left: 10%;
         margin-top: 5%;
+    }
+    main{
+        margin-left: 5%;
+        margin-bottom: 5%;
+        margin-right: 5%;
     }
     select {
         padding-left: 0%;

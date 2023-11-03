@@ -115,7 +115,7 @@
         <g class="axis x-axis">
             {#each data as point, i}
                 {#if innerWidth > 500}
-                    {#if point.ID === 1 || i == 0}
+                    {#if point.ID === point.ID || i == 0}
                         <g class="tick">
                             <text
                                 x={xScale(i) +
@@ -123,8 +123,10 @@
                                     barPadding -
                                     innerWidth / 600}
                                 y={height - 5}
-                                text-anchor="end"
-                            />
+                                text-anchor="end">
+                            {point.Station} {point.ID}
+                            </text>
+                            
                         </g>
                     {/if}
                 {/if}
@@ -136,12 +138,13 @@
                 {#if innerWidth > 1700}
                     <!-- if the inner window width > 800, show months as label-->
                     <g class="tick" transform="translate({xScale(i)},{height})">
-                        <text x={barWidth / 2 + 9} y="-20">{point.ID}</text>
+                        <text x={barWidth / 2 + 25} y="15">{point.Station}</text>
                     </g>
+                    
                 {:else if innerWidth <= 1700}
                     <!-- if the inner window width <=800 show years only-->
                     {#if point.ID === 1 || i == 0}
-                        <p></p>
+                        <g><text x={barWidth / 2 + 9} y="-20">{point.Station}</text></g>
                     {/if}
                 {/if}
             {/each}
@@ -351,9 +354,10 @@
     }
 
     .x-axis .tick text {
-        text-anchor: middle;
+        text-anchor: left;
         font-size: 12px;
         text-align: right;
+        transform: rotate(-90deg);
     }
 
     .x-label {

@@ -4,15 +4,16 @@
     import transit_line from "../data/transit-lines.geo.json";
     import transit_point from "../data/transit-point.geo.json";
     import transit_station from "../data/transit-station.geo.json";
+    import transit_line_bold from "../data/transit-lines.geo.json";
     //import notVancouverPolygon from '../../data/not-vancouver-polygon.geo.json';
-    console.log(transit_point)
+    console.log(transit_point);
     let map;
     let popupContent = false;
 
     function hidePopup() {
         popupContent = false;
     }
-
+    export let transitName
     let coordinates;
     let title;
     let description;
@@ -34,8 +35,8 @@
         map = new maplibregl.Map({
             container: "map",
             style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json", //'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-            center: [-79.4, 43.62], // starting position
-            zoom: 10, // starting zoom;
+            center: [-79.4, 43.68], // starting position
+            zoom: 11, // starting zoom;
             minZoom: 2,
             maxZoom: 17,
             projection: "globe",
@@ -70,22 +71,58 @@
                 type: "geojson",
                 data: transit_line,
             });
-            /*
-      map.addSource('vancouverBoundary', {
-          type: 'geojson',
-          data: vancouverBoundary
-      });
-     
-    map.addSource('notVancouverPolygon', {
-      type: 'geojson',
-        data: notVancouverPolygon
-    });
-      */
+  
             map.addSource("transit_point", {
                 type: "geojson",
                 data: transit_point,
             });
 
+            map.addSource("transit_line_bold", {
+                type: "geojson",
+                data: transit_line_bold,
+            });
+
+            map.addLayer(
+                {
+                    id: "transit_line_bold",
+                    type: "line",
+                    source: "transit_line_bold",
+                    layout: {},
+                    'filter': ['==', 'NAME', transitName],
+                    paint: {
+                        "line-color": [
+                            "match",
+                            ["get", "NAME"],
+                            "Yonge-University Subway",
+                            "#F1C500",
+                            "Spadina Subway Extension",
+                            "#F1C500",
+                            "Yonge North Subway Extension",
+                            "#F1C500",
+                            "Bloor-Danforth Subway",
+                            "#16A753",
+                            "Scarborough Subway",
+                            "#16A753",
+                            "Scarborough RT",
+                            "#1F99D5",
+                            "Sheppard Subway",
+                            "#B32078",
+                            "Sheppard East",
+                            "#B32078",
+                            "Eglinton Crosstown LRT",
+                            "#F87005",
+                            "Finch West LRT",
+                            "#888888",
+                            "Ontario Line",
+                            "#000000",
+                            "#FFFFFF",
+                        ],
+                        "line-width": 5,
+                    },
+                }
+                //before: "transit_line",
+            );
+            
             map.addLayer(
                 {
                     id: "transit_line",
@@ -93,64 +130,39 @@
                     source: "transit_line",
                     layout: {},
                     paint: {
-                        "line-color": 
-                        [
-                        "match",
-                        ["get", "NAME"],
-                        "Yonge-University Subway", 
-                        "#F1C500",
-                        "Spadina Subway Extension", 
-                        "#F1C500",
-                        "Yonge North Subway Extension", 
-                        "#F1C500",
-                        "Bloor-Danforth Subway", 
-                        "#16A753",
-                        "Scarborough Subway", 
-                        "#16A753",
-                        "Scarborough RT", 
-                        "#1F99D5",
-                        "Sheppard Subway", 
-                        "#B32078",
-                        "Sheppard East", 
-                        "#B32078",
-                        "Eglinton Crosstown LRT", 
-                        "#F87005",
-                        "Finch West LRT", 
-                        "#888888",
-                        "Ontario Line", 
-                        "#000000",
-                        "#FFFFFF"
-                             
-                    ],
-                        "line-width": 5,
+                        "line-color": [
+                            "match",
+                            ["get", "NAME"],
+                            "Yonge-University Subway",
+                            "#F1C500",
+                            "Spadina Subway Extension",
+                            "#F1C500",
+                            "Yonge North Subway Extension",
+                            "#F1C500",
+                            "Bloor-Danforth Subway",
+                            "#16A753",
+                            "Scarborough Subway",
+                            "#16A753",
+                            "Scarborough RT",
+                            "#1F99D5",
+                            "Sheppard Subway",
+                            "#B32078",
+                            "Sheppard East",
+                            "#B32078",
+                            "Eglinton Crosstown LRT",
+                            "#F87005",
+                            "Finch West LRT",
+                            "#888888",
+                            "Ontario Line",
+                            "#000000",
+                            "#FFFFFF",
+                        ],
+                        "line-width": 2,
                     },
                 }
                 //before: "transit_line",
             );
-            /*
-      map.addLayer({
-                  'id': 'vancouverBoundary',
-                  'type': 'line',
-                  'source': 'vancouverBoundary',
-                  'layout': {},
-                  'paint': {
-            'line-opacity': 0.64,
-                      'line-color': '#575870', 
-                      'line-width': 4,
-          
-                      'line-dasharray': [6,0.5,1,0.5,1,0.5]}
-              }, 'highway_name_major');
-  
-      map.addLayer({
-        'id': 'notVancouverPolygon',
-        'type': 'fill',
-        'source': 'notVancouverPolygon',
-        'layout': {},
-        'paint': {
-          'fill-color': 'white',
-          'fill-opacity': 0.42
-      }});
-  */
+           
             map.addLayer({
                 id: "transit_point",
                 type: "circle",
@@ -160,86 +172,84 @@
                     "circle-color": [
                         "match",
                         ["get", "NAME"],
-                        "Yonge-University Subway", 
+                        "Yonge-University Subway",
                         "#F1C500",
-                        "Spadina Subway Extension", 
+                        "Spadina Subway Extension",
                         "#F1C500",
-                        "Yonge North Subway Extension", 
+                        "Yonge North Subway Extension",
                         "#F1C500",
-                        "Bloor-Danforth Subway", 
+                        "Bloor-Danforth Subway",
                         "#16A753",
-                        "Scarborough Subway", 
+                        "Scarborough Subway",
                         "#16A753",
-                        "Scarborough RT", 
+                        "Scarborough RT",
                         "#1F99D5",
-                        "Sheppard Subway", 
+                        "Sheppard Subway",
                         "#B32078",
-                        "Sheppard East", 
+                        "Sheppard East",
                         "#B32078",
-                        "Eglinton Crosstown LRT", 
+                        "Eglinton Crosstown LRT",
                         "#F87005",
-                        "Finch West LRT", 
+                        "Finch West LRT",
                         "#888888",
-                        "Ontario Line", 
+                        "Ontario Line",
                         "#000000",
-                        "#FFFFFF"
+                        "#FFFFFF",
                     ],
                     "circle-radius": 7,
                 },
                 before: "transit_line",
             });
         });
-/*
+        /*
         // Create pop-up
         const popup = new maplibregl.Popup({
             closeButton: true,
             closeOnClick: true,
             maxWidth: "none",
         });
-        /*
-      map.on('mouseenter', 'vancouverPublicArt', () => {
-      map.getCanvas().style.cursor = 'pointer';
-  });
-  
-  map.on('mouseleave', 'vancouverPublicArt', () => {
-      map.getCanvas().style.cursor = '';
-  });
-  
-      map.on('click', 'vancouverPublicArt', (e) => {
- 
-      
-        map.flyTo({
-          center: e.features[0].geometry.coordinates,
-          zoom: 17
+
+        map.on("mouseenter", "vancouverPublicArt", () => {
+            map.getCanvas().style.cursor = "pointer";
         });
-      
-      $: coordinates = e.features[0].geometry.coordinates.slice();
-      $: title = e.features[0].properties.title_of_work;
-      $: description = e.features[0].properties.descriptionofwork;
-      $: type = e.features[0].properties.type;
-      $: status = e.features[0].properties.status;
-      $: siteaddress = e.features[0].properties.siteaddress;
-      $: primarymaterial = e.features[0].properties.primarymaterial;
-      // $: photoURL = "https://opendata.vancouver.ca/explore/dataset/public-art/files/";
-      $: photoID = JSON.parse(e.features[0].properties.photourl).id;
-      $: year = e.features[0].properties.yearofinstallation;
-  
-      // Organize popup information
-      // const htmlContent =
-          // "<h1 id='pt'>" + title + "</h1>" +
-          // "<p> <img src='" + photoURL + photoID + "/download/' width=300 height=240> </p>" +
-          // "<p> <b>Description: </b>" + description + "</p>" +
-          // "<p> <b>Type: </b>" + type + "</p>" +
-          // "<p> <b>Current Status: </b>" + status + "</p>" +
-          // "<p> <b>Primary Material: </b>" + primarymaterial + "</p>" +
-          // "<p> <b>Address: </b>" + siteaddress + "</p>" +
-          // "<p> <b>Year of Installation: </b>" + year + "</p>";
-  
-          // Populate the popup
-          popup.setLngLat(coordinates);
-      popupContent = true;
-      //document.getElementById('popup').innerHTML = htmlContent;
-    }); */
+
+        map.on("mouseleave", "vancouverPublicArt", () => {
+            map.getCanvas().style.cursor = "";
+        });
+        
+        map.on("click", "vancouverPublicArt", (e) => {
+            map.flyTo({
+                center: e.features[0].geometry.coordinates,
+                zoom: 17,
+            });
+
+            $: coordinates = e.features[0].geometry.coordinates.slice();
+            $: title = e.features[0].properties.title_of_work;
+            $: description = e.features[0].properties.descriptionofwork;
+            $: type = e.features[0].properties.type;
+            $: status = e.features[0].properties.status;
+            $: siteaddress = e.features[0].properties.siteaddress;
+            $: primarymaterial = e.features[0].properties.primarymaterial;
+            // $: photoURL = "https://opendata.vancouver.ca/explore/dataset/public-art/files/";
+            $: photoID = JSON.parse(e.features[0].properties.photourl).id;
+            $: year = e.features[0].properties.yearofinstallation;
+
+            // Organize popup information
+            // const htmlContent =
+            // "<h1 id='pt'>" + title + "</h1>" +
+            // "<p> <img src='" + photoURL + photoID + "/download/' width=300 height=240> </p>" +
+            // "<p> <b>Description: </b>" + description + "</p>" +
+            // "<p> <b>Type: </b>" + type + "</p>" +
+            // "<p> <b>Current Status: </b>" + status + "</p>" +
+            // "<p> <b>Primary Material: </b>" + primarymaterial + "</p>" +
+            // "<p> <b>Address: </b>" + siteaddress + "</p>" +
+            // "<p> <b>Year of Installation: </b>" + year + "</p>";
+
+            // Populate the popup
+            popup.setLngLat(coordinates);
+            popupContent = true;
+            //document.getElementById('popup').innerHTML = htmlContent;
+        }); */
     });
 
     $: if (popupContent) {
@@ -250,72 +260,13 @@
 <main>
     <div id="map" />
 
-    <div class="legend">
-        <h1>Vancouver Public Art Map</h1>
-        <div class="legend-item">
-            <span class="legend-color" style="background-color: #6D247A;" />
-            <span class="legend-text">In place &nbsp;</span>
-            <span class="legend-color" style="background-color: #DC4633;" />
-            <span class="legend-text">No Longer In Place / Deaccessioned</span>
-        </div>
-        <p id="info">
-            Map created by <a href="https://www.linkedin.com/in/irene-kcc/"
-                >Irene Chang</a
-            >
-            and <a href="https://jamaps.github.io/about.html">Jeff Allen</a> at
-            the
-            <a href="https://schoolofcities.utoronto.ca/">School of Cities</a>
-            with data from the
-            <a
-                href="https://opendata.vancouver.ca/explore/dataset/public-art/information/"
-                >City of Vancouver</a
-            >. More on
-            <a href="https://github.com/schoolofcities/vancouver-public-art"
-                >GitHub</a
-            >.
-        </p>
-    </div>
-
-    <div class="popup">
-        {#if popupContent}
-            <div id="hide" on:click={hidePopup}>Click Here To Hide Content</div>
-            <h2>{title}</h2>
-            <p>
-                <img
-                    src={photoURL + "/" + photoID + "/download/"}
-                    width="300"
-                    height="240"
-                />
-            </p>
-            <p><span id="subtitle">Type: </span>{type}</p>
-            <p><span id="subtitle">Description: </span>{description}</p>
-            <p><span id="subtitle">Current Status: </span>{status}</p>
-            <p>
-                <span id="subtitle">Primary Material: </span>{primarymaterial}
-            </p>
-            <p><span id="subtitle">Address: </span>{siteaddress}</p>
-            <p><span id="subtitle">Year of Installation: </span>{year}</p>
-        {/if}
-    </div>
-
-    <!-- <div class='map-overlay-dropdown'>
-      <form>
-                <label>The artwork status is:</label>
-                <select id="thelist">
-                    <option value="1">Show all</option>
-                    <option value="2">In place</option>
-                    <option value="3">No longer in place</option>
-                    <option value="4">Deaccessioned</option>
-                </select>
-      </form>
-     </div> -->
 </main>
 
 <style>
     main {
         overflow-y: hidden;
         max-width: 80%;
-        max-height: 60vw;
+        max-height: 40vw;
     }
 
     @font-face {
@@ -328,6 +279,7 @@
     }
 
     #map {
+        padding-top: 5%;
         height: 100vh;
         width: 100%;
         top: 0;
@@ -375,43 +327,6 @@
         cursor: pointer;
     }
 
-    .legend {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        width: 300px;
-        height: 105px;
-        font-size: 17px;
-        font-family: TradeGothicBold;
-        background-color: rgb(254, 251, 249, 0.9);
-        color: #1e3765;
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    }
-
-    h1 {
-        font-size: 24px;
-        font-family: TradeGothicBold;
-        padding: 0px;
-        padding-left: 4px;
-        padding-top: 2px;
-        border-bottom: solid 1px #e7e7e7;
-        padding-bottom: 3px;
-        margin: 0px;
-        margin-bottom: 7px;
-        color: #00a189;
-        /* background-color: #F1C500; */
-        background-color: #ffffff;
-        background: linear-gradient(135deg, #f1c50055 25%, transparent 25%) -4px
-                0/ 8px 8px,
-            linear-gradient(225deg, #f1c50032 25%, transparent 25%) -4px 0/ 8px
-                8px,
-            linear-gradient(315deg, #f1c50055 25%, transparent 25%) 0px 0/ 8px 8px,
-            linear-gradient(45deg, #f1c50044 25%, #ffffff 25%) 0px 0/ 8px 8px;
-        /* -webkit-text-stroke: 1px #6FC7EA; */
-    }
-
     h2 {
         font-size: 24px;
         font-family: TradeGothicBold;
@@ -442,53 +357,4 @@
         color: #1e3765;
     }
 
-    a {
-        text-decoration: underline;
-        color: #1e3765;
-    }
-    a:hover {
-        color: #dc4633;
-    }
-
-    #info {
-        font-size: 11.2px;
-        padding: 0px;
-        margin: 0px;
-        border-top: solid 1px #e7e7e7;
-        margin-top: 7px;
-        padding-top: 7px;
-    }
-
-    .legend-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 5px;
-    }
-
-    .legend-color {
-        width: 13px;
-        height: 13px;
-        margin-right: 5px;
-        border-radius: 50%;
-    }
-
-    .legend-text {
-        font-family: TradeGothicBold;
-        color: #1e3765;
-        font-size: 14px;
-    }
-
-    .map-overlay-dropdown {
-        position: absolute;
-        font: 17px/20px "Trade Gothic LT Bold";
-        background: rgba(249, 249, 249, 1);
-        height: 45px;
-        bottom: 195px;
-        width: 157px;
-        margin: 10px 0 0 10px;
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        overflow: visible;
-    }
 </style>
