@@ -2,36 +2,18 @@
     import { onMount, afterUpdate } from "svelte";
     import maplibregl from "maplibre-gl";
     import transit_line from "../data/transit-lines.geo.json";
-    import transit_point from "../data/transit-point.geo.json";
     import transit_station from "../data/transit-station.geo.json";
     import transit_line_bold from "../data/transit-lines.geo.json";
     //import notVancouverPolygon from '../../data/not-vancouver-polygon.geo.json';
-    console.log(transit_point);
-    let map;
-    let popupContent = false;
 
-    function hidePopup() {
-        popupContent = false;
-    }
-    export let transitName
-    let coordinates;
-    let title;
-    let description;
-    let type;
-    let status;
-    let siteaddress;
-    let primarymaterial;
+    let map;
+
+    export let transitName;
+
     const photoURL =
         "https://opendata.vancouver.ca/explore/dataset/public-art/files/";
-    let photoID;
-    let year;
 
     onMount(() => {
-        /*const maxBounds = [ 
-        [-123.8, 49.0], //SW coords
-        [-122.6, 49.5] //NE coords
-      ];*/
-
         map = new maplibregl.Map({
             container: "map",
             style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json", //'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
@@ -71,10 +53,10 @@
                 type: "geojson",
                 data: transit_line,
             });
-  
-            map.addSource("transit_point", {
+
+            map.addSource("transit_station", {
                 type: "geojson",
-                data: transit_point,
+                data: transit_station,
             });
 
             map.addSource("transit_line_bold", {
@@ -84,32 +66,34 @@
 
             map.addLayer(
                 {
-                    id: "transit_line_bold",
+                    id: "transit-line-bold-ID",
                     type: "line",
                     source: "transit_line_bold",
                     layout: {},
-                    'filter': ['==', 'NAME', transitName],
+                    filter: ["==", "NAME", transitName],
                     paint: {
                         "line-color": [
                             "match",
                             ["get", "NAME"],
-                            "Yonge-University Subway",
-                            "#F1C500",
-                            "Spadina Subway Extension",
+                            "Line 1: Yonge-University Subway",
                             "#F1C500",
                             "Yonge North Subway Extension",
                             "#F1C500",
-                            "Bloor-Danforth Subway",
+                            "Line 2: Bloor-Danforth Subway",
                             "#16A753",
-                            "Scarborough Subway",
+                            "Scarborough Subway Extension",
                             "#16A753",
-                            "Scarborough RT",
+                            "Line 3: Scarborough RT",
                             "#1F99D5",
-                            "Sheppard Subway",
-                            "#B32078",
-                            "Sheppard East",
+                            "Line 4: Sheppard Subway",
                             "#B32078",
                             "Eglinton Crosstown LRT",
+                            "#F87005",
+                            "Eglinton Crosstown West Extension",
+                            "#F87005",
+                            "Eglinton East LRT",
+                            "#F87005",
+                            "Eglinton Crosstown West Extension - Airport Segment",
                             "#F87005",
                             "Finch West LRT",
                             "#888888",
@@ -119,13 +103,14 @@
                         ],
                         "line-width": 5,
                     },
+                    before: "transit-station-ID",
                 }
                 //before: "transit_line",
             );
-            
+
             map.addLayer(
                 {
-                    id: "transit_line",
+                    id: "transit-line-ID",
                     type: "line",
                     source: "transit_line",
                     layout: {},
@@ -133,23 +118,25 @@
                         "line-color": [
                             "match",
                             ["get", "NAME"],
-                            "Yonge-University Subway",
-                            "#F1C500",
-                            "Spadina Subway Extension",
+                            "Line 1: Yonge-University Subway",
                             "#F1C500",
                             "Yonge North Subway Extension",
                             "#F1C500",
-                            "Bloor-Danforth Subway",
+                            "Line 2: Bloor-Danforth Subway",
                             "#16A753",
-                            "Scarborough Subway",
+                            "Scarborough Subway Extension",
                             "#16A753",
-                            "Scarborough RT",
+                            "Line 3: Scarborough RT",
                             "#1F99D5",
-                            "Sheppard Subway",
-                            "#B32078",
-                            "Sheppard East",
+                            "Line 4: Sheppard Subway",
                             "#B32078",
                             "Eglinton Crosstown LRT",
+                            "#F87005",
+                            "Eglinton Crosstown West Extension",
+                            "#F87005",
+                            "Eglinton East LRT",
+                            "#F87005",
+                            "Eglinton Crosstown West Extension - Airport Segment",
                             "#F87005",
                             "Finch West LRT",
                             "#888888",
@@ -162,33 +149,37 @@
                 }
                 //before: "transit_line",
             );
-           
+
             map.addLayer({
-                id: "transit_point",
+                id: "transit-station-ID",
                 type: "circle",
-                source: "transit_point",
-                layout: {},
+                source: "transit_station",
+                filter: ["==", "NAME", transitName],
                 paint: {
-                    "circle-color": [
+                    "circle-color": "#FFFFFF",
+                    "circle-radius": 4,
+                    "circle-stroke-color": [
                         "match",
                         ["get", "NAME"],
-                        "Yonge-University Subway",
-                        "#F1C500",
-                        "Spadina Subway Extension",
+                        "Line 1: Yonge-University Subway",
                         "#F1C500",
                         "Yonge North Subway Extension",
                         "#F1C500",
-                        "Bloor-Danforth Subway",
+                        "Line 2: Bloor-Danforth Subway",
                         "#16A753",
-                        "Scarborough Subway",
+                        "Scarborough Subway Extension",
                         "#16A753",
-                        "Scarborough RT",
+                        "Line 3: Scarborough RT",
                         "#1F99D5",
-                        "Sheppard Subway",
-                        "#B32078",
-                        "Sheppard East",
+                        "Line 4: Sheppard Subway",
                         "#B32078",
                         "Eglinton Crosstown LRT",
+                        "#F87005",
+                        "Eglinton Crosstown West Extension",
+                        "#F87005",
+                        "Eglinton East LRT",
+                        "#F87005",
+                        "Eglinton Crosstown West Extension - Airport Segment",
                         "#F87005",
                         "Finch West LRT",
                         "#888888",
@@ -196,79 +187,60 @@
                         "#000000",
                         "#FFFFFF",
                     ],
-                    "circle-radius": 7,
+                    "circle-stroke-width": 2,
                 },
-                before: "transit_line",
+                //before: "transit-line-bold-ID",
+            });
+            // map libre is not really smart, you will have to create a symbol layer to label your circle layer
+            map.addLayer({
+                id: "transit-station-labels",
+                type: "symbol",
+                source: "transit_station",
+                filter: ["==", "NAME", transitName],
+                layout: {
+                    "text-field": ["get", "LOCATION_N"], // Use the property for labeling
+                    "text-size": 12,
+                    "text-anchor": "left", // Base placement
+                    "text-offset": [1, 1], // Adjust vertical offset
+                    "text-justify": "center", // Align text within the box
+                },
+                paint: {
+                    "text-color": "black",
+                    "text-halo-color": "white", // Color of the halo
+                    "text-halo-width": 5,
+                    // Other paint properties for text appearance
+                },
+                before: "transit-station-ID",
             });
         });
-        /*
-        // Create pop-up
-        const popup = new maplibregl.Popup({
-            closeButton: true,
-            closeOnClick: true,
-            maxWidth: "none",
-        });
-
-        map.on("mouseenter", "vancouverPublicArt", () => {
-            map.getCanvas().style.cursor = "pointer";
-        });
-
-        map.on("mouseleave", "vancouverPublicArt", () => {
-            map.getCanvas().style.cursor = "";
-        });
-        
-        map.on("click", "vancouverPublicArt", (e) => {
-            map.flyTo({
-                center: e.features[0].geometry.coordinates,
-                zoom: 17,
-            });
-
-            $: coordinates = e.features[0].geometry.coordinates.slice();
-            $: title = e.features[0].properties.title_of_work;
-            $: description = e.features[0].properties.descriptionofwork;
-            $: type = e.features[0].properties.type;
-            $: status = e.features[0].properties.status;
-            $: siteaddress = e.features[0].properties.siteaddress;
-            $: primarymaterial = e.features[0].properties.primarymaterial;
-            // $: photoURL = "https://opendata.vancouver.ca/explore/dataset/public-art/files/";
-            $: photoID = JSON.parse(e.features[0].properties.photourl).id;
-            $: year = e.features[0].properties.yearofinstallation;
-
-            // Organize popup information
-            // const htmlContent =
-            // "<h1 id='pt'>" + title + "</h1>" +
-            // "<p> <img src='" + photoURL + photoID + "/download/' width=300 height=240> </p>" +
-            // "<p> <b>Description: </b>" + description + "</p>" +
-            // "<p> <b>Type: </b>" + type + "</p>" +
-            // "<p> <b>Current Status: </b>" + status + "</p>" +
-            // "<p> <b>Primary Material: </b>" + primarymaterial + "</p>" +
-            // "<p> <b>Address: </b>" + siteaddress + "</p>" +
-            // "<p> <b>Year of Installation: </b>" + year + "</p>";
-
-            // Populate the popup
-            popup.setLngLat(coordinates);
-            popupContent = true;
-            //document.getElementById('popup').innerHTML = htmlContent;
-        }); */
+        map.fitBounds([
+            [-79.14904366238247, 43.87527014932047],
+            [-79.70668327438583, 43.56196116510192],
+        ]);
     });
-
-    $: if (popupContent) {
-        console.log(photoURL + "/" + photoID + "/download/");
-    }
 </script>
 
 <main>
     <div id="map" />
-
 </main>
 
 <style>
     main {
         overflow-y: hidden;
-        max-width: 80%;
-        max-height: 40vw;
+        max-width: 90%;
+        max-height: 30%;
     }
-
+    @media only screen and (max-width: 1258px) {
+        #map {
+            top: 50%;
+        }
+    }
+    @media only screen and (max-width: 700px) {
+        #map {
+            max-width: 100%;
+            padding-left: 0%;
+        }
+    }
     @font-face {
         font-family: TradeGothicBold;
         src: url("../assets/Trade Gothic LT Bold.ttf");
@@ -280,81 +252,10 @@
 
     #map {
         padding-top: 5%;
-        height: 100vh;
+        height: 60vh;
         width: 100%;
         top: 0;
         left: 0;
         position: relative;
     }
-
-    .popup {
-        position: absolute;
-        top: 145px;
-        left: 10px;
-        width: 290px; /* Set a fixed width for the popup */
-        max-height: calc(
-            100% - 200px
-        ); /* Calculate the max height based on viewport height */
-        /* overflow-y: scroll;  */
-        background-color: rgb(254, 251, 249, 0.9);
-        padding: 0px;
-        padding-top: 15px;
-        padding-left: 10px;
-        padding-right: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        overflow-x: hidden;
-    }
-
-    #hide {
-        position: absolute;
-        height: 15px;
-        width: 100%;
-        padding: 0px;
-        margin: 0px;
-        top: 0px;
-        left: 0px;
-        font-family: TradeGothicBold;
-        font-size: 12px;
-        color: #9da9bd;
-        background-color: none;
-        border-bottom: solid 1px rgb(227, 227, 227);
-        z-index: 9999;
-        text-align: center;
-    }
-    #hide:hover {
-        color: #dc4633;
-        cursor: pointer;
-    }
-
-    h2 {
-        font-size: 24px;
-        font-family: TradeGothicBold;
-        padding: 2px;
-        margin: 0px;
-        margin-top: 8px;
-        /* margin-bottom: -4px; */
-        color: #00a189;
-        background: linear-gradient(135deg, #f1c50055 25%, transparent 25%) -4px
-                0/ 8px 8px,
-            linear-gradient(225deg, #f1c50032 25%, transparent 25%) -4px 0/ 8px
-                8px,
-            linear-gradient(315deg, #f1c50055 25%, transparent 25%) 0px 0/ 8px 8px,
-            linear-gradient(45deg, #f1c50044 25%, #ffffff 25%) 0px 0/ 8px 8px;
-        /* -webkit-text-stroke: 1px #6FC7EA; */
-    }
-
-    #subtitle {
-        font-family: TradeGothicBold;
-        color: #1e3765;
-        font-size: 16px;
-    }
-
-    p {
-        font-family: RobotoRegular;
-        font-size: 13px;
-        opacity: 1;
-        color: #1e3765;
-    }
-
 </style>
