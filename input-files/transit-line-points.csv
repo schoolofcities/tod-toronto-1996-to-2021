@@ -1,0 +1,370 @@
+﻿ID,ORIG_LEN,NAME,Station,x,y
+1,0,Bloor-Danforth Subway,Kennedy,-79.264532,43.732266
+2,400,Bloor-Danforth Subway,Warden,-79.26837351,43.73010073
+3,800,Bloor-Danforth Subway,Warden,-79.27119267,43.72713989
+4,1200,Bloor-Danforth Subway,Warden,-79.27392565,43.72413401
+5,1600,Bloor-Danforth Subway,Warden,-79.27581714,43.72081689
+6,2000,Bloor-Danforth Subway,Warden,-79.27742324,43.71741739
+7,2400,Bloor-Danforth Subway,Warden,-79.27867052,43.71393677
+8,2800,Bloor-Danforth Subway,Victoria Park,-79.27935537,43.71037088
+9,3200,Bloor-Danforth Subway,Victoria Park,-79.27999799,43.70680091
+10,3600,Bloor-Danforth Subway,Victoria Park,-79.28059865,43.7032269
+11,4000,Bloor-Danforth Subway,Victoria Park,-79.28121749,43.69965614
+12,4400,Bloor-Danforth Subway,Victoria Park,-79.28395451,43.69675384
+13,4800,Bloor-Danforth Subway,Victoria Park,-79.28832131,43.69504671
+14,5200,Bloor-Danforth Subway,Main Street,-79.29267849,43.69332822
+15,5600,Bloor-Danforth Subway,Main Street,-79.29669945,43.69121847
+16,6000,Bloor-Danforth Subway,Main Street,-79.30086726,43.68929319
+17,6400,Bloor-Danforth Subway,Woodbine,-79.30556621,43.68814039
+18,6800,Bloor-Danforth Subway,Woodbine,-79.31031139,43.68709006
+19,7200,Bloor-Danforth Subway,Coxwell,-79.3150736,43.68608519
+20,7600,Bloor-Danforth Subway,Coxwell,-79.31981421,43.68502596
+21,8000,Bloor-Danforth Subway,Greenwood,-79.32457831,43.68402352
+22,8400,Bloor-Danforth Subway,Greenwood,-79.32933484,43.68300091
+23,8800,Bloor-Danforth Subway,Donlands,-79.33409166,43.68197879
+24,9200,Bloor-Danforth Subway,Pape,-79.33885341,43.68096921
+25,9600,Bloor-Danforth Subway,Pape,-79.34364857,43.68004642
+26,10000,Bloor-Danforth Subway,Chester,-79.34843542,43.67910089
+27,10400,Bloor-Danforth Subway,Broadview,-79.35322242,43.67815592
+28,10800,Bloor-Danforth Subway,Broadview,-79.3580191,43.67723853
+29,11200,Bloor-Danforth Subway,Castle Frank,-79.36228786,43.6755404
+30,11600,Bloor-Danforth Subway,Castle Frank,-79.36704921,43.67455121
+31,12000,Bloor-Danforth Subway,Sherbourne,-79.37109824,43.67249244
+32,12400,Bloor-Danforth Subway,Sherbourne,-79.37598739,43.6724572
+33,12800,Bloor-Danforth Subway,Bloor-Yonge,-79.38078495,43.67156615
+34,13200,Bloor-Danforth Subway,Bloor-Yonge,-79.38565064,43.67101432
+35,13600,Bloor-Danforth Subway,St. George,-79.39043984,43.67009259
+36,14000,Bloor-Danforth Subway,St. George,-79.39522117,43.66913533
+37,14400,Bloor-Danforth Subway,Spadina,-79.399987,43.66813847
+38,14800,Bloor-Danforth Subway,Bathurst,-79.40474695,43.66712705
+39,15200,Bloor-Danforth Subway,Bathurst,-79.40951938,43.66614745
+40,15600,Bloor-Danforth Subway,Christie,-79.41427601,43.6651309
+41,16000,Bloor-Danforth Subway,Ossington,-79.41895203,43.6639463
+42,16400,Bloor-Danforth Subway,Ossington,-79.42370525,43.66291846
+43,16800,Bloor-Danforth Subway,Dufferin,-79.42845423,43.66188265
+44,17200,Bloor-Danforth Subway,Dufferin,-79.43312186,43.66067601
+45,17600,Bloor-Danforth Subway,Lansdowne,-79.43789701,43.65970667
+46,18000,Bloor-Danforth Subway,Dundas West,-79.44275998,43.65910181
+47,18400,Bloor-Danforth Subway,Dundas West,-79.44757009,43.65822533
+48,18800,Bloor-Danforth Subway,Dundas West,-79.45231956,43.65720397
+49,19200,Bloor-Danforth Subway,Keele,-79.45703167,43.65608443
+50,19600,Bloor-Danforth Subway,High Park,-79.46178033,43.65504841
+51,20000,Bloor-Danforth Subway,Runnymede,-79.46652253,43.65399586
+52,20400,Bloor-Danforth Subway,Runnymede,-79.47123877,43.65288641
+53,20800,Bloor-Danforth Subway,Runnymede,-79.47592335,43.65172108
+54,21200,Bloor-Danforth Subway,Jane,-79.48066849,43.65067819
+55,21600,Bloor-Danforth Subway,Old Mill,-79.48532309,43.649479
+56,22000,Bloor-Danforth Subway,Old Mill,-79.48979756,43.6483854
+57,22400,Bloor-Danforth Subway,Old Mill,-79.49430524,43.64982315
+58,22800,Bloor-Danforth Subway,Royal York,-79.49907102,43.65070376
+59,23200,Bloor-Danforth Subway,Royal York,-79.50383853,43.64976103
+60,23600,Bloor-Danforth Subway,Royal York,-79.50858086,43.64871173
+61,24000,Bloor-Danforth Subway,Islington,-79.51331069,43.64763581
+62,24400,Bloor-Danforth Subway,Islington,-79.5180635,43.64661796
+63,24800,Bloor-Danforth Subway,Islington,-79.52286968,43.64573978
+64,25200,Bloor-Danforth Subway,Kipling,-79.52750517,43.64454443
+65,25600,Bloor-Danforth Subway,Kipling,-79.53048819,43.64169345
+66,26000,Bloor-Danforth Subway,Kipling,-79.53378123,43.63900226
+67,26304.85278,Bloor-Danforth Subway,Kipling,-79.53627981,43.63694384
+68,0,Eglinton Crosstown LRT,Kennedy,-79.264532,43.732266
+69,400,Eglinton Crosstown LRT,Ionview,-79.26943045,43.73187097
+70,800,Eglinton Crosstown LRT,Birchmount,-79.27416357,43.73078566
+71,1200,Eglinton Crosstown LRT,Golden Mile,-79.27893781,43.72984399
+72,1600,Eglinton Crosstown LRT,Golden Mile,-79.28368528,43.72878978
+73,2000,Eglinton Crosstown LRT,Hakimi Lebovic,-79.28843919,43.7277528
+74,2400,Eglinton Crosstown LRT,Pharmacy,-79.29318201,43.72668842
+75,2800,Eglinton Crosstown LRT,O'Connor,-79.29793236,43.72564235
+76,3200,Eglinton Crosstown LRT,Sloane,-79.30264436,43.72465692
+77,3600,Eglinton Crosstown LRT,Sloane,-79.30754991,43.72508927
+78,4000,Eglinton Crosstown LRT,Sloane,-79.31241331,43.72581322
+79,4400,Eglinton Crosstown LRT,Wynford,-79.317324,43.7261931
+80,4800,Eglinton Crosstown LRT,Wynford,-79.32208104,43.72521101
+81,5200,Eglinton Crosstown LRT,Aga Khan Park & Museum,-79.32675913,43.72400535
+82,5600,Eglinton Crosstown LRT,Aga Khan Park & Museum,-79.33144135,43.72281825
+83,6000,Eglinton Crosstown LRT,Science Centre,-79.33600505,43.72140095
+84,6400,Eglinton Crosstown LRT,Sunnybrook Park,-79.34056854,43.71998346
+85,6800,Eglinton Crosstown LRT,Sunnybrook Park,-79.34513182,43.71856579
+86,7200,Eglinton Crosstown LRT,Sunnybrook Park,-79.34969488,43.71714793
+87,7600,Eglinton Crosstown LRT,Laird,-79.35428312,43.71577533
+88,8000,Eglinton Crosstown LRT,Laird,-79.35905385,43.71478053
+89,8400,Eglinton Crosstown LRT,Laird,-79.36382442,43.71378552
+90,8800,Eglinton Crosstown LRT,Leaside,-79.36859572,43.71279259
+91,9200,Eglinton Crosstown LRT,Leaside,-79.37337561,43.71182182
+92,9600,Eglinton Crosstown LRT,Mount Pleasant,-79.37815535,43.71085086
+93,10000,Eglinton Crosstown LRT,Mount Pleasant,-79.38293494,43.70987969
+94,10400,Eglinton Crosstown LRT,Mount Pleasant,-79.38771438,43.70890832
+95,10800,Eglinton Crosstown LRT,Eglinton,-79.39249365,43.70793676
+96,11200,Eglinton Crosstown LRT,Eglinton,-79.39727278,43.70696499
+97,11600,Eglinton Crosstown LRT,Avenue,-79.40204302,43.7059708
+98,12000,Eglinton Crosstown LRT,Avenue,-79.40681069,43.70497024
+99,12400,Eglinton Crosstown LRT,Chaplin,-79.4115782,43.70396948
+100,12800,Eglinton Crosstown LRT,Chaplin,-79.41634555,43.70296852
+101,13200,Eglinton Crosstown LRT,Forest Hill,-79.42111274,43.70196736
+102,13600,Eglinton Crosstown LRT,Cedarvale,-79.42587977,43.700966
+103,14000,Eglinton Crosstown LRT,Cedarvale,-79.43064664,43.69996444
+104,14400,Eglinton Crosstown LRT,Cedarvale,-79.43541335,43.69896268
+105,14800,Eglinton Crosstown LRT,Oakwood,-79.44015721,43.69790597
+106,15200,Eglinton Crosstown LRT,Fairbank,-79.44489846,43.6968429
+107,15600,Eglinton Crosstown LRT,Fairbank,-79.44963954,43.6957796
+108,16000,Eglinton Crosstown LRT,Caledonia,-79.45438045,43.69471611
+109,16400,Eglinton Crosstown LRT,Caledonia,-79.45912119,43.69365242
+110,16800,Eglinton Crosstown LRT,Caledonia,-79.46382149,43.69252331
+111,17200,Eglinton Crosstown LRT,Keelesdale,-79.46853823,43.69149645
+112,17600,Eglinton Crosstown LRT,Keelesdale,-79.47332269,43.69055713
+113,18000,Eglinton Crosstown LRT,Mount Dennis,-79.47806126,43.68948912
+114,18400,Eglinton Crosstown LRT,Mount Dennis,-79.48274478,43.68833335
+115,18779.43632,Eglinton Crosstown LRT,Mount Dennis,-79.48726361,43.68738602
+116,0,Finch West LRT,Keele,-79.490987,43.76349
+117,400,Finch West LRT,Sentinel,-79.49550404,43.76205552
+118,800,Finch West LRT,Tobermory,-79.50025307,43.76100542
+119,1200,Finch West LRT,Tobermory,-79.50499751,43.7599382
+120,1600,Finch West LRT,Driftwood,-79.50974693,43.75888282
+121,2000,Finch West LRT,Jane,-79.51449618,43.75782724
+122,2400,Finch West LRT,Norfinch/Oakdale,-79.5193372,43.75705387
+123,2800,Finch West LRT,Norfinch/Oakdale,-79.52408543,43.75599715
+124,3200,Finch West LRT,Signet/Arrow,-79.52875385,43.75483072
+125,3600,Finch West LRT,Signet/Arrow,-79.5335261,43.75383513
+126,4000,Finch West LRT,Weston,-79.53819073,43.75279641
+127,4400,Finch West LRT,Milvan/Rumike,-79.5429942,43.75195948
+128,4800,Finch West LRT,Milvan/Rumike,-79.54775798,43.75094089
+129,5200,Finch West LRT,Duncanwoods,-79.5525145,43.7499044
+130,5600,Finch West LRT,Duncanwoods,-79.55727758,43.7488846
+131,6000,Finch West LRT,Pearldale,-79.56203633,43.74785392
+132,6400,Finch West LRT,Islington,-79.56672952,43.74668209
+133,6800,Finch West LRT,Kipling,-79.57144525,43.74555247
+134,7200,Finch West LRT,Kipling,-79.57616223,43.7444264
+135,7600,Finch West LRT,Kipling,-79.58093362,43.74343925
+136,8000,Finch West LRT,Stevenson,-79.58584067,43.7434231
+137,8400,Finch West LRT,Albion,-79.58925139,43.74119962
+138,8800,Finch West LRT,Martin Grove,-79.59006722,43.73765807
+139,9200,Finch West LRT,Westmore,-79.59436419,43.7361537
+140,9600,Finch West LRT,Westmore,-79.59910229,43.7350766
+141,10000,Finch West LRT,Humber College,-79.60304197,43.73367716
+142,10400,Finch West LRT,Humber College,-79.60156,43.730383
+143,0,Ontario Line,Science Centre,-79.33872284,43.72003398
+144,400,Ontario Line,Science Centre,-79.33722989,43.71660147
+145,800,Ontario Line,Flemingdon Park,-79.33618071,43.71309882
+146,1200,Ontario Line,Flemingdon Park,-79.3375658,43.70975855
+147,1600,Ontario Line,Flemingdon Park,-79.3418457,43.70801028
+148,2000,Ontario Line,Thorncliffe Park,-79.34655758,43.7069077
+149,2400,Ontario Line,Thorncliffe Park,-79.35042298,43.70483647
+150,2800,Ontario Line,Thorncliffe Park,-79.35282624,43.7017304
+151,3200,Ontario Line,Thorncliffe Park,-79.35213341,43.69821447
+152,3600,Ontario Line,Thorncliffe Park,-79.35082623,43.69474113
+153,4000,Ontario Line,Thorncliffe Park,-79.34950989,43.69126965
+154,4400,Ontario Line,Cosburn,-79.34817762,43.68780135
+155,4800,Ontario Line,Cosburn,-79.3468455,43.68433303
+156,5200,Ontario Line,Cosburn,-79.34551353,43.6808647
+157,5600,Ontario Line,Pape,-79.34412975,43.67740735
+158,6000,Ontario Line,Pape,-79.34268394,43.67396314
+159,6400,Ontario Line,Pape,-79.3412383,43.67051892
+160,6800,Ontario Line,Gerrard,-79.34251723,43.6673796
+161,7200,Ontario Line,Gerrard,-79.34471086,43.66415962
+162,7600,Ontario Line,Gerrard,-79.34566037,43.66064075
+163,8000,Ontario Line,Leslieville,-79.34623071,43.65707393
+164,8400,Ontario Line,East Harbour,-79.34878868,43.65403566
+165,8800,Ontario Line,East Harbour,-79.35271541,43.65184544
+166,9200,Ontario Line,East Harbour,-79.35682337,43.64984468
+167,9600,Ontario Line,East Harbour,-79.36154652,43.64949577
+168,10000,Ontario Line,Corktown,-79.3645039,43.65226209
+169,10400,Ontario Line,Corktown,-79.36756929,43.65486772
+170,10800,Ontario Line,Moss Park,-79.37235392,43.65392602
+171,11200,Ontario Line,Moss Park,-79.37711652,43.65292308
+172,11600,Ontario Line,Queen,-79.38187896,43.65191994
+173,12000,Ontario Line,Queen,-79.38664124,43.65091661
+174,12400,Ontario Line,Osgoode,-79.39078469,43.65005013
+175,12800,Ontario Line,Osgoode,-79.3955495,43.64905351
+176,13200,Ontario Line,Queen / Spadina,-79.40030005,43.64802551
+177,13600,Ontario Line,Queen / Spadina,-79.40325059,43.64553032
+178,14000,Ontario Line,Exhibition / Ontario Place,-79.40212267,43.64204622
+179,14400,Ontario Line,Exhibition / Ontario Place,-79.40522795,43.63969762
+180,14800,Ontario Line,Exhibition / Ontario Place,-79.40987996,43.63845364
+181,15200,Ontario Line,Exhibition / Ontario Place,-79.41452823,43.63720176
+182,15270.36796,Ontario Line,Exhibition / Ontario Place,-79.41534594,43.63698151
+183,0,Scarborough RT,Kennedy,-79.26453221,43.7322661
+184,400,Scarborough RT,Kennedy,-79.26382666,43.7350439
+185,800,Scarborough RT,Kennedy,-79.26524321,43.73849477
+186,1200,Scarborough RT,Kennedy,-79.26665993,43.74194562
+187,1600,Scarborough RT,Kennedy,-79.26807681,43.74539645
+188,2000,Scarborough RT,Kennedy,-79.26950384,43.74884509
+189,2400,Scarborough RT,Lawrence East,-79.27068532,43.75233191
+190,2800,Scarborough RT,Lawrence East,-79.27203285,43.75579735
+191,3200,Scarborough RT,Lawrence East,-79.27337737,43.75926342
+192,3600,Scarborough RT,Lawrence East,-79.27472204,43.76272947
+193,4000,Scarborough RT,Lawrence East,-79.27606687,43.7661955
+194,4400,Scarborough RT,Ellesmere,-79.27585783,43.76952051
+195,4800,Scarborough RT,Midland,-79.27115959,43.77064482
+196,5200,Scarborough RT,Midland,-79.26647391,43.77183095
+197,5600,Scarborough RT,Midland,-79.26189376,43.77322656
+198,6000,Scarborough RT,Scarborough Town Centre,-79.25729711,43.77458469
+199,6400,Scarborough RT,Scarborough Town Centre,-79.2523877,43.77495504
+200,0,Scarborough Subway,Kennedy,-79.26453221,43.7322661
+201,400,Scarborough Subway,Kennedy,-79.26023024,43.73403117
+202,800,Scarborough Subway,Kennedy,-79.25552114,43.7351277
+203,1200,Scarborough Subway,Kennedy,-79.25076178,43.73615046
+204,1600,Scarborough Subway,Kennedy,-79.24613801,43.73727224
+205,2000,Scarborough Subway,Kennedy,-79.24551348,43.7408081
+206,2400,Scarborough Subway,Kennedy,-79.2448291,43.74436968
+207,2800,Scarborough Subway,Kennedy,-79.24455045,43.74796243
+208,3200,Scarborough Subway,Kennedy,-79.24445886,43.75156228
+209,3600,Scarborough Subway,Kennedy,-79.24535498,43.75506418
+210,4000,Scarborough Subway,Lawrence East,-79.24629599,43.75858207
+211,4400,Scarborough Subway,Lawrence East,-79.24764299,43.76204764
+212,4800,Scarborough Subway,Lawrence East,-79.24899476,43.76551218
+213,5200,Scarborough Subway,Lawrence East,-79.2505251,43.76893757
+214,5600,Scarborough Subway,Lawrence East,-79.25196986,43.77238164
+215,6000,Scarborough Subway,Lawrence East,-79.25331534,43.77584753
+216,6400,Scarborough Subway,Scarborough Town Centre,-79.25469872,43.77930564
+217,6800,Scarborough Subway,Scarborough Town Centre,-79.25608226,43.78276373
+218,7200,Scarborough Subway,Scarborough Town Centre,-79.25746595,43.7862218
+219,7592.01474,Scarborough Subway,Scarborough Town Centre,-79.25882218,43.78961082
+220,0,Sheppard East,Don Mills,-79.34704152,43.77510796
+221,400,Sheppard East,Don Mills,-79.34228368,43.7761299
+222,800,Sheppard East,Don Mills,-79.3373622,43.77579907
+223,1200,Sheppard East,Don Mills,-79.33245148,43.77524992
+224,1600,Sheppard East,Don Mills,-79.32753418,43.7747324
+225,2000,Sheppard East,Don Mills,-79.32268548,43.77531156
+226,2400,Sheppard East,Don Mills,-79.3179557,43.77641518
+227,2800,Sheppard East,Don Mills,-79.31322575,43.7775186
+228,3200,Sheppard East,Don Mills,-79.30849563,43.77862183
+229,3600,Sheppard East,Don Mills,-79.30376533,43.77972485
+230,4000,Sheppard East,Don Mills,-79.29903486,43.78082768
+231,4400,Sheppard East,Don Mills,-79.29429472,43.78190865
+232,4800,Sheppard East,Don Mills,-79.28955206,43.78298403
+233,5200,Sheppard East,Don Mills,-79.28479417,43.78402346
+234,5600,Sheppard East,Don Mills,-79.28003043,43.78504917
+235,6000,Sheppard East,Don Mills,-79.27526652,43.78607469
+236,6400,Sheppard East,Don Mills,-79.27050571,43.78710711
+237,6800,Sheppard East,Don Mills,-79.26575945,43.78817128
+238,7200,Sheppard East,Don Mills,-79.26098819,43.78917924
+239,7381.778307,Sheppard East,Don Mills,-79.25881717,43.78963052
+240,0,Sheppard Subway,Sheppard-Yonge,-79.41092375,43.7615218
+241,400,Sheppard Subway,Sheppard-Yonge,-79.40617299,43.7625742
+242,800,Sheppard Subway,Sheppard-Yonge,-79.40141948,43.76361992
+243,1200,Sheppard Subway,Sheppard-Yonge,-79.3966666,43.76466779
+244,1600,Sheppard Subway,Sheppard-Yonge,-79.39191646,43.76572249
+245,2000,Sheppard Subway,Bayview,-79.38717978,43.76680633
+246,2400,Sheppard Subway,Bayview,-79.38246903,43.76794931
+247,2800,Sheppard Subway,Bayview,-79.37770591,43.76897323
+248,3200,Sheppard Subway,Bessarion,-79.37293527,43.76997898
+249,3600,Sheppard Subway,Bessarion,-79.36818304,43.7710264
+250,4000,Sheppard Subway,Leslie,-79.36329786,43.77163677
+251,4400,Sheppard Subway,Leslie,-79.35851729,43.77260261
+252,4800,Sheppard Subway,Leslie,-79.35375677,43.7736338
+253,5200,Sheppard Subway,Leslie,-79.34900065,43.77467595
+254,5364.853437,Sheppard Subway,Leslie,-79.34704152,43.77510796
+255,0,Spadina Subway Extension,Vaughan Metropolitan Centre,-79.52727349,43.79351383
+256,400,Spadina Subway Extension,Vaughan Metropolitan Centre,-79.52623681,43.78999256
+257,800,Spadina Subway Extension,Vaughan Metropolitan Centre,-79.5246641,43.78657873
+258,1200,Spadina Subway Extension,Highway 407,-79.52305522,43.78317216
+259,1600,Spadina Subway Extension,Highway 407,-79.52038163,43.78021911
+260,2000,Spadina Subway Extension,Highway 407,-79.51592673,43.7786964
+261,2400,Spadina Subway Extension,Pioneer Village,-79.51128009,43.77742062
+262,2800,Spadina Subway Extension,Pioneer Village,-79.50666034,43.77609454
+263,3200,Spadina Subway Extension,Pioneer Village,-79.50202753,43.77479289
+264,3600,Spadina Subway Extension,York University,-79.49739509,43.7734907
+265,4000,Spadina Subway Extension,York University,-79.49365617,43.77118629
+266,4400,Spadina Subway Extension,York University,-79.49212912,43.76778436
+267,4800,Spadina Subway Extension,York University,-79.49118844,43.76424902
+268,5200,Spadina Subway Extension,Finch West,-79.49028627,43.76070844
+269,5600,Spadina Subway Extension,Finch West,-79.4893947,43.75716643
+270,6000,Spadina Subway Extension,Finch West,-79.48673561,43.75425646
+271,6400,Spadina Subway Extension,Finch West,-79.48216735,43.75304431
+272,6800,Spadina Subway Extension,Downsview Park,-79.47732928,43.75381505
+273,7200,Spadina Subway Extension,Downsview Park,-79.47255404,43.75480629
+274,7600,Spadina Subway Extension,Downsview Park,-79.46763949,43.75449864
+275,8000,Spadina Subway Extension,Downsview Park,-79.46359585,43.75267207
+276,0,Yonge North Subway Extension,Cummer/Drewry,-79.41557006,43.77977061
+277,400,Yonge North Subway Extension,Cummer/Drewry,-79.41642469,43.78331715
+278,800,Yonge North Subway Extension,Cummer/Drewry,-79.41729225,43.78686227
+279,1200,Yonge North Subway Extension,Steeles,-79.41817564,43.79040539
+280,1600,Yonge North Subway Extension,Steeles,-79.41905048,43.79394963
+281,2000,Yonge North Subway Extension,Steeles,-79.41992542,43.79749387
+282,2400,Yonge North Subway Extension,Clark,-79.4208783,43.80102746
+283,2800,Yonge North Subway Extension,Clark,-79.42176418,43.80457004
+284,3200,Yonge North Subway Extension,Langstaff/Longbridge,-79.4226114,43.80811782
+285,3600,Yonge North Subway Extension,Langstaff/Longbridge,-79.42345478,43.81166607
+286,4000,Yonge North Subway Extension,Langstaff/Longbridge,-79.42424299,43.81522098
+287,4400,Yonge North Subway Extension,Langstaff/Longbridge,-79.42506672,43.81877162
+288,4800,Yonge North Subway Extension,Langstaff/Longbridge,-79.42587727,43.8223239
+289,5200,Yonge North Subway Extension,Langstaff/Longbridge,-79.42671787,43.82587252
+290,5600,Yonge North Subway Extension,Langstaff/Longbridge,-79.42754994,43.82942217
+291,6000,Yonge North Subway Extension,Richmond Hill Centre,-79.42825849,43.83296683
+292,6400,Yonge North Subway Extension,Richmond Hill Centre,-79.42885949,43.83651722
+293,0,Yonge-University Subway,Sheppard West,-79.46247531,43.75043845
+294,400,Yonge-University Subway,Sheppard West,-79.46127738,43.74694573
+295,800,Yonge-University Subway,Sheppard West,-79.4596667,43.74357767
+296,1200,Yonge-University Subway,Sheppard West,-79.45614385,43.74104624
+297,1600,Yonge-University Subway,Sheppard West,-79.45253524,43.7385829
+298,2000,Yonge-University Subway,Sheppard West,-79.45039145,43.73540479
+299,2400,Yonge-University Subway,Wilson,-79.44915724,43.73191801
+300,2800,Yonge-University Subway,Wilson,-79.44845138,43.72835946
+301,3200,Yonge-University Subway,Yorkdale,-79.44755199,43.72482645
+302,3600,Yonge-University Subway,Yorkdale,-79.44617216,43.72136822
+303,4000,Yonge-University Subway,Yorkdale,-79.44488643,43.71789059
+304,4400,Yonge-University Subway,Lawrence West,-79.44352183,43.71442921
+305,4800,Yonge-University Subway,Lawrence West,-79.44207579,43.7109873
+306,5200,Yonge-University Subway,Glencairn,-79.43997394,43.70772697
+307,5600,Yonge-University Subway,Glencairn,-79.43813509,43.70439726
+308,6000,Yonge-University Subway,Glencairn,-79.43681648,43.70092616
+309,6400,Yonge-University Subway,Eglinton West,-79.43528883,43.69750516
+310,6800,Yonge-University Subway,Eglinton West,-79.43259882,43.69449655
+311,7200,Yonge-University Subway,Eglinton West,-79.42892022,43.69211431
+312,7600,Yonge-University Subway,Eglinton West,-79.42433385,43.69081294
+313,8000,Yonge-University Subway,Eglinton West,-79.41964268,43.6896932
+314,8400,Yonge-University Subway,Eglinton West,-79.41674798,43.68686108
+315,8800,Yonge-University Subway,St Clair West,-79.41517708,43.68344943
+316,9200,Yonge-University Subway,St Clair West,-79.41069545,43.68255064
+317,9600,Yonge-University Subway,St Clair West,-79.40888465,43.67925477
+318,10000,Yonge-University Subway,St Clair West,-79.40745996,43.67580815
+319,10400,Yonge-University Subway,Dupont,-79.40609644,43.67234655
+320,10800,Yonge-University Subway,Spadina,-79.40473237,43.66888484
+321,11200,Yonge-University Subway,Spadina,-79.40096418,43.66793535
+322,11600,Yonge-University Subway,St. George,-79.39617512,43.66886205
+323,12000,Yonge-University Subway,Museum,-79.39321581,43.66658876
+324,12400,Yonge-University Subway,Museum,-79.39117184,43.66332837
+325,12800,Yonge-University Subway,Queen's Park,-79.39043646,43.6597885
+326,13200,Yonge-University Subway,Queen's Park,-79.38895927,43.65635165
+327,13600,Yonge-University Subway,St. Patrick,-79.38748878,43.65291327
+328,14000,Yonge-University Subway,Osgoode,-79.38595002,43.64949261
+329,14400,Yonge-University Subway,St. Andrew,-79.38378589,43.64625996
+330,14800,Yonge-University Subway,St. Andrew,-79.3793477,43.64595954
+331,15200,Yonge-University Subway,King,-79.37779664,43.64888871
+332,15600,Yonge-University Subway,Queen,-79.37921823,43.65233755
+333,16000,Yonge-University Subway,Dundas,-79.38066727,43.65578076
+334,16400,Yonge-University Subway,College,-79.38216138,43.65921364
+335,16800,Yonge-University Subway,Wellesley,-79.3831036,43.6626814
+336,17200,Yonge-University Subway,Bloor-Yonge,-79.38388841,43.66620409
+337,17600,Yonge-University Subway,Bloor-Yonge,-79.38522619,43.66967119
+338,18000,Yonge-University Subway,Rosedale,-79.38654067,43.67314294
+339,18400,Yonge-University Subway,Rosedale,-79.38826909,43.67650903
+340,18800,Yonge-University Subway,Summerhill,-79.38976535,43.67994188
+341,19200,Yonge-University Subway,St. Clair,-79.39126,43.68337512
+342,19600,Yonge-University Subway,St. Clair,-79.39275517,43.68680826
+343,20000,Yonge-University Subway,Davisville,-79.39414262,43.69026362
+344,20400,Yonge-University Subway,Davisville,-79.39584711,43.69353575
+345,20800,Yonge-University Subway,Davisville,-79.39688826,43.69705242
+346,21200,Yonge-University Subway,Eglinton,-79.39788819,43.70057189
+347,21600,Yonge-University Subway,Eglinton,-79.39838346,43.70414915
+348,22000,Yonge-University Subway,Lawrence,-79.39856233,43.70772983
+349,22400,Yonge-University Subway,Lawrence,-79.39934844,43.71128458
+350,22800,Yonge-University Subway,Lawrence,-79.40007811,43.71484577
+351,23200,Yonge-University Subway,Lawrence,-79.40085497,43.71840159
+352,23600,Yonge-University Subway,Lawrence,-79.40158183,43.72196184
+353,24000,Yonge-University Subway,York Mills,-79.40230537,43.72552006
+354,24400,Yonge-University Subway,York Mills,-79.4032522,43.7290542
+355,24800,Yonge-University Subway,York Mills,-79.40412858,43.73259703
+356,25200,Yonge-University Subway,York Mills,-79.40495001,43.7361472
+357,25600,Yonge-University Subway,York Mills,-79.40523436,43.73971435
+358,26000,Yonge-University Subway,York Mills,-79.40593565,43.74327847
+359,26400,Yonge-University Subway,Sheppard-Yonge,-79.4068563,43.74681626
+360,26800,Yonge-University Subway,Sheppard-Yonge,-79.40838157,43.7501847
+361,27200,Yonge-University Subway,Sheppard-Yonge,-79.40885848,43.75375934
+362,27600,Yonge-University Subway,Sheppard-Yonge,-79.40985233,43.7572802
+363,28000,Yonge-University Subway,Sheppard-Yonge,-79.41075856,43.76082002
+364,28400,Yonge-University Subway,North York Centre,-79.41164199,43.76436297
+365,28800,Yonge-University Subway,North York Centre,-79.41253987,43.76790396
+366,29200,Yonge-University Subway,Finch,-79.41342114,43.77144721
+367,29600,Yonge-University Subway,Finch,-79.41432738,43.77498722
+368,30000,Yonge-University Subway,Finch,-79.41523421,43.7785272
+369,30140.76063,Yonge-University Subway,Finch,-79.41557006,43.77977061
