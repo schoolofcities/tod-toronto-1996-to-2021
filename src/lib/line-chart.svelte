@@ -2,7 +2,7 @@
     import { scaleLinear } from "d3-scale";
     import jsondata from "../data/data.json";
     import "../assets/global-styles.css";
-    import { line, curveBasis } from "d3-shape";
+    import cdData from "../data/cdData.json";
 
     //export let data;
     export let variable96;
@@ -17,22 +17,24 @@
 
     $: height = Math.min(width / 2.42, maxHeight) + 100;
 
+    //filtre data.json to the selected transitName in page.svelte
     function filterDesignation(jsondata) {
         return jsondata["Transit Line"] === transitName;
     }
 
-    console.log(transitName)
+    console.log(transitName);
     var data = jsondata.filter(filterDesignation);
+
     // create a list of ID
     var pointList = data.map(function (obj) {
         return obj["Point ID"];
     });
-
     // find the max value of the selected 1996 and 2021 variable
     var yMax = data.map(function (obj) {
         var max = Math.max(obj[variable96], obj[variable21]);
         return max;
     });
+    var varName = variable96.replace(" 96", "").replace("Weighted ", "");
 
     var max = Math.max.apply(Math, yMax);
 
@@ -49,7 +51,7 @@
 
     const xTicks = pointList;
 
-    const padding = { top: 20, right: 15, bottom: 10, left: 15 };
+    const padding = { top: 20, right: 20, bottom: 10, left: 15 };
 
     // converts thousands and million to K and M i.e. (1,000 ==> 1K , 1,000,000 ==> 1M)
     function thousandToK(tick) {
@@ -72,7 +74,7 @@
         .range([height - padding.bottom, padding.top + 0.2 * height]); // added 0.2*height to accomodate station text label.
 
     $: innerWidth = width - (padding.left + padding.right);
-    console.log(innerWidth)
+    console.log(cdData[0][varName]);
 
     $: barWidth = Math.max(Math.min(innerWidth / xTicks.length, 25), 6);
 
@@ -90,17 +92,17 @@
 
 <div id="barchart" class="chart" bind:clientWidth={width}>
     <svg width={xTicks.length * barWidth} {height}>
-        <!-- this is the year separation lines-->
+        <!-- this is the station separation lines-->
         <g class="year-tick">
             {#if innerWidth > 1000}
                 {#each data as point, i}
-                    {#if point.Count === 1 && i >= 0}
+                    {#if point.Label === "Label" && i + 1 < data.length}
                         <line
                             class="year-grid"
                             x1={xScale(i) + barPadding}
-                            y1={yScale(i) + padding.bottom}
+                            y1={height - padding.bottom}
                             x2={xScale(i) + barPadding}
-                            y2={height * 0.205}
+                            y2={height * 0.2}
                             stroke-width={1}
                             stroke="#fff"
                             stroke-dasharray="5 3"
@@ -121,17 +123,46 @@
                             }}
                         />
                     {/if}
+                    <!--Special label position for the last tick-->
+                    {#if point.Label === "Label" && i + 1 === data.length}
+                        <line
+                            class="year-grid"
+                            x1={xScale(i) + barPadding + barWidth}
+                            y1={height - padding.bottom}
+                            x2={xScale(i) + barPadding + barWidth}
+                            y2={height * 0.2}
+                            stroke-width={1}
+                            stroke="#fff"
+                            stroke-dasharray="5 3"
+                            opacity="0.5"
+                        />
+                        <circle
+                            class="point"
+                            r={innerWidth / 300}
+                            cx={xScale(i) + barPadding + barWidth}
+                            cy={height * 0.22}
+                            stroke-width="2px"
+                            stroke="#FFFFFF"
+                            fill="#000000"
+                            on:mouseover={(event) => {
+                                selected_datapoint = point;
+                                selected_datapoint_i = i;
+                                setMousePosition(event);
+                            }}
+                        />
+                    {/if}
                 {/each}
             {/if}
+            <!-- this is the station separation lines when windows is smaller-->
             {#if innerWidth <= 1000 && innerWidth >= 700}
                 {#each data as point, i}
-                    {#if point.Count === 1 && point["Station ID"] % 2 === 0}
+                    {#if point.Label === "Label" && point["Station ID"] % 2 === 0 && i + 1 < data.length}
                         <line
                             class="year-grid"
                             x1={xScale(i) + barPadding}
-                            y1={yScale(i)}
+                            y1={height - padding.bottom}
                             x2={xScale(i) + barPadding}
-                            y2={height * 0.28}
+                            y2={height * 0.2}
                             stroke-width={1}
                             stroke="#fff"
                             stroke-dasharray="5 3"
@@ -152,34 +183,123 @@
                             }}
                         />
                     {/if}
+                    <!--Special label position for the last tick-->
+                    {#if point.Label === "Label" && point["Station ID"] % 2 === 0 && i + 1 === data.length}
+                        <line
+                            class="year-grid"
+                            x1={xScale(i) + barPadding + barWidth}
+                            y1={height - padding.bottom}
+                            x2={xScale(i) + barPadding + barWidth}
+                            y2={height * 0.2}
+                            stroke-width={1}
+                            stroke="#fff"
+                            stroke-dasharray="5 3"
+                            opacity="0.5"
+                        />
+                        <circle
+                            class="point"
+                            r={innerWidth / 300}
+                            cx={xScale(i) + barPadding + barWidth}
+                            cy={height * 0.22}
+                            stroke-width="2px"
+                            stroke="#FFFFFF"
+                            fill="#000000"
+                            on:mouseover={(event) => {
+                                selected_datapoint = point;
+                                selected_datapoint_i = i;
+                                setMousePosition(event);
+                            }}
+                        />
+                    {/if}
                 {/each}
             {/if}
         </g>
+        <!--Census Division Value Showing City Average-->
+        <!--
+        <g>
+            <line
+                x1={padding.left*4}
+                y1={yScale(cdData[0][varName])}
+                x2={xScale(data.length) + barWidth}
+                y2={yScale(cdData[0][varName])}
+                stroke={"grey"}
+                stroke-width="1"
+            />
+            </g>
+            -->
+        <g>
+            <line
+                x1={padding.left * 4}
+                y1={yScale(cdData[1][varName])}
+                x2={xScale(data.length) + barWidth}
+                y2={yScale(cdData[1][varName])}
+                stroke={"white"}
+                stroke-width="1"
+            />
+        </g>
 
-        <!--  x axis - monthly-->
+        <!--  x axis labels  -->
+        <g class = "average">
+            <text 
+                x={padding.left * 4}
+                y={yScale(cdData[1][varName])}
+                text-anchor="start"
+            >
+                {"2021 Average: "}{cdData[1][varName]}
+            </text>
+        </g>
         <g class="axis x-axis">
             {#each data as point, i}
                 {#if innerWidth > 1000}
-                    {#if point.Count === 1 || i == 0}
+                    {#if point.Label === "Label" && i + 1 < data.length}
                         <g
                             class="stationtick"
-                            transform="translate({xScale(i)},{height})"
+                            transform="translate({xScale(i)},{height}) "
                         >
                             <text
                                 x={height * -0.2}
-                                y={xScale(i) +
-                                    10 +
-                                    barPadding -
-                                    innerWidth / 600}
+                                y={xScale(i) + barPadding + innerWidth / 300}
                                 text-anchor="start"
                             >
                                 {point["Station Name"]}
                             </text>
                         </g>
                     {/if}
+                    {#if point.Label === "Label" && i + 1 === data.length}
+                        <g
+                            class="stationtick"
+                            transform="translate({xScale(i)},{height}) "
+                        >
+                            <text
+                                x={height * -0.2}
+                                y={xScale(i) +
+                                    barPadding +
+                                    barWidth +
+                                    innerWidth / 300}
+                                text-anchor="start"
+                            >
+                                {point["Station Name"]}
+                            </text>
+                        </g>
+                    {/if}
+                    <!--  x axis labels for smaller window size -->
                 {:else if innerWidth <= 1000 && innerWidth >= 700}
                     <!-- if the inner window width <=800 show years only-->
-                    {#if point.Count === 1 && point["Station ID"] % 2 === 0}
+                    {#if point.Label === "Label" && point["Station ID"] % 2 === 0 && i + 1 < data.length}
+                        <g
+                            class="stationtick"
+                            transform="translate({xScale(i)},{height})"
+                        >
+                            <text
+                                x={height * -0.25}
+                                y={xScale(i) + barPadding + innerWidth / 300}
+                                text-anchor="start"
+                            >
+                                {point["Station Name"]}
+                            </text>
+                        </g>
+                    {/if}
+                    {#if point.Label === "Label" && point["Station ID"] % 2 === 0 && i + 1 === data.length}
                         <g
                             class="stationtick"
                             transform="translate({xScale(i)},{height})"
@@ -187,9 +307,9 @@
                             <text
                                 x={height * -0.25}
                                 y={xScale(i) +
-                                    10 +
-                                    barPadding -
-                                    innerWidth / 600}
+                                    barPadding +
+                                    barWidth +
+                                    innerWidth / 300}
                                 text-anchor="start"
                             >
                                 {point["Station Name"]}
@@ -212,6 +332,8 @@
                 </g>
             {/each}
         </g>
+
+        <!-- the lines and circles of the line chart  -->
 
         <g>
             {#each data as point, i}
@@ -298,7 +420,7 @@
                 " (" +
                 selected_datapoint["Count"] +
                 ")" +
-                " "}: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"2006"}
+                " "}: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"1996"}
             <span id="lightBlue"
                 >{selected_datapoint[variable96].toLocaleString()}</span
             >
@@ -317,6 +439,10 @@
         min-width: 500px;
         margin: 0 auto;
         padding-top: 1%;
+    }
+    .average{
+        font-size: 15px;
+        fill: #FFFFFF;
     }
     @media only screen and (max-width: 300px) {
         .chart {
