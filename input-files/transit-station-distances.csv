@@ -1,0 +1,179 @@
+﻿NAME,ORIG_SEQ,LineLen,Distance Sum,Distance Percent,Station,ID
+Eglinton Crosstown LRT,0,0,0,0,Mount Dennis,1
+Eglinton Crosstown LRT,1,1032.090894,1032.09,5.5,Keelesdale,2
+Eglinton Crosstown LRT,2,872.2234564,1904.31,10.14,Caledonia,3
+Eglinton Crosstown LRT,3,1224.390736,3128.71,16.66,Fairbank,4
+Eglinton Crosstown LRT,4,628.6047077,3757.31,20.01,Oakwood,5
+Eglinton Crosstown LRT,5,573.6351072,4330.94,23.06,Cedarvale,6
+Eglinton Crosstown LRT,6,875.1709034,5206.12,27.72,Forest Hill,7
+Eglinton Crosstown LRT,7,687.2162037,5893.33,31.38,Chaplin,8
+Eglinton Crosstown LRT,8,744.038993,6637.37,35.34,Avenue,9
+Eglinton Crosstown LRT,9,827.3471814,7464.72,39.75,Eglinton,10
+Eglinton Crosstown LRT,10,708.9753042,8173.69,43.52,Mount Pleasant,11
+Eglinton Crosstown LRT,11,1090.350272,9264.04,49.33,Leaside,12
+Eglinton Crosstown LRT,12,1033.731362,10297.78,54.83,Laird,13
+Eglinton Crosstown LRT,13,1259.337934,11557.11,61.54,Sunnybrook Park,14
+Eglinton Crosstown LRT,14,969.7993031,12526.91,66.7,Science Centre,15
+Eglinton Crosstown LRT,15,431.2417981,12958.15,69,Aga Khan Park & Museum,16
+Eglinton Crosstown LRT,16,748.6660719,13706.82,72.98,Wynford,17
+Eglinton Crosstown LRT,17,982.9374482,14689.76,78.21,Sloane,18
+Eglinton Crosstown LRT,18,896.0252882,15585.78,82.99,O'Connor,19
+Eglinton Crosstown LRT,19,427.3771036,16013.16,85.26,Pharmacy,20
+Eglinton Crosstown LRT,20,510.8255374,16523.99,87.98,Hakimi Lebovic,21
+Eglinton Crosstown LRT,21,324.5829106,16848.57,89.71,Golden Mile,22
+Eglinton Crosstown LRT,22,818.7942648,17667.36,94.07,Birchmount,23
+Eglinton Crosstown LRT,23,563.3137726,18230.68,97.07,Ionview,24
+Eglinton Crosstown LRT,24,550.5964712,18781.27,100,Kennedy,25
+Eglinton Crosstown West Extension,0,0,0,0,Renforth,1
+Eglinton Crosstown West Extension,1,2851.46314,2851.46,30.95,Martin Grove,2
+Eglinton Crosstown West Extension,2,1036.910243,3888.37,42.21,Kipling,3
+Eglinton Crosstown West Extension,3,1004.666095,4893.04,53.11,Islington,4
+Eglinton Crosstown West Extension,4,1032.763901,5925.8,64.32,Royal York,5
+Eglinton Crosstown West Extension,5,1252.517309,7178.32,77.92,Scarlett,6
+Eglinton Crosstown West Extension,6,1045.194245,8223.51,89.26,Jane,7
+Eglinton Crosstown West Extension,7,988.9944963,9212.51,100,Mount Dennis,8
+Eglinton Crosstown West Extension - Airport Segment,0,0,0,0,Pearson,1
+Eglinton Crosstown West Extension - Airport Segment,1,2534.673073,2534.67,58.5,Silver Dart,2
+Eglinton Crosstown West Extension - Airport Segment,2,827.6860877,3362.36,77.6,Convair,3
+Eglinton Crosstown West Extension - Airport Segment,3,970.6577254,4333.02,100,Renforth,4
+Eglinton East LRT,0,0,0,0,Kennedy,1
+Eglinton East LRT,1,579.2505232,579.25,5.27,Midland,2
+Eglinton East LRT,2,422.4200002,1001.67,9.11,Falmouth,3
+Eglinton East LRT,3,578.4992223,1580.17,14.37,Danforth,4
+Eglinton East LRT,4,658.6465574,2238.82,20.35,McCowan,5
+Eglinton East LRT,5,602.6473798,2841.46,25.83,Bellamy/Eglinton GO,6
+Eglinton East LRT,6,519.400843,3360.86,30.55,Mason,7
+Eglinton East LRT,7,526.4174513,3887.28,35.34,Markham,8
+Eglinton East LRT,8,674.150073,4561.43,41.47,Eglinton/ Kingston,9
+Eglinton East LRT,9,677.5181305,5238.95,47.63,Guildwood,10
+Eglinton East LRT,10,987.3935744,6226.34,56.61,Celeste/ Guildwood GO,11
+Eglinton East LRT,11,673.6499324,6899.99,62.73,Galloway,12
+Eglinton East LRT,12,788.8851623,7688.88,69.9,Lawrence,13
+Eglinton East LRT,13,818.7558681,8507.63,77.35,West Hill,14
+Eglinton East LRT,14,1192.554801,9700.19,88.19,Ellesmere,15
+Eglinton East LRT,15,382.2826634,10082.47,91.66,Military Trail,16
+Eglinton East LRT,16,917.0894302,10999.56,100,Pan Am Sports Centre,17
+Finch West LRT,0,0,0,0,Humber College,1
+Finch West LRT,2,628.3145199,628.31,6.05,Westmore,2
+Finch West LRT,3,782.3867529,1410.7,13.58,Martin Grove,3
+Finch West LRT,4,563.344977,1974.05,19.01,Albion,4
+Finch West LRT,5,318.86584,2292.91,22.08,Stevenson,5
+Finch West LRT,6,397.1743221,2690.09,25.9,Mount Olive,6
+Finch West LRT,7,1138.766613,3828.85,36.87,Rowntree Mills,7
+Finch West LRT,8,531.6686937,4360.52,41.98,Pearldale,8
+Finch West LRT,9,395.8411467,4756.36,45.8,Duncanwoods,9
+Finch West LRT,10,451.1014727,5207.46,50.14,Milvan Rumike,10
+Finch West LRT,11,828.2059652,6035.67,58.11,Emery,11
+Finch West LRT,12,525.0158885,6560.69,63.17,Signet Arrow,12
+Finch West LRT,13,1010.439157,7571.13,72.9,Norfinch Oakdale,13
+Finch West LRT,14,547.0104176,8118.14,78.16,Jane and Finch,14
+Finch West LRT,15,357.3994521,8475.54,81.61,Driftwood,15
+Finch West LRT,16,460.7436161,8936.28,86.04,Tobermory,16
+Finch West LRT,17,670.6744979,9606.95,92.5,Sentinel,17
+Finch West LRT,18,779.0624688,10386.02,100,Finch West,18
+Line 1: Yonge-University Subway,0,0,0,0,Vaughan Metropolitan Centre,1
+Line 1: Yonge-University Subway,1,1155.022203,1155.02,3.01,Highway 407,2
+Line 1: Yonge-University Subway,2,1214.460487,2369.48,6.17,Pioneer Village,3
+Line 1: Yonge-University Subway,3,1036.380096,3405.86,8.87,York University,4
+Line 1: Yonge-University Subway,4,1480.444891,4886.31,12.72,Finch West,5
+Line 1: Yonge-University Subway,5,1830.21132,6716.52,17.49,Downsview Park,6
+Line 1: Yonge-University Subway,6,1548.587684,8265.11,21.52,Sheppard West,7
+Line 1: Yonge-University Subway,7,2150.790425,10415.9,27.12,Wilson,8
+Line 1: Yonge-University Subway,8,958.1475455,11374.04,29.61,Yorkdale,9
+Line 1: Yonge-University Subway,9,1101.995892,12476.04,32.48,Lawrence West,10
+Line 1: Yonge-University Subway,10,765.7555856,13241.8,34.48,Glencairn,11
+Line 1: Yonge-University Subway,11,1265.450334,14507.25,37.77,Eglinton West,12
+Line 1: Yonge-University Subway,12,2515.105299,17022.35,44.32,St Clair West,13
+Line 1: Yonge-University Subway,13,1353.193456,18375.55,47.84,Dupont,14
+Line 1: Yonge-University Subway,14,681.7180073,19057.26,49.62,Spadina,15
+Line 1: Yonge-University Subway,15,548.0391892,19605.3,51.04,St. George,16
+Line 1: Yonge-University Subway,16,569.8164648,20175.12,52.53,Museum,17
+Line 1: Yonge-University Subway,17,883.1804193,21058.3,54.83,Queen's Park,18
+Line 1: Yonge-University Subway,18,589.0516194,21647.35,56.36,St. Patrick,19
+Line 1: Yonge-University Subway,19,458.1994595,22105.55,57.55,Osgoode,20
+Line 1: Yonge-University Subway,20,384.6532513,22490.2,58.55,St. Andrew,21
+Line 1: Yonge-University Subway,21,594.8544292,23085.06,60.1,Union,22
+Line 1: Yonge-University Subway,22,411.8769202,23496.93,61.18,King,23
+Line 1: Yonge-University Subway,23,381.4438558,23878.38,62.17,Queen,24
+Line 1: Yonge-University Subway,24,452.2503238,24330.63,63.35,Dundas,25
+Line 1: Yonge-University Subway,25,597.2799652,24927.91,64.9,College,26
+Line 1: Yonge-University Subway,26,430.9572225,25358.87,66.02,Wellesley,27
+Line 1: Yonge-University Subway,27,661.3627104,26020.23,67.75,Bloor-Yonge,28
+Line 1: Yonge-University Subway,28,715.0872927,26735.32,69.61,Rosedale,29
+Line 1: Yonge-University Subway,29,727.9188227,27463.24,71.5,Summerhill,30
+Line 1: Yonge-University Subway,30,577.8338504,28041.07,73.01,St. Clair,31
+Line 1: Yonge-University Subway,31,1134.298966,29175.37,75.96,Davisville,32
+Line 1: Yonge-University Subway,32,979.2288718,30154.6,78.51,Eglinton,33
+Line 1: Yonge-University Subway,33,2049.344409,32203.94,83.85,Lawrence,34
+Line 1: Yonge-University Subway,34,2176.166886,34380.11,89.51,York Mills,35
+Line 1: Yonge-University Subway,35,1966.888972,36347,94.63,Sheppard-Yonge,36
+Line 1: Yonge-University Subway,36,826.7079029,37173.71,96.78,North York Centre,37
+Line 1: Yonge-University Subway,37,1235.160544,38408.87,100,Finch,38
+Line 2: Bloor-Danforth Subway,0,0,0,0,Kipling,1
+Line 2: Bloor-Danforth Subway,1,1358.454897,1358.45,5.16,Islington,2
+Line 2: Bloor-Danforth Subway,2,1118.511749,2476.97,9.42,Royal York,3
+Line 2: Bloor-Danforth Subway,3,1358.404982,3835.37,14.58,Old Mill,4
+Line 2: Bloor-Danforth Subway,4,948.5127273,4783.88,18.18,Jane,5
+Line 2: Bloor-Danforth Subway,5,697.7223698,5481.61,20.84,Runnymede,6
+Line 2: Bloor-Danforth Subway,6,848.9265397,6330.53,24.06,High Park,7
+Line 2: Bloor-Danforth Subway,7,537.4522962,6867.99,26.11,Keele,8
+Line 2: Bloor-Danforth Subway,8,629.7364781,7497.72,28.5,Dundas West,9
+Line 2: Bloor-Danforth Subway,9,819.2803084,8317,31.61,Lansdowne,10
+Line 2: Bloor-Danforth Subway,10,592.0935831,8909.1,33.87,Dufferin,11
+Line 2: Bloor-Danforth Subway,11,808.4367758,9717.53,36.94,Ossington,12
+Line 2: Bloor-Danforth Subway,12,639.3294122,10356.86,39.37,Christie,13
+Line 2: Bloor-Danforth Subway,13,583.3367052,10940.2,41.59,Bathurst,14
+Line 2: Bloor-Danforth Subway,14,630.7605537,11570.96,43.98,Spadina,15
+Line 2: Bloor-Danforth Subway,15,392.1779592,11963.14,45.47,St. George,16
+Line 2: Bloor-Danforth Subway,16,791.0040233,12754.14,48.48,Bay,17
+Line 2: Bloor-Danforth Subway,17,346.2008283,13100.34,49.8,Bloor-Yonge,18
+Line 2: Bloor-Danforth Subway,18,735.5362194,13835.88,52.59,Sherbourne,19
+Line 2: Bloor-Danforth Subway,19,730.9515471,14566.83,55.37,Castle Frank,20
+Line 2: Bloor-Danforth Subway,20,862.8129047,15429.64,58.65,Broadview,21
+Line 2: Bloor-Danforth Subway,21,557.4861791,15987.13,60.77,Chester,22
+Line 2: Bloor-Danforth Subway,22,591.5357304,16578.66,63.02,Pape,23
+Line 2: Bloor-Danforth Subway,23,617.4723667,17196.14,65.37,Donlands,24
+Line 2: Bloor-Danforth Subway,24,631.0146737,17827.15,67.76,Greenwood,25
+Line 2: Bloor-Danforth Subway,25,603.5431785,18430.69,70.06,Coxwell,26
+Line 2: Bloor-Danforth Subway,26,852.0151919,19282.71,73.3,Woodbine,27
+Line 2: Bloor-Danforth Subway,27,925.3197406,20208.03,76.81,Main Street,28
+Line 2: Bloor-Danforth Subway,28,1196.424011,21404.45,81.36,Victoria Park,29
+Line 2: Bloor-Danforth Subway,29,2194.176464,23598.63,89.7,Warden,30
+Line 2: Bloor-Danforth Subway,30,2708.801593,26307.43,100,Kennedy,31
+Line 3: Scarborough RT,0,0,0,0,Kennedy,1
+Line 3: Scarborough RT,1,2191.090064,2191.09,33.9,Lawrence East,2
+Line 3: Scarborough RT,2,1883.581147,4074.67,63.04,Ellesmere,3
+Line 3: Scarborough RT,3,655.8982295,4730.57,73.18,Midland,4
+Line 3: Scarborough RT,4,1222.719372,5953.29,92.1,Scarborough Town Centre,5
+Line 3: Scarborough RT,5,510.6643536,6463.95,100,McCowan,6
+Line 4: Sheppard Subway,0,0,0,0,Sheppard-Yonge,1
+Line 4: Sheppard Subway,1,1951.180139,1951.18,36.37,Bayview,2
+Line 4: Sheppard Subway,2,937.3945946,2888.57,53.84,Bessarion,3
+Line 4: Sheppard Subway,3,715.4235379,3604,67.17,Leslie,4
+Line 4: Sheppard Subway,4,1761.385309,5365.38,100,Don Mills,5
+Ontario Line,0,0,0,0,Exhibition,1
+Ontario Line,1,1580.145327,1580.15,10.33,King / Bathurst,2
+Ontario Line,2,784.1383112,2364.28,15.46,Queen / Spadina,3
+Ontario Line,3,821.1600568,3185.44,20.82,Osgoode,4
+Ontario Line,4,618.8566405,3804.3,24.87,Queen,5
+Ontario Line,5,757.9584791,4562.26,29.82,Moss Park,6
+Ontario Line,6,641.7051801,5203.96,34.02,Corktown,7
+Ontario Line,7,1752.893109,6956.86,45.48,East Harbour,8
+Ontario Line,8,542.639738,7499.5,49.02,Riverside/Leslieville,9
+Ontario Line,9,890.0659772,8389.56,54.84,Gerrard,10
+Ontario Line,10,1444.315576,9833.88,64.29,Pape,11
+Ontario Line,11,1116.204107,10950.08,71.58,Cosburn,12
+Ontario Line,12,1857.208219,12807.29,83.72,Thorncliffe Park,13
+Ontario Line,13,1856.606863,14663.9,95.86,Flemingdon Park,14
+Ontario Line,14,633.402165,15297.3,100,Science Centre,15
+Scarborough Subway Extension,0,0,0,0,Kennedy,1
+Scarborough Subway Extension,1,3643.695208,3643.7,47.99,Lawrence East,2
+Scarborough Subway Extension,2,2399.144428,6042.84,79.59,Scarborough Centre,3
+Scarborough Subway Extension,3,1549.896781,7592.74,100,McCowan,4
+Yonge North Subway Extension,0,0,0,0,Finch,0
+Yonge North Subway Extension,1,823.5732658,823.57,10.82,Cummer/Drewry,1
+Yonge North Subway Extension,2,1238.160281,2061.73,27.09,Steeles,2
+Yonge North Subway Extension,3,1029.177797,3090.91,40.62,Clark,3
+Yonge North Subway Extension,4,1824.249345,4915.16,64.59,Royal Orchard,4
+Yonge North Subway Extension,5,2232.519821,7147.68,93.93,Bridge,5
+Yonge North Subway Extension,6,462.2601421,7609.94,100,High Tech,6
