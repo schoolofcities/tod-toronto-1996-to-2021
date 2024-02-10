@@ -10,22 +10,26 @@
         */
   export let dataset;
 
-  var transitName = ""
+  var transitName = "Line 1: Yonge-University Subway";
+  var value = "Population"
+
+  var value96 = value + " 96"
+  var value21 = value + " 21"
 
   //filtre data.json to the selected transitName in page.svelte
   function filterDesignation(dataset) {
-        return dataset["Transit Line"] === transitName;
-    }
+    return dataset["Transit Line"] === transitName;
+  }
 
-    console.log(transitName);
-    var data = dataset.filter(filterDesignation);
+  console.log(transitName);
+  var data = dataset.filter(filterDesignation);
 
-  console.log(data)
+  console.log(data);
 
   // size of the svg
-  const width = 200;
-  const height = 200;
-
+  let width = 2000;
+  let height = 1500;
+  $: height = Math.min(width / 2.42, 700) + 100;
   const margin = {
     top: 15,
     right: 15,
@@ -33,7 +37,6 @@
     left: 15,
   };
 
- 
   //console.log(data96)
   //Load station names as the xAxis
   const xAxis = []; // all the station names
@@ -43,10 +46,7 @@
   }
   console.log(xAxis);
 
-  // timeParse to parse the input data as to create a date object
-  const parseTime = d3.timeParse("%Y-%m-%d");
-  // timeFormat to style the date objects to a chosen format
-  const formatTime = d3.timeFormat("%e %B");
+
   console.log(data, (d) => d["Station Name"]);
   // horizontally create a scale based on the input dates
   const xScale = d3.scaleBand().domain(xAxis).range([0, width]);
@@ -54,55 +54,56 @@
   // vertically  consider the input values
   const yScale = d3
     .scaleLinear()
-    .domain([0, d3.max(data, (d) => d.value)])
+    .domain([0, d3.max(data, (d) => d[value96])])
     // swap [0, height] to have the shapes positioned _from_ the bottom of the svg
-    .range([height, 0]);
+    .range([margin.left, width - margin.right]);
   const yScale2 = d3
     .scaleLinear()
-    .domain([0, d3.max(data, (d) => d.value2)])
+    .domain([0, d3.max(data, (d) => d[value21])])
     // swap [0, height] to have the shapes positioned _from_ the bottom of the svg
-    .range([height, 0]);
+    .range([height- margin.bottom, margin.top + 0.2 * height]);
   // line function mapping the date and value in the svg
   const line = d3
     .line()
     .x((d) => xScale(d["Station Name"]))
-    .y((d) => yScale(d.value))
-    .curve(d3.curveCatmullRom);
+    .y((d) => yScale(d[value96]))
+    .curve(d3.curveBundle);
   // second line
   const line2 = d3
     .line()
     .x((d) => xScale(d["Station Name"]))
-    .y((d) => yScale2(d.value2))
-    .curve(d3.curveCatmullRom);
+    .y((d) => yScale2(d[value21]))
+    .curve(d3.curveBundle);
   // area function describing the area below the curve described by the dates and values
   const area = d3
     .area()
     .x((d) => xScale(d["Station Name"]))
     .y0((d) => yScale(0))
-    .y1((d) => yScale(d.value))
+    .y1((d) => yScale(d[value96]))
     .curve(d3.curveCatmullRom);
 
   // points highlighted through circle elements
   // in this instance the first and last
-  const points = [0,1,2,3,4,5,6]
-  var data96 = []
-  var data21 = []
+  const points = [0, 1, 2, 3, 4, 5, 6];
+  var data96 = [];
+  var data21 = [];
 
-  for (let point = 0; point < data.length; point++){
+  for (let point = 0; point < data.length; point++) {
     data96.push({
-    x: xScale(data[point]["Station Name"]),
-    y: yScale(data[point].value),
-    value: data[point].value,
-  })
+      x: xScale(data[point]["Station Name"]),
+      y: yScale(data[point][value96]),
+      value: data[point][value96],
+    });
 
-  data21.push({
-    x: xScale(data[point]["Station Name"]),
-    y: yScale(data[point].value2),
-    value: data[point].value2,
-  })
-
+    data21.push({
+      x: xScale(data[point]["Station Name"]),
+      y: yScale(data[point][value21]),
+      value: data[point][value21],
+    });
   }
 
+
+  console.log(data96)
   // "ticks", milestones marked on the x-axis
   // instead of using d3, we create here marks for an arbitrary set of dates
   /*
@@ -113,9 +114,10 @@
     const q3 = d3.quantile(data, 0.75, d => d["Station Name"]);
     */
 
+  
   // "ticks" for the y-axis
   // the idea is to include 10 values, up to the maximum value
-  const maxValue = d3.max(data, (d) => d.value);
+  const maxValue = d3.max(data, (d) => d[value96]);
   const yTicks = 10;
   const yAxis = Array(Math.floor(maxValue / yTicks))
     .fill()
@@ -130,8 +132,10 @@
   const highlightStart = data.findIndex((d) => d.start);
   const highlightEnd = data.findIndex((d) => d.end);
   const highlight = data.slice(highlightStart, highlightEnd + 1);
-</script>
 
+  
+</script>
+<!-- when exiting the article remove the tooltip -->
 <!-- when exiting the article remove the tooltip -->
 <article
   on:mouseout={() => {
@@ -203,7 +207,7 @@
           opacity="0.25"
           fill="url(#gradient-{title.toLowerCase().split(' ').join('-')})"
           stroke="none"
-          d={area(highlight)}
+
         />
 
         <!-- made-up axes using the dates and values chosen in the Axis variables to draw text and a few lines -->
@@ -225,7 +229,7 @@
                 {console.log(xScale(xTick))}
                 <text
                   fill="hsl(0, 0%, 0%)"
-                  font-size="3"
+                  font-size="6"
                   text-anchor="middle"
                   y="5">{xTick}</text
                 >
@@ -247,7 +251,7 @@
               <text
                 fill="hsl(0, 0%, 0%)"
                 opacity="0.5"
-                font-size="3"
+                font-size="6"
                 text-anchor="start"
                 x="0"
                 y="-1">{yTick}</text
@@ -286,11 +290,11 @@
         />
         <text
           text-anchor="middle"
-          font-size="5"
+          font-size="10"
           font-weight="bold"
           fill="currentColor"
           x={point96.x}
-          y={point96.y - 3}>{point96.value}</text
+          y={point96.y - 3}>{point96[value96]}</text
         >
       {/each}
       {#each data21 as point21}
@@ -304,11 +308,11 @@
         />
         <text
           text-anchor="middle"
-          font-size="5"
+          font-size="10"
           font-weight="bold"
           fill="currentColor"
           x={point21.x}
-          y={point21.y - 3}>{point21.value}</text
+          y={point21.y - 3}>{point21[value96]}</text
         >
       {/each}
 
@@ -317,15 +321,15 @@
         <g
           fill="currentColor"
           transform="translate({xScale(tooltip["Station Name"])} {yScale(
-            tooltip.value,
+            tooltip[value96],
           )})"
         >
           <text
             text-anchor="middle"
-            font-size="5"
+            font-size="10"
             font-weight="bold"
             fill="hsl(0, 0%, 10%)"
-            y="-3">{tooltip.value}</text
+            y="-3">{tooltip[value96]}</text
           >
           <path
             opacity="0.75"
@@ -333,22 +337,22 @@
             stroke="hsl(0, 0%, 10%)"
             stroke-width="0.5"
             stroke-dasharray="1"
-            d="M 0 0 v {height - yScale(tooltip.value)}"
+            d="M 0 0 v {height - yScale(tooltip[value96])}"
           />
           <circle r="2" fill="hsl(0, 0%, 10%)" />
         </g>
         <g
           fill="currentColor"
           transform="translate({xScale(tooltip["Station Name"])} {yScale(
-            tooltip.value2,
+            tooltip[value21],
           )})"
         >
           <text
             text-anchor="middle"
-            font-size="5"
+            font-size="10"
             font-weight="bold"
             fill="hsl(0, 0%, 10%)"
-            y="-3">{tooltip.value2}</text
+            y="-3">{tooltip[value21]}</text
           >
           <path
             opacity="0.75"
@@ -356,7 +360,7 @@
             stroke="hsl(0, 0%, 10%)"
             stroke-width="0.5"
             stroke-dasharray="1"
-            d="M 0 0 v {height - yScale(tooltip.value2)}"
+            d="M 0 0 v {height - yScale(tooltip[value21])}"
           />
           <circle r="2" fill="hsl(0, 0%, 10%)" />
         </g>
@@ -381,7 +385,7 @@
   </svg>
   <main>
     {#if tooltip}
-      <p>{tooltip["Station Name"]} : &nbsp;&nbsp;&nbsp;&nbsp; 1996:&nbsp;&nbsp;{tooltip.value} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2021: &nbsp;&nbsp;{tooltip.value2}</p>
+      <p>{tooltip["Station Name"]} : &nbsp;&nbsp;&nbsp;&nbsp; 1996:&nbsp;&nbsp;{tooltip[value96]} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2021: &nbsp;&nbsp;{tooltip[value21]}</p>
     {/if}
   </main>
 </article>
