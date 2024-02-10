@@ -1,4 +1,5 @@
-[
+export const data = {
+
     {
         "Station ID": 1,
         "Station Name": "Mount Dennis",
@@ -17345,4 +17346,4 @@
         "Distance": 0.0,
         "Label": "Label"
     }
-]
+}
