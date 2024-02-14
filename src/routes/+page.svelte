@@ -74,7 +74,6 @@
         {transitName}
         colour="#6FC7EA"
         colour2="#8DBF2E"
-        maxHeight="700"
     />
 {/key}
 
