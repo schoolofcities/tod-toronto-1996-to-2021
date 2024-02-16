@@ -3,15 +3,15 @@
   import jsondata from "../data/data.json"; // import data
   import { onMount, onDestroy } from "svelte";
   import "../assets/global-styles.css";
-  import cityAverage from "../data/cdData.json";
+  import cityAverage from "../data/cityAverage.json";
 
   //export let data;
   export let variable96; //get the selected variable name for 2021
   export let variable21; //get the selected variable name for 2021
   export let colour96; // set colour for 1996
   export let colour21; // set colour for 2021
-  export let maxHeight; //
   export let transitName;
+  let lineColour = "Green";
 
   /* ======= SETTING UP DATA ==========*/
 
@@ -23,7 +23,7 @@
   var data = jsondata.filter(filterDesignation);
 
   /* ======= SETTING UP CHARTING AREAS ==========*/
-  const padding = { top: 20, right: 60, bottom: 10, left: 15 };
+  const padding = { top: 20, right: 60, bottom: 10, left: 35 };
   let width = 800; // set the base width
   let height = data.length * 5 + padding.top + padding.bottom; // set the base width
 
@@ -79,12 +79,12 @@
 
   /* ======= SCALING DATA POINTS ========== */
   $: xScale = scaleLinear()
-    .domain([0, xTicks.length])
+    .domain([0, Math.max.apply(null, xTicks)])
     .range([padding.left, width - padding.right]);
 
   $: yScale = scaleLinear()
-    .domain([0, Math.max.apply(null, yTicks)])
-    .range([padding.top, height - padding.bottom]); // added 0.2*height to accomodate station text label.
+    .domain([0, yTicks.length])
+    .range([padding.top + 10, height - padding.bottom]); // added 0.2*height to accomodate station text label.
 
   // ------SETTING UP BARS FOR THE BAR CHART ------------------------
   var barPadding = 10; // controls how much spacing the bars will be from the
@@ -97,6 +97,17 @@
 
   // NOT SURE WHAT THIS IS FOR, REMOVE IF UNNECESSARY
   var varName = variable96.replace(" 96", "").replace("Weighted ", "");
+
+  /* MOUSEOVER EVENT */
+  let mouse_x, mouse_y;
+    const setMousePosition = function (event) {
+        mouse_x = event.clientX;
+        mouse_y = event.clientY;
+        console.log("Location", mouse_x, mouse_y)
+    };
+  
+  console.log(width - padding.right);
+
 </script>
 
 <div id="barchart" class="chart" bind:clientHeight={height}>
@@ -105,7 +116,35 @@
       padding.top +
       padding.bottom}
   >
+    <!-- X AND Y AXIS-->
+    <!-- x axis -->
+    <line
+      x1={padding.left / 2 - 5}
+      y1={padding.top}
+      x2={width - padding.right}
+      y2={padding.top}
+      stroke-width={12}
+      stroke={lineColour}
+    />
+    {#each xTicks as tick, i}
+      <text class="text" x={xScale(i)} y={padding.top + 5}
+        >{thousandToK(tick)}
+      </text>
+    {/each}
+    <!-- y axis -->
+    <line
+      class="axis y-axis"
+      x1={padding.left / 2}
+      y1={padding.top}
+      x2={padding.left / 2}
+      y2={height - padding.bottom}
+      stroke-width={12}
+      stroke={lineColour}
+    />
+
     <!-- CREATE STATION TICKS AND LABELS-->
+
+    <!-- Line that marks the location of the station-->
     <g class="station-lines">
       {#each data as point, i}
         {#if point.Label === "Label" && i + 1 < data.length}
@@ -122,12 +161,12 @@
           />
           <circle
             class="point"
-            r={innerWidth / 300}
-            cx={width - padding.right}
+            r={10}
+            cx={padding.left / 2}
             cy={yScale(i) + barPadding}
-            stroke-width="2px"
-            stroke="#FFFFFF"
-            fill="#000000"
+            stroke-width="5px"
+            stroke={lineColour}
+            fill="#FFFFFF"
             on:mouseover={(event) => {
               selected_datapoint = point;
               selected_datapoint_i = i;
@@ -151,12 +190,12 @@
           />
           <circle
             class="point"
-            r={innerWidth / 300}
-            cx={width - padding.right}
+            r={10}
+            cx={padding.left / 2}
             cy={yScale(i) + barPadding}
-            stroke-width="2px"
-            stroke="red"
-            fill="#000000"
+            stroke-width="5px"
+            stroke={lineColour}
+            fill="#FFFFFF"
             on:mouseover={(event) => {
               selected_datapoint = point;
               selected_datapoint_i = i;
@@ -182,19 +221,11 @@
         {/if}
       {/each}
     </g>
-    <!-- y axis -->
-    <g class="axis x-axis">
-      {#each xTicks as tick}
-      {console.log(tick)}
-      {console.log(xScale(tick))}
-        <g class="tick tick-{tick}">
-          <line x1="60%" stroke-width="10" />
-          <text x={xScale(tick)} y={padding.top}>{thousandToK(tick)} </text>
-        </g>
-      {/each}
-    </g>
-    <!-- the lines and circles of the line chart  -->
-    <g>
+
+
+
+    <!-- CREATE THE LINES ON THE LINE GRAPH-->
+
       {#each data as point, i}
         <!-- Line for 1996 Data-->
 
@@ -212,42 +243,50 @@
         <!-- Line for 2021 Data-->
         {#if i > 0 && point[variable21] !== null && data[i - 1][variable21] !== null}
           <line
-            x1={xScale(i - 1) + barPadding + barWidth / 2 - 1}
-            y1={yScale(data[i - 1][variable21])}
-            x2={xScale(i) + barPadding + barWidth / 2 - 1}
-            y2={yScale(point[variable21])}
-            stroke={colour21}
-            stroke-width="2"
+          x1={xScale(data[i - 1][variable21])}
+          y1={yScale(i - 1) + barPadding + barWidth / 2 - 1}
+          x2={xScale(data[i][variable21])}
+          y2={yScale(i) + barPadding + barWidth / 2 - 1}
+          stroke={colour21}
+          stroke-width="2"
           />
         {/if}
-        {#if point[variable96] !== null}
-          {console.log(xScale(point[variable96]) / 10000)}
+
+
+    <!-- CREATE THE DOTS ON THE LINE GRAPH-->
+    {#if point[variable96] !== null}
+    {console.log(point[variable96])}
           <circle
             class="point"
             r={5}
-            cx={xScale(point[variable96]) / 10000 + padding.left}
-            cy={padding.top * 3}
+            cx={xScale(point[variable96])}
+            cy={yScale(i)+barPadding + barWidth / 2 - 1}
             fill={colour96}
             on:mouseover={(event) => {
               selected_datapoint = point;
               selected_datapoint_i = i;
               setMousePosition(event);
+              console.log("Data:", point[variable96])
             }}
             on:mouseout={() => {
               selected_datapoint = undefined;
             }}
           />
           <circle
-            class="point"
-            r={innerWidth / 400}
-            cx={xScale(i) + barPadding + barWidth / 2 - 1}
-            cy={yScale(point[variable21])}
-            fill={colour21}
-            on:mouseover={(event) => {
-              selected_datapoint = point;
-              selected_datapoint_i = i;
-              setMousePosition(event);
-            }}
+          class="point"
+          r={5}
+          cx={xScale(point[variable21])}
+          cy={yScale(i)+barPadding + barWidth / 2 - 1}
+          fill={colour21}
+          on:mouseover={(event) => {
+            selected_datapoint = point;
+            selected_datapoint_i = i;
+            setMousePosition(event);
+            console.log("21Data:", point[variable21])
+          }}
+          on:mouseout={() => {
+            selected_datapoint = undefined;
+          }}
           />
           <rect
             class="barLight"
@@ -266,7 +305,7 @@
           />
         {/if}
       {/each}
-    </g>
+
   </svg>
 </div>
 
@@ -294,6 +333,13 @@
     fill: #ffffff;
   }
 
+  /* XY axis */
+  .text {
+    fill: black;
+    font-size: 12px;
+    background-color: lightgrey;
+    font-weight: bold;
+  }
   /* RESIZING */
   @media only screen and (max-width: 300px) {
     .chart {
@@ -337,9 +383,8 @@
 
   .tick line {
     stroke: var(--brandGray);
-    stroke-width: 1px;
-    opacity: 0.1;
-    padding: 10%;
+    stroke-width: 10px;
+    opacity: 1;
   }
   /* controls the styling for all tick texts */
   .tick text {
@@ -356,6 +401,7 @@
     text-anchor: middle;
     font-size: 15px;
     text-align: left;
+    color: blue;
   }
   .y-label {
     text-anchor: middle;

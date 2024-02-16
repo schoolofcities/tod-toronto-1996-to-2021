@@ -2,7 +2,7 @@
     import { scaleLinear } from "d3-scale";
     import jsondata from "../data/data.json";
     import "../assets/global-styles.css";
-    import cdData from "../data/cdData.json";
+    import cdData from "../data/cityAverage.json";
   
     //export let data;
     export let variable96;
@@ -10,6 +10,7 @@
     export let colour;
     export let colour2;
     let maxHeight = 700;
+   
     export let transitName;
   
     let width = 200;

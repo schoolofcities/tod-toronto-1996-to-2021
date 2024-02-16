@@ -72,8 +72,8 @@
         variable96={variableName + " 96"}
         variable21={variableName + " 21"}
         {transitName}
-        colour="#6FC7EA"
-        colour2="#8DBF2E"
+        colour96="#6FC7EA"
+        colour21="#8DBF2E"
     />
 {/key}
 
