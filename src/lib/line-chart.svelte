@@ -12,13 +12,31 @@
   export let colour21; // set colour for 2021
   export let transitName;
   let lineColour = "Green";
+/*
+  "Line 1: Yonge-University Subway" | "Yonge North Subway Extension" 
+    "#F1C500",
 
-  /* ======= SETTING UP DATA ==========*/
+    "Line 2: Bloor-Danforth Subway" | "Scarborough Subway Extension",
+    "#16A753",
 
-  //filtre data.json to the selected transitName in page.svelte
-  function filterDesignation(jsondata) {
-    return jsondata["Transit Line"] === transitName;
-  }
+    "Line 3: Scarborough RT",
+    "#1F99D5",
+    "Line 4: Sheppard Subway",
+    "#B32078",
+    "Eglinton Crosstown LRT" | "Eglinton Crosstown West Extension" |"Eglinton East LRT" | "Eglinton Crosstown West Extension - Airport Segment" 
+    "#F87005",
+
+    "Finch West LRT",
+    "#888888",
+    "Ontario Line",
+    "#000000",*/
+
+    /* ======= SETTING UP DATA ==========*/
+
+    //filtre data.json to the selected transitName in page.svelte
+    function filterDesignation(jsondata) {
+      return jsondata["Transit Line"] === transitName;
+    };
   // store filtered jsondata in variable called data
   var data = jsondata.filter(filterDesignation);
 
@@ -100,14 +118,11 @@
 
   /* MOUSEOVER EVENT */
   let mouse_x, mouse_y;
-    const setMousePosition = function (event) {
-        mouse_x = event.clientX;
-        mouse_y = event.clientY;
-        console.log("Location", mouse_x, mouse_y)
-    };
-  
-  console.log(width - padding.right);
-
+  const setMousePosition = function (event) {
+    mouse_x = event.clientX;
+    mouse_y = event.clientY;
+    console.log("Location", mouse_x, mouse_y);
+  };
 </script>
 
 <div id="barchart" class="chart" bind:clientHeight={height}>
@@ -222,90 +237,86 @@
       {/each}
     </g>
 
-
-
     <!-- CREATE THE LINES ON THE LINE GRAPH-->
 
-      {#each data as point, i}
-        <!-- Line for 1996 Data-->
+    {#each data as point, i}
+      <!-- Line for 1996 Data-->
 
-        {#if i > 0 && point[variable96] !== null && data[i - 1][variable96] !== null}
-          <line
-            x1={xScale(data[i - 1][variable96])}
-            y1={yScale(i - 1) + barPadding + barWidth / 2 - 1}
-            x2={xScale(data[i][variable96])}
-            y2={yScale(i) + barPadding + barWidth / 2 - 1}
-            stroke={colour96}
-            stroke-width="2"
-          />
-        {/if}
+      {#if i > 0 && point[variable96] !== null && data[i - 1][variable96] !== null}
+        <line
+          x1={xScale(data[i - 1][variable96])}
+          y1={yScale(i - 1) + barPadding + barWidth / 2 - 1}
+          x2={xScale(data[i][variable96])}
+          y2={yScale(i) + barPadding + barWidth / 2 - 1}
+          stroke={colour96}
+          stroke-width="2"
+        />
+      {/if}
 
-        <!-- Line for 2021 Data-->
-        {#if i > 0 && point[variable21] !== null && data[i - 1][variable21] !== null}
-          <line
+      <!-- Line for 2021 Data-->
+      {#if i > 0 && point[variable21] !== null && data[i - 1][variable21] !== null}
+        <line
           x1={xScale(data[i - 1][variable21])}
           y1={yScale(i - 1) + barPadding + barWidth / 2 - 1}
           x2={xScale(data[i][variable21])}
           y2={yScale(i) + barPadding + barWidth / 2 - 1}
           stroke={colour21}
           stroke-width="2"
-          />
-        {/if}
+        />
+      {/if}
 
-
-    <!-- CREATE THE DOTS ON THE LINE GRAPH-->
-    {#if point[variable96] !== null}
-    {console.log(point[variable96])}
-          <circle
-            class="point"
-            r={5}
-            cx={xScale(point[variable96])}
-            cy={yScale(i)+barPadding + barWidth / 2 - 1}
-            fill={colour96}
-            on:mouseover={(event) => {
-              selected_datapoint = point;
-              selected_datapoint_i = i;
-              setMousePosition(event);
-              console.log("Data:", point[variable96])
-            }}
-            on:mouseout={() => {
-              selected_datapoint = undefined;
-            }}
-          />
-          <circle
+      <!-- CREATE THE DOTS ON THE LINE GRAPH-->
+      {#if point[variable96] !== null}
+        {console.log(point[variable96])}
+        <circle
+          class="point"
+          r={5}
+          cx={xScale(point[variable96])}
+          cy={yScale(i) + barPadding + barWidth / 2 - 1}
+          fill={colour96}
+          on:mouseover={(event) => {
+            selected_datapoint = point;
+            selected_datapoint_i = i;
+            setMousePosition(event);
+            console.log("Data:", point[variable96]);
+          }}
+          on:mouseout={() => {
+            selected_datapoint = undefined;
+          }}
+        />
+        <circle
           class="point"
           r={5}
           cx={xScale(point[variable21])}
-          cy={yScale(i)+barPadding + barWidth / 2 - 1}
+          cy={yScale(i) + barPadding + barWidth / 2 - 1}
           fill={colour21}
           on:mouseover={(event) => {
             selected_datapoint = point;
             selected_datapoint_i = i;
             setMousePosition(event);
-            console.log("21Data:", point[variable21])
+            console.log("21Data:", point[variable21]);
           }}
           on:mouseout={() => {
             selected_datapoint = undefined;
           }}
-          />
-          <rect
-            class="barLight"
-            x={xScale(Math.max(point[variable21], point[variable96]))}
-            y={xScale(i) + barPadding}
-            width={barWidth - 2}
-            height={xScale(0) -
-              xScale(Math.max(point[variable21], point[variable96]))}
-            stroke={"greu"}
-            opacity="0.15"
-            on:mouseover={(event) => {
-              selected_datapoint = point;
-              setMousePosition(event);
-              selected_datapoint_i = i;
-            }}
-          />
-        {/if}
-      {/each}
-
+        />
+        <rect
+          class="barLight"
+          x={xScale(Math.max(point[variable21], point[variable96]))}
+          y={xScale(i) + barPadding}
+          width={barWidth - 2}
+          height={xScale(0) -
+            xScale(Math.max(point[variable21], point[variable96]))}
+          stroke={"greu"}
+          opacity="0.15"
+          on:mouseover={(event) => {
+            selected_datapoint = point;
+            setMousePosition(event);
+            selected_datapoint_i = i;
+          }}
+        />
+      {/if}
+    {/each}
   </svg>
 </div>
 
