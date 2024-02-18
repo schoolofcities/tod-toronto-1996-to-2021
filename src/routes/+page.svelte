@@ -153,8 +153,8 @@
         padding-left: 0%;
         max-width: 600px;
         max-width: calc(100vw - 30px);
-        background-color: var(--brandGray90);
-        border: 1px solid var(--brandDarkBlue);
+        background-color: var(--brandBlack);
+        border: 1px solid var(--brandBlack);
         color: white;
         font-size: 22px;
     }
@@ -182,6 +182,7 @@
         font-size: 20px;
     }
 
+
     @media only screen and (max-width: 1258px) {
         h1 {
             margin-left: 5%;
@@ -202,8 +203,6 @@
         select option {
             padding-left: 20%;
             padding-right: 20%;
-            background-color: var(--brandGray90);
-            color: white;
         }
     }
     @media only screen and (max-width: 800px) {
@@ -226,8 +225,6 @@
         select option {
             padding-left: 2%;
             padding-right: 2%;
-            background-color: var(--brandGray90);
-            color: white;
         }
     }
 </style>

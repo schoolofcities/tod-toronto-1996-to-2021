@@ -253,9 +253,9 @@
     #map {
         padding-top: 5%;
         height: 60vh;
-        width: 20%;
+        width: 100%;
         top: 0;
-        left: 70vw;
         position: relative;
+        z-index: 2;
     }
 </style>
