@@ -1,7 +1,7 @@
 <script>
   import { scaleLinear } from "d3-scale"; // for scaling data to graph the data points
   import jsondata from "../data/data.json"; // import data
-  import { onMount, onDestroy } from "svelte";
+  import { line, curveNatural } from "d3";
   import "../assets/global-styles.css";
   import cityAverage from "../data/cityAverage.json";
 
@@ -37,7 +37,7 @@
   const xTickMappings = {
     "Apartment fewer than five storeys 96": [0, 1500, 3000, 4500, 6000],
     "Apartment five or more storeys 96": [0, 12500, 25000, 37500, 50000],
-    "Apartment or flat 96": [0, 500, 1000, 1500, 2000],
+    "Apartment or flat 96": [0, 200, 400, 600, 800, 1000],
     "Movable dwelling 96": [0, 750, 1500, 2250, 3000],
     "Other single-attached house 96": [0, 100, 200, 300, 400],
     "Owner 96": [0, 7500, 15000, 22500, 30000],
@@ -74,10 +74,9 @@
   let height = data.length * 5 + padding.top + padding.bottom; // set the base width
 
   // adjust the width of the graph based on viewing size
-  $: innerWidth = 0.85*(width - (padding.left + padding.right));
+  $: innerWidth = 0.8 * (width - (padding.left + padding.right));
   $: innerHeight = height - (padding.top + padding.bottom);
 
-  $: console.log(innerWidth)
   /* ======= SETTING UP X AND Y AXIS ========== */
 
   // ------ SETTING UP Y AXIS ------------------------
@@ -87,24 +86,7 @@
   });
 
   // ------ SETTING UP X AXIS ------------------------
-  // find the max value of the selected 1996 and 2021 variable (furthest to the right of the webpage)
-  // this is to identify how long the bars should be, so that it always extend to the higher value between the 1996 value and 2021 value
-  // xMax will return a list of the larger values between 1996 and 2021.
-  var xMax = data.map(function (obj) {
-    var max = Math.max(obj[variable96], obj[variable21]);
-    return max;
-  });
-  // find the largest value of xMax
-  var max = Math.max.apply(Math, xMax);
-
   // round the numbers for creating xTicks,
-  // this is because we want the chart to only return rounded numbers. (i.e. 100, 2000, 30000)
-  var digits = max.toExponential().split("e+");
-  // return the smallest integer greater than the input value
-  var roundedValue =
-    Math.ceil(parseFloat(digits[0])) * 10 ** parseInt(digits[1]);
-  var interval = roundedValue / 10;
-
   // create xticks using the newMax values
   var xTicks = xTickMappings[variable96];
 
@@ -123,8 +105,8 @@
     return newtick;
   }
 
-    // ------SETTING UP BARS FOR THE BAR CHART ------------------------
-    var barPadding = 1; // controls how much spacing the bars will be from the
+  // ------SETTING UP BARS FOR THE BAR CHART ------------------------
+  var barPadding = 1; // controls how much spacing the bars will be from the
   // control barwidth based on viewing window width
   $: barWidth = Math.max(Math.min(innerHeight / yTicks.length, 25), 6);
 
@@ -135,8 +117,17 @@
 
   $: yScale = scaleLinear()
     .domain([0, yTicks.length])
-    .range([padding.top + 10, height - padding.bottom - 2*barWidth]); // added 0.2*height to accomodate station text label.
+    .range([padding.top + 10, height - padding.bottom - 2 * barWidth]); // added 0.2*height to accomodate station text label.
 
+  $: line_gen96 = line()
+    .curve(curveNatural)
+    .x((d) => xScale(d[variable96]))
+    .y((d,i) => yScale(i) + barPadding + padding.top)(data);
+
+  $: line_gen21 = line()
+    .curve(curveNatural)
+    .x((d) => xScale(d[variable21]))
+    .y((d,i) => yScale(i) + barPadding + padding.top)(data);
 
 
   /* ======= SET UP DATA LABELLING ========== */
@@ -154,15 +145,18 @@
     mouse_y = event.clientY;
   };
 
-  console.log(varName);
 </script>
-
-<div id="barchart" class="chart" bind:clientHeight={height} bind:clientWidth={width} >
+<div
+  id="barchart"
+  class="chart"
+  bind:clientHeight={height}
+  bind:clientWidth={width}
+>
   <svg
-    height={(data.length+2) * (barWidth + barPadding) +
+    height={(data.length + 2) * (barWidth + barPadding) +
       padding.top +
       padding.bottom}
-      width =  {width}
+    {width}
   >
     <!-- TEXT LABEL FOR THE STATION NAMES-->
     <g>
@@ -180,35 +174,11 @@
         {/if}
       {/each}
     </g>
-
+    <path d={line_gen96} stroke = {colour96}/>
+    <path d={line_gen21} stroke = {colour21}/>
     <!-- CREATE THE LINES ON THE LINE GRAPH-->
 
     {#each data as point, i}
-      <!-- Line for 1996 Data-->
-
-      {#if i > 0 && point[variable96] !== null && data[i - 1][variable96] !== null}
-        <line
-          x1={xScale(data[i - 1][variable96])}
-          y1={yScale(i - 1) + barPadding + padding.top}
-          x2={xScale(data[i][variable96])}
-          y2={yScale(i) + barPadding + padding.top}
-          stroke={colour96}
-          stroke-width="2"
-        />
-      {/if}
-
-      <!-- Line for 2021 Data-->
-      {#if i > 0 && point[variable21] !== null && data[i - 1][variable21] !== null}
-        <line
-          x1={xScale(data[i - 1][variable21])}
-          y1={yScale(i - 1) + barPadding + padding.top}
-          x2={xScale(data[i][variable21])}
-          y2={yScale(i) + barPadding + padding.top}
-          stroke={colour21}
-          stroke-width="2"
-        />
-      {/if}
-
       <!-- CREATE THE DOTS ON THE LINE GRAPH-->
       {#if point[variable96] !== null}
         <circle
@@ -217,14 +187,6 @@
           cx={xScale(point[variable96])}
           cy={yScale(i) + barPadding + padding.top}
           fill={colour96}
-          on:mouseover={(event) => {
-            selected_datapoint = point;
-            selected_datapoint_i = i;
-            setMousePosition(event);
-          }}
-          on:mouseout={() => {
-            selected_datapoint = undefined;
-          }}
         />
         <circle
           class="point"
@@ -232,19 +194,7 @@
           cx={xScale(point[variable21])}
           cy={yScale(i) + barPadding + padding.top}
           fill={colour21}
-          on:mouseover={(event) => {
-            selected_datapoint = point;
-            selected_datapoint_i = i;
-            setMousePosition(event);
-          }}
-          on:mouseout={() => {
-            selected_datapoint = undefined;
-          }}
         />
-
-
-
-        
       {/if}
     {/each}
 
@@ -254,7 +204,7 @@
         x1={xScale(cityAverage[1][varName])}
         y1={padding.top + 5}
         x2={xScale(cityAverage[1][varName])}
-        y2={height}
+        y2={height - padding.bottom - 1.5*barWidth}
         stroke={"grey"}
         stroke-width="2"
       />
@@ -281,7 +231,7 @@
       x1={padding.left / 2}
       y1={5}
       x2={padding.left / 2}
-      y2={height - padding.bottom-2*barWidth}
+      y2={height - padding.bottom - 2 * barWidth}
       stroke-width={12}
       stroke={lineColour[transitName]}
       z-index="3"
@@ -312,11 +262,6 @@
             stroke-width="5px"
             stroke={lineColour[transitName]}
             fill="#FFFFFF"
-            on:mouseover={(event) => {
-              selected_datapoint = point;
-              selected_datapoint_i = i;
-              setMousePosition(event);
-            }}
           />
         {/if}
 
@@ -341,98 +286,86 @@
             stroke-width="5px"
             stroke={lineColour[transitName]}
             fill="#FFFFFF"
-            on:mouseover={(event) => {
-              selected_datapoint = point;
-              selected_datapoint_i = i;
-              setMousePosition(event);
-            }}
           />
         {/if}
       {/each}
     </g>
     {#each data as point, i}
-            <!-- CREATE THE BARS ON THE LINE GRAPH-->
+      <!-- CREATE THE BARS ON THE LINE GRAPH-->
             <rect
-            class="barLight"
-            x={padding.left / 2}
-            y={yScale(i) + barWidth / 2 - 2 * barPadding}
-            width={0.9*innerWidth - padding.right -20}
-            height={barWidth}
-            opacity="0"
-            on:mouseover={(event) => {
-              selected_datapoint = point;
-              setMousePosition(event);
-              console.log(selected_datapoint);
-              document.querySelector(`#var-text-${i}`).style.opacity = 1;
-              document.querySelector(`#var-hover-${i}`).style.opacity = 1;
-  
-              selected_datapoint_i = i;
-            }}
-            on:mouseout={() => {
-              // Reset the opacity of var-text when the mouse leaves the bar
-              document.querySelector(`#var-text-${i}`).style.opacity = 0;
-              document.querySelector(`#var-hover-${i}`).style.opacity = 0;
-  
-            }}
-          />
-          <rect
-            class="barLight"
-            x={padding.left / 2}
-            y={yScale(i) + barWidth / 2 - 2 * barPadding}
-            width={xScale(Math.max(point[variable21], point[variable96]))}
-            height={barWidth}
-            opacity="0.1"
-            on:mouseover={(event) => {
-              selected_datapoint = point;
-              setMousePosition(event);
-              console.log(selected_datapoint);
-              document.querySelector(`#var-text-${i}`).style.opacity = 1;
-              document.querySelector(`#var-hover-${i}`).style.opacity = 1;
-  
-              selected_datapoint_i = i;
-            }}
-            on:mouseout={() => {
-              // Reset the opacity of var-text when the mouse leaves the bar
-              document.querySelector(`#var-text-${i}`).style.opacity = 0;
-              document.querySelector(`#var-hover-${i}`).style.opacity = 0;
-  
-            }}
-          />
-          <!-- LABELLING THE DATA WILL SHOW ON HOVERING THE BARS-->
-        <rect
-        id = {`var-hover-${i}`}
+        class="barLight"
+        x={padding.left / 2}
+        y={yScale(i) + barWidth / 2 - 2 * barPadding}
+        width={xScale(Math.max(point[variable21], point[variable96]))}
+        height={barWidth}
+        opacity="0.1"
+      />
+      <rect
+        class="barLight"
+        x={padding.left / 2}
+        y={yScale(i) + barWidth / 2 - 2 * barPadding}
+        width={0.9 * innerWidth - padding.right - 20}
+        height={barWidth}
+        opacity="0"
+        on:mouseover={(event) => {
+          selected_datapoint = point;
+          setMousePosition(event);
+          document.querySelector(`#var-text-${i}`).style.opacity = 1;
+          document.querySelector(`#var-hover-${i}`).style.opacity = 1;
+          selected_datapoint_i = i;
+        }}
+        on:mouseout={() => {
+          // Reset the opacity of var-text when the mouse leaves the bar
+          document.querySelector(`#var-text-${i}`).style.opacity = 0;
+          document.querySelector(`#var-hover-${i}`).style.opacity = 0;
+        }}
+      />
+      <!-- LABELLING THE DATA WILL SHOW ON HOVERING THE BARS-->
+      <rect
+        id={`var-hover-${i}`}
         class="var-hover"
-        x={0.9*innerWidth-padding.right}
+        x={0.9 * innerWidth - padding.right}
         y={yScale(i) + barWidth / 2 - 2 * barPadding}
         width={500}
-        height={barPadding + 3*barWidth}
+        height={barPadding + 3 * barWidth}
         opacity="0"
       />
       <text
         id={`var-text-${i}`}
         class="var-text"
-        x={0.9*innerWidth - padding.right}
+        x={0.9 * innerWidth - padding.right}
         y={yScale(i) + barPadding + padding.top + 5}
-        ><tspan>{point["Station Name"]+": "}</tspan>
-        <tspan x={0.9*innerWidth - padding.right + 5} dy={barWidth} dx="1em" fill = {colour96}>{"1996: " + Math.round(point[variable96]*100)/100}</tspan>
-        <tspan x={0.9*innerWidth - padding.right + 5} dy={barWidth} dx="1em" fill = {colour21}>{"2021: " + Math.round(point[variable21]*100)/100}</tspan>
-
+        ><tspan fill = "#F1C500" font-size = "25px" style="text-decoration:underline;font-weight:bold;">{point["Station Name"]}</tspan>
+        <tspan
+          x={0.9 * innerWidth - padding.right + 5}
+          dy={barWidth}
+          dx="0em"
+          fill={colour96}
+          >{"1996: " + Math.round(point[variable96] * 100) / 100}</tspan
+        >
+        <tspan
+          x={0.9 * innerWidth - padding.right + 5}
+          dy={barWidth}
+          dx="0em"
+          fill={colour21}
+          >{"2021: " + Math.round(point[variable21] * 100) / 100}</tspan
+        >
       </text>
-          {/each}
+    {/each}
   </svg>
 </div>
+
 <style>
   /* CHART */
   .chart {
     width: 80%;
     left: 0%;
     max-width: 80%;
-
   }
 
   svg {
     position: relative;
-    width: 80%;
+    width: 90%;
     left: 5%;
   }
 
@@ -453,7 +386,21 @@
     font-weight: bold;
   }
   /* RESIZING */
-  @media only screen and (max-width: 300px) {
+  @media only screen and (max-width: 1258px) {
+    .chart {
+      width: 100%;
+      max-width: 100%;
+      min-width: 500px;
+      margin: 0 auto;
+      padding-top: 0%;
+    }
+    svg {
+      position: relative;
+      width: 100%;
+      left: 5%;
+    }
+  }
+  @media only screen and (max-width: 800px) {
     .chart {
       width: 100%;
       max-width: 100%;
@@ -461,22 +408,13 @@
       margin: 0 auto;
       padding-top: 2%;
     }
-
-  }
-  @media only screen and (max-width: 1000px) {
-    .chart {
+    svg {
+      position: relative;
       width: 100%;
-      max-width: 100%;
-      min-width: 500px;
-      margin: 0 auto;
-      padding-top: 0%
+      left: 0%;
     }
   }
-  svg {
-    position: relative;
-    width: 100%;
-    left: 5%;
-  }
+  
 
   /* AXIS */
   .station-lines {
@@ -513,7 +451,6 @@
     cursor: pointer;
     z-index: 1;
   }
-  
 
   /* HOVERING */
   #hoverLabel {
@@ -525,14 +462,19 @@
 
   .var-text {
     opacity: 0;
-    padding-top:5px;
-    padding-left:2px;
-    fill: #DC4633;
+    padding-top: 5px;
+    padding-left: 2px;
+    fill: #dc4633;
     font-size: 20px;
     font-weight: bold;
+    text-align: right;
   }
-  .var-hover{
+  .var-hover {
     fill: black;
   }
-
+  path {
+    fill: transparent;
+    stroke-width: 3;
+    stroke-linejoin: round;
+  }
 </style>

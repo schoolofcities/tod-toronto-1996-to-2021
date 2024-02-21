@@ -227,19 +227,15 @@
 <style>
     main {
         overflow-y: hidden;
-        max-width: 90%;
         max-height: 30%;
     }
-    @media only screen and (max-width: 1258px) {
-        #map {
-            top: 50%;
-        }
-    }
-    @media only screen and (max-width: 700px) {
-        #map {
-            max-width: 100%;
-            padding-left: 0%;
-        }
+    #map {
+        left: 0px;
+        height: 60vh;
+        width: 100%;
+        padding-left: 0px;
+        z-index: 2;
+        position: absolute;
     }
     @font-face {
         font-family: TradeGothicBold;
@@ -250,12 +246,5 @@
         src: url("../assets/Roboto-Regular.ttf");
     }
 
-    #map {
-        padding-top: 5%;
-        height: 60vh;
-        width: 100%;
-        top: 0;
-        position: relative;
-        z-index: 2;
-    }
+    
 </style>

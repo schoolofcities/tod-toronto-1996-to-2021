@@ -4,7 +4,7 @@
     import "../assets/global-styles.css";
     import Map from "../lib/map.svelte";
 
-    let transitName = "Line 2: Bloor-Danforth Subway";
+    let transitName = "Line 1: Yonge-University Subway";
     var variableName = "Weighted Average Total Individual Income";
 
     var censusItems = [
@@ -53,7 +53,8 @@
 </script>
 
 <TopSofC />
-<h1>25 Years of Transit-Oriented Development, What Has Changed?</h1>
+<h1>25 Years of Transit-Oriented Development<br>What Has Changed?</h1>
+
 
 <select id="transit" value={transitName} on:change={handleTransitChange}>
     {#each transit_lines as value}
@@ -73,7 +74,7 @@
         variable21={variableName + " 21"}
         {transitName}
         colour96="#6FC7EA"
-        colour21="#8DBF2E"
+        colour21="#DC4633"
     />
 {/key}
 
@@ -81,7 +82,7 @@
     <Map {transitName} />
 {/key}
 
-<h2>A Brief Background On Transit Oriented Development</h2>
+<h2>What Is Transit Oriented Development?</h2>
 <p>
     Transit-Oriented Development (TOD) is a city-building concept that
     encourages cities to direct their population and economic growth surrounding
@@ -166,7 +167,7 @@
         margin-left: 0%;
     }
     select option {
-        padding-left: 5%;
+        padding-left: 0%;
         background-color: var(--brandGray90);
         color: white;
     }
@@ -177,9 +178,10 @@
     }
     p {
         padding-left: 5%;
-        padding-right: 5%;
+        padding-right: 30%;
         padding-bottom: 2px;
         font-size: 20px;
+        fill: red;
     }
 
 
@@ -189,6 +191,7 @@
             margin-right: 0%;
         }
         h2 {
+            padding-top: 2%;
             margin-left: 5%;
         }
         #transit {
@@ -197,13 +200,19 @@
         #census {
             margin-left: 5%;
         }
-        p {
-            padding-left: 5%;
-        }
+
         select option {
-            padding-left: 20%;
-            padding-right: 20%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 2px;
+        font-size: 20px;
         }
+        p {
+        padding-left: 5%;
+        padding-right: 25%;
+        padding-bottom: 2px;
+        font-size: 20px;
+    }
     }
     @media only screen and (max-width: 800px) {
         h1 {
@@ -211,6 +220,7 @@
             margin-right: 0%;
         }
         h2 {
+            padding-top: 2%;
             margin-left: 2%;
         }
         #transit {
@@ -219,12 +229,17 @@
         #census {
             margin-left: 2%;
         }
-        p {
-            padding-left: 2%;
-        }
+
         select option {
-            padding-left: 2%;
-            padding-right: 2%;
+            padding-left: 0%;
+            padding-right: 0%;
         }
+        p {
+        padding-left: 2%;
+        padding-right: 5%;
+        padding-bottom: 2px;
+        font-size: 20px;
+        
+    }
     }
 </style>
