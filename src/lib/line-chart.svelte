@@ -1,20 +1,15 @@
 <script>
   import { scaleLinear } from "d3-scale"; // for scaling data to graph the data points
   import jsondata from "../data/data.json"; // import data
-  import { line, curveNatural } from "d3";
+  import { line, curveNatural} from "d3";
   import "../assets/global-styles.css";
   import cityAverage from "../data/cityAverage.json";
 
-  //export let data;
   export let variable96; //get the selected variable name for 2021
   export let variable21; //get the selected variable name for 2021
   export let colour96; // set colour for 1996
   export let colour21; // set colour for 2021
   export let transitName;
-
-  /*{selected_datapoint["Station Name"].toString().toLocaleString() + " (" +
-          selected_datapoint["Count"] + ")" +" " + "1996" + selected_datapoint[variable96].toLocaleString()+ 
-          "2021 "+ selected_datapoint[variable21].toLocaleString()}*/
 
   console.log(transitName);
 
@@ -119,15 +114,17 @@
     .domain([0, yTicks.length])
     .range([padding.top + 10, height - padding.bottom - 2 * barWidth]); // added 0.2*height to accomodate station text label.
 
+  /* ==== SCALING THE LINES === */
   $: line_gen96 = line()
     .curve(curveNatural)
     .x((d) => xScale(d[variable96]))
-    .y((d,i) => yScale(i) + barPadding + padding.top)(data);
+    .y((d, i) => yScale(i) + barPadding + padding.top)(data);
 
   $: line_gen21 = line()
     .curve(curveNatural)
     .x((d) => xScale(d[variable21]))
-    .y((d,i) => yScale(i) + barPadding + padding.top)(data);
+    .y((d, i) => yScale(i) + barPadding + padding.top)(data);
+
 
 
   /* ======= SET UP DATA LABELLING ========== */
@@ -145,7 +142,9 @@
     mouse_y = event.clientY;
   };
 
+  var axis =  padding.left / 2
 </script>
+
 <div
   id="barchart"
   class="chart"
@@ -174,8 +173,8 @@
         {/if}
       {/each}
     </g>
-    <path d={line_gen96} stroke = {colour96}/>
-    <path d={line_gen21} stroke = {colour21}/>
+    <path d={line_gen96} stroke={colour96}/>
+    <path d={line_gen21} stroke={colour21} />
     <!-- CREATE THE LINES ON THE LINE GRAPH-->
 
     {#each data as point, i}
@@ -200,37 +199,44 @@
 
     <!-- CITY AVERAGE VALUES-->
     <g>
-      <line
+      <line class = "city-average"
         x1={xScale(cityAverage[1][varName])}
         y1={padding.top + 5}
         x2={xScale(cityAverage[1][varName])}
-        y2={height - padding.bottom - 1.5*barWidth}
+        y2={height - padding.bottom - 1.5 * barWidth}
         stroke={"grey"}
         stroke-width="2"
       />
+      <text class = "city-average-text"
+        x={xScale(cityAverage[1][varName])+10}
+        y={padding.top + 50}
+      >2021 City Average: {cityAverage[1][varName]}</text>
     </g>
+
 
     <!-- X AND Y AXIS-->
     <!-- x axis -->
     <line
-      x1={padding.left / 2 - 5}
+      x1={axis - 5}
       y1={padding.top}
-      x2={innerWidth}
+      x2={innerWidth + 200}
       y2={padding.top}
       stroke-width={30}
       stroke={lineColour[transitName]}
     />
+    {#if innerWidth > 300}
     {#each xTicks as tick, i}
       <text class="text" x={xScale(tick)} y={padding.top + 5}
         >{thousandToK(tick)}
       </text>
     {/each}
+    {/if}
     <!-- y axis -->
     <line
       class="axis y-axis"
-      x1={padding.left / 2}
+      x1={axis}
       y1={5}
-      x2={padding.left / 2}
+      x2={axis}
       y2={height - padding.bottom - 2 * barWidth}
       stroke-width={12}
       stroke={lineColour[transitName]}
@@ -257,7 +263,7 @@
           <circle
             class="point"
             r={10}
-            cx={padding.left / 2}
+            cx={axis}
             cy={yScale(i) + barPadding + padding.top}
             stroke-width="5px"
             stroke={lineColour[transitName]}
@@ -281,7 +287,7 @@
           <circle
             class="point"
             r={10}
-            cx={padding.left / 2}
+            cx={axis}
             cy={yScale(i) + barPadding + padding.top}
             stroke-width="5px"
             stroke={lineColour[transitName]}
@@ -292,9 +298,9 @@
     </g>
     {#each data as point, i}
       <!-- CREATE THE BARS ON THE LINE GRAPH-->
-            <rect
+      <rect
         class="barLight"
-        x={padding.left / 2}
+        x={axis}
         y={yScale(i) + barWidth / 2 - 2 * barPadding}
         width={xScale(Math.max(point[variable21], point[variable96]))}
         height={barWidth}
@@ -302,7 +308,7 @@
       />
       <rect
         class="barLight"
-        x={padding.left / 2}
+        x={axis}
         y={yScale(i) + barWidth / 2 - 2 * barPadding}
         width={0.9 * innerWidth - padding.right - 20}
         height={barWidth}
@@ -335,7 +341,12 @@
         class="var-text"
         x={0.9 * innerWidth - padding.right}
         y={yScale(i) + barPadding + padding.top + 5}
-        ><tspan fill = "#F1C500" font-size = "25px" style="text-decoration:underline;font-weight:bold;">{point["Station Name"]}</tspan>
+        ><tspan
+          fill="#F1C500"
+          font-size="25px"
+          style="text-decoration:underline;font-weight:bold;"
+          >{point["Station Name"]}</tspan
+        >
         <tspan
           x={0.9 * innerWidth - padding.right + 5}
           dy={barWidth}
@@ -367,14 +378,18 @@
     position: relative;
     width: 90%;
     left: 5%;
+    z-index: 2;
   }
 
   .city-average {
-    stroke-width: 2px;
-    z-index: 6;
+    stroke-width: 5px;
+    z-index: 1;
+    stroke: white;
+    opacity: 0.5;
   }
   .city-average-text {
     font-size: 15px;
+    font-weight: bold;
     fill: #ffffff;
   }
 
@@ -385,36 +400,6 @@
     background-color: lightgrey;
     font-weight: bold;
   }
-  /* RESIZING */
-  @media only screen and (max-width: 1258px) {
-    .chart {
-      width: 100%;
-      max-width: 100%;
-      min-width: 500px;
-      margin: 0 auto;
-      padding-top: 0%;
-    }
-    svg {
-      position: relative;
-      width: 100%;
-      left: 5%;
-    }
-  }
-  @media only screen and (max-width: 800px) {
-    .chart {
-      width: 100%;
-      max-width: 100%;
-      min-width: 500px;
-      margin: 0 auto;
-      padding-top: 2%;
-    }
-    svg {
-      position: relative;
-      width: 100%;
-      left: 0%;
-    }
-  }
-  
 
   /* AXIS */
   .station-lines {
@@ -424,9 +409,18 @@
 
   .station-tick {
     text-anchor: right;
-    fill: var(--brandGray);
-    font-size: 17px;
-    text-align: right;
+    word-wrap: break-word;
+  fill: var(--brandGray);
+  font-size: 17px;
+  text-align: right;
+  max-width: 15px; /* Adjust the value as needed */
+  /* Optional: Enable text wrapping */
+  white-space: pre-line; /* Allow line breaks */
+  }
+  .station-box{
+    width: 200px;
+    height: 300px;
+    background-color: red;
   }
 
   /* LINES GRAPH */
