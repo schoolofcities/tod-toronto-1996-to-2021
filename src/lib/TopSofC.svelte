@@ -19,13 +19,13 @@
 		height: 50px;
 		background-color: var(--brandGray90);
 		margin-bottom: 20px;
-		border-bottom: 1px solid var(--brandWhite);
+		border-bottom: 1px solid var(--brandGray70);
 		width: 100%;
 		min-width: 200px;
 		padding-left: 0px;
 		padding-right: 0px;
 		z-index: 5;
-		opacity: 0.92;
+		opacity: 0.95;
 	}
 
 	#logo {
