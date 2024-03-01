@@ -1,7 +1,7 @@
 <script>
   import { scaleLinear } from "d3-scale"; // for scaling data to graph the data points
   import jsondata from "../data/data.json"; // import data
-  import { line, curveNatural} from "d3";
+  import { line, curveNatural } from "d3";
   import "../assets/global-styles.css";
   import cityAverage from "../data/cityAverage.json";
 
@@ -69,7 +69,7 @@
   let height = data.length * 5 + padding.top + padding.bottom; // set the base width
 
   // adjust the width of the graph based on viewing size
-  $: innerWidth = (width - (padding.left + padding.right));
+  $: innerWidth = width - (padding.left + padding.right);
   $: innerHeight = height - (padding.top + padding.bottom);
 
   /* ======= SETTING UP X AND Y AXIS ========== */
@@ -125,8 +125,6 @@
     .x((d) => xScale(d[variable21]))
     .y((d, i) => yScale(i) + barPadding + padding.top)(data);
 
-
-
   /* ======= SET UP DATA LABELLING ========== */
   let selected_datapoint = undefined;
   let selected_datapoint_i = undefined;
@@ -142,7 +140,7 @@
     mouse_y = event.clientY;
   };
 
-  var axis =  padding.left / 2.5
+  var axis = padding.left / 2.5;
 </script>
 
 <div
@@ -166,7 +164,7 @@
               x={padding.left - 22}
               y={yScale(i) + barPadding + padding.top + 5}
               text-anchor="end"
-							font-size="14"
+              font-size="14"
             >
               {point["Station Name"]}
             </text>
@@ -174,7 +172,7 @@
         {/if}
       {/each}
     </g>
-    <path d={line_gen96} stroke={"white"} stroke-dasharray="6 3"/>
+    <path d={line_gen96} stroke={"white"} stroke-dasharray="6 3" />
     <path d={line_gen21} stroke={"white"} />
     <!-- CREATE THE LINES ON THE LINE GRAPH-->
 
@@ -214,7 +212,6 @@
       >2021 City Average: {cityAverage[1][varName]}</text>
     </g> -->
 
-
     <!-- X AND Y AXIS-->
     <!-- x axis -->
     <line
@@ -226,27 +223,27 @@
       stroke={"#fff"}
     />
     {#if innerWidth > 300}
-    {#each xTicks as tick, i}
-      <text class="text" x={xScale(tick)} y={padding.top} text-anchor="middle"
-        >{thousandToK(tick)}
-      </text>
-			<line
-				x1={xScale(tick)}
-				y1={padding.top + 4}
-				x2={xScale(tick)}
-				y2={padding.top + 12}
-				stroke-width={1}
-				stroke={"#fff"}
-			/>
-      <line
-				x1={xScale(tick)}
-				y1={padding.top + 30}
-				x2={xScale(tick)}
-				y2={height - padding.bottom - 2 * barWidth}
-				stroke-width={1}
-				stroke={"#4d4d4d"}
-			/>
-    {/each}
+      {#each xTicks as tick, i}
+        <text class="text" x={xScale(tick)} y={padding.top} text-anchor="middle"
+          >{thousandToK(tick)}
+        </text>
+        <line
+          x1={xScale(tick)}
+          y1={padding.top + 4}
+          x2={xScale(tick)}
+          y2={padding.top + 12}
+          stroke-width={1}
+          stroke={"#fff"}
+        />
+        <line
+          x1={xScale(tick)}
+          y1={padding.top + 30}
+          x2={xScale(tick)}
+          y2={height - padding.bottom - 2 * barWidth}
+          stroke-width={1}
+          stroke={"#4d4d4d"}
+        />
+      {/each}
     {/if}
     <!-- y axis -->
     <line
@@ -262,7 +259,6 @@
 
     <!-- CREATE STATION TICKS AND LABELS-->
 
-    
     {#each data as point, i}
       <!-- CREATE THE BARS ON THE LINE GRAPH-->
       <!-- <rect
@@ -326,7 +322,7 @@
       </text> -->
     {/each}
 
-		<!-- Line that marks the location of the station-->
+    <!-- Line that marks the location of the station-->
     <g class="station-lines">
       {#each data as point, i}
         {#if point.Label === "Label" && i + 1 < data.length}
@@ -386,7 +382,7 @@
     /* width: 80%; */
     /* left: 0%; */
     max-width: 1000px;
-		min-width: 500px;
+    min-width: 500px;
   }
 
   svg {
@@ -424,14 +420,14 @@
   .station-tick {
     text-anchor: right;
     word-wrap: break-word;
-  fill: var(--brandGray);
-  font-size: 17px;
-  text-align: right;
-  max-width: 15px; /* Adjust the value as needed */
-  /* Optional: Enable text wrapping */
-  white-space: pre-line; /* Allow line breaks */
+    fill: var(--brandGray);
+    font-size: 17px;
+    text-align: right;
+    max-width: 15px; /* Adjust the value as needed */
+    /* Optional: Enable text wrapping */
+    white-space: pre-line; /* Allow line breaks */
   }
-  .station-box{
+  .station-box {
     width: 200px;
     height: 300px;
     background-color: red;
@@ -479,6 +475,6 @@
     fill: transparent;
     stroke-width: 4;
     stroke-linejoin: round;
-		z-index: 40;
+    z-index: 40;
   }
 </style>
