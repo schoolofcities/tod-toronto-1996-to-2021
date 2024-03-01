@@ -2,10 +2,10 @@
     import TopSofC from "../lib/TopSofC.svelte";
     import LineChart from "../lib/line-chart.svelte";
     import "../assets/global-styles.css";
-    import Map from "../lib/map.svelte";
+    import sofcLongCity from "../assets/sofc-long-city.svg";
 
     let transitName = "Line 2: Bloor-Danforth Subway";
-    var variableName = "Weighted Average Total Individual Income";
+    var variableName = "Population";
 
     var censusItems = [
         "Population",
@@ -14,16 +14,16 @@
         "Total Occupied Dwellings",
         "Single-detached house",
         "Semi-detached house",
-        "Apartment or flat",
+        "Row house",
+        "Apartment or flat in a -plex*",
         "Apartment fewer than five storeys",
-        "Apartment five or more storeys",
-        "Weighted Average number of rooms per dwelling",
-        "Owner",
-        "Renter",
-        "Owner Renter Ratio",
+        "Apartment five or more storeys"
+        // "Weighted Average number of rooms per dwelling",
+        // "Owner",
+        // "Renter",
+        // "Owner Renter Ratio",
     ];
 
-    // Section on Drop Down List
     var transit_lines = [
         "Line 1: Yonge-University Subway",
         "Yonge North Subway Extension",
@@ -33,8 +33,8 @@
         "Line 4: Sheppard Subway",
         "Eglinton Crosstown LRT",
         "Eglinton Crosstown West Extension",
+        // "Eglinton Crosstown West Extension - Airport Segment",
         "Eglinton East LRT",
-        "Eglinton Crosstown West Extension - Airport Segment",
         "Finch West LRT",
         "Ontario Line",
     ];
@@ -50,185 +50,218 @@
         variableName = selectedValue;
         //selectedVariable.set(selectedValue);
     }
+    const lineColour = {
+        "Line 1: Yonge-University Subway": "#F1C500",
+        "Yonge North Subway Extension": "#F1C500",
+        "Line 2: Bloor-Danforth Subway": "#16A753",
+        "Scarborough Subway Extension": "#16A753",
+        "Line 3: Scarborough RT": "#1F99D5",
+        "Line 4: Sheppard Subway": "#B32078",
+        "Eglinton Crosstown LRT": "#F87005",
+        "Eglinton Crosstown West Extension": "#F87005",
+        "Eglinton East LRT": "#F87005",
+        "Eglinton Crosstown West Extension - Airport Segment": "#F87005",
+        "Finch West LRT": "#888888",
+        "Ontario Line": "#1F99D5",
+    };
+
+    let topWidth = 200;
+
+
 </script>
 
+
+
 <TopSofC />
-<h1>25 Years of Transit-Oriented Development, What Has Changed?</h1>
 
-<select id="transit" value={transitName} on:change={handleTransitChange}>
-    {#each transit_lines as value}
-        <option {value}>{value}</option>
-    {/each}
-</select>
-<select id="census" value={variableName} on:change={handleCensusChange}>
-    {#each censusItems as value}
-        <option {value}>{value}</option>
-    {/each}
-</select>
+<main>
+    <div class="title" bind:clientWidth={topWidth}>
+        <img width=100% height=71 src={sofcLongCity} alt="sofcLongCity" >
 
-<!-- key is a function that would destroy the element and rebuilt it upon variable change-->
-{#key [transitName, variableName]}
-    <LineChart
-        variable96={variableName + " 96"}
-        variable21={variableName + " 21"}
-        {transitName}
-        colour="#6FC7EA"
-        colour2="#8DBF2E"
-        maxHeight="700"
-    />
-{/key}
+            <svg width="100%" height="20">
+                <line 
+                x1="2" 
+                y1="10" 
+                x2="{topWidth - 30 - 5}" 
+                y2="10" 
+                stroke={lineColour[transitName]} 
+                stroke-width="5" 
+                stroke-linecap="round"
+            />
+            {#each [0, 1, 2, 3] as c}
+                <circle
+                    r={6}
+                    cx={8 + c * ((topWidth - 30 - 16) / 3)}
+                    cy={10}
+                    stroke-width="4px"
+                    stroke={lineColour[transitName]}
+                    fill="#fff"
+                />
+            {/each}
+        </svg>
 
-{#key transitName}
-    <Map {transitName} />
-{/key}
+        
+          
 
-<h2>A Brief Background On Transit Oriented Development</h2>
-<p>
-    Transit-Oriented Development (TOD) is a city-building concept that
-    encourages cities to direct their population and economic growth surrounding
-    public transportation systems, especially around subway, LRT, and commuter
-    rail stations. By promoting TOD, residents can enjoy easy access to public
-    transit and a range of amenities that allow them to live, work, and play
-    within proximity to their homes. TOD is expected to help reduce our reliance
-    on cars. In recent years, the Government of Ontario has required
-    municipalities to delineate "Major Transit Station Areas" surrounding their
-    subways, LRTs, BRTs, and GO train stations. These areas are usually within
-    500 to 800 meters of one of these stations. Municipalities are required to
-    direct and encourage higher-density developments to achieve a minimum
-    population and job density. This web page examines the Subway and LRT system
-    in Toronto, including those that currently exist, are under construction,
-    and are planned. We plot points every 400 meters along each transit line,
-    then calculate the results for various census variables.
-</p>
+        <h1>25 Years of Transit-Oriented Development in Toronto: What Has Changed?</h1>
 
-<h2>Methodology</h2>
-<p>
-    The information presented in the line chart is obtained by processing Census
-    data released by <a
-        href="https://www12.statcan.gc.ca/census-recensement/index-eng.cfm"
-    >
-        Statistics Canada</a
-    >
-    for the years 1996 and 2021. To calculate the changes in census variables
-    near Transit Services, we generated points along Toronto's transit lines,
-    including all higher-order public transit services (excluding GO Transit
-    routes). These services include currently existing and planned routes.
-    Planned routes are included because developments can happen in an area
-    before the opening of a transit line (e.g., Eglinton Crosstown, Yonge-North
-    Subway Extension).
-    <br />
-</p>
-<p>
-    We generated points every 400 meters along the transit line and then created
-    800-meter buffers around the generated points. The buffers are used to crop
-    Census Dissemination Area boundaries for 1996 and 2021. When a Dissemination
-    Area is only partially within the buffer, area interpolation is used to
-    estimate the values that fall within the transit buffers. While all the
-    points generated do not represent a specific station, the points are
-    "assigned" to a station using Thiessen Polygons to determine the closest
-    station to each point. All variables except the weighted variables are the
-    sum of the interpolated values within the transit buffers. The weighted
-    values are based on the area of the Dissemination Area within the transit
-    buffer, compared to the areas of other Dissemination Areas within the same
-    transit buffer.
-    <br />
-</p>
-<p>
-    All transit layers, including the transit line and transit stations, were
-    downloaded from <a href="https://www.metrolinx.com/en/about-us/open-data">
-        Metrolinx's Open Data Catalogue</a
-    >
-</p>
+        <p>
+            <a href="">Michael Liu</a> and <a href="">Jeff Allen</a>
+        </p>
+    </div>
+
+    <div class="text">
+
+        <p>
+            Toronto has had mixed results in encouraging building new housing units where there is easy access to transit services, especially along subway and light-rail lines.
+        </p>
+        <p>
+            We've created an interactive chart for exploring Transit-Oriented Development (TOD), or lack there-of, along Toronto's existing and planned major transit lines, specifically for areas within 800
+            metres (approx. a 10-15 minute walk) from these lines. The dropdowns allow for selecting between lines and different aspects of TOD and it's impact on neighbourhoods, including population, dwelling types, and income. The chart has two curves, one for 1996 and one for 2021, to compare and show changes over this 25 year period.
+        </p>
+        <p>
+            <select id="transit" value={transitName} on:change={handleTransitChange}>
+                {#each transit_lines as value}
+                    <option {value}>{value}</option>
+                {/each}
+            </select>
+        </p>
+        <p>
+            <select id="census" value={variableName} on:change={handleCensusChange}>
+                {#each censusItems as value}
+                    <option {value}>{value}</option>
+                {/each}
+            </select>
+        </p>
+
+        <p>
+            The chart is currently showing the <b>{variableName}</b> that is within an <b>800m</b> distance from each point on the <b>{transitName}</b>
+        </p>
+
+</div>
+
+    <!-- key is a function that would destroy the element and rebuilt it upon variable change-->
+    {#key [transitName, variableName]}
+        <div class = "chart">
+            <LineChart
+                variable96={variableName + " 96"}
+                variable21={variableName + " 21"}
+                {transitName}
+                colour96="#6FC7EA"
+                colour21="#DC4633"
+            />
+        </div>
+    {/key}
+
+    <div class="text">
+        <h2>What Is Transit Oriented Development?</h2>
+        <p>
+            Transit-oriented development (TOD) is a way of building the cities
+            transit-infrastructures. A TOD project is usually higher density, meaning
+            around transit-infrastructures. A TOD project is usually higher
+            that it is a more efficient use of land to house people, jobs and other
+            density, meaning that it is a more efficient use of land to house
+            activities. When TOD is applied to a community level, the area would be
+            people, jobs and other activities. When TOD is applied to a
+            built to be pedestrian friendly so its residents can have easy access to
+            community level, the area would be built to be pedestrian friendly
+            public transit. The area would also be amenity rich, providing a range of
+            so its residents can have easy access to public transit. The area
+            services and job opportunities. Through TOD, a community will become a place
+            would also be amenity rich, providing a range of services and job
+            where people can live, work, and play.
+            opportunities. Through TOD, a community will become a place where
+            people can live, work, and play.
+
+            <br>
+            <br /><b>What is the benefit of TOD? </b><br />
+            
+            TOD allows people to reduce their reliance on cars for many errands.
+            For instance, a resident can simply walk to a nearby grocery store to
+            get groceries, bike a few blocks to get to the place where they are employed,
+            and access the park nearby, all without having the need to rely on cars.
+            Through reducing reliance on cars, people will not have to allocate a
+            portion of their income to buy and operate a car. TOD encourages people
+            to walk and bike more, which can in turn help people exercise, reducing
+            the level of obesity and the diseases caused by it. It is also beneficial
+            to our environment as we reduce the amount of carbon emissions and harmful
+            air pollution particles that would cause respiratory issues.
+            <br /> <br>
+            TOD is also beneficial to city governments, as TOD would locate a large
+            number of residents and jobs, which would encourage people to use public
+            transit and justify the cost of operating these systems. By building
+            more densely, cities can also cut operation and maintenance
+            costs of their infrastructures, such as roads, sewage, water, and waste
+            collection.
+            
+        </p>
+
+        <h2>Methodology</h2>
+        <p>
+            Transit-Oriented Developments are defined as areas within 5-10
+            minutes walk to a transit service. In Ontario, this is equivalent to
+            500 to 800 metres. This widget compares data from <a
+                href="https://www12.statcan.gc.ca/census-recensement/index-eng.cfm"
+                >Statistics Canada’s
+            </a>
+            Census for the year of 1996 and 2021. Census data agglomerates data to
+            multiple geographical areas, from city level data to the smallest and
+            publicly available level, Dissemination Area level data, which is consisted
+            of a few city blocks. This widget uses Dissemination Area to get the
+            most accurate estimate of the census variables. Due to the boundary of
+            800-metre buffers do not align with Dissemination Area boundaries, we
+            used areal interpolation to estimate the density of each variable within
+            respective Dissemination Areas, then interpolate the data by the area
+            that is within the 800 metre buffer. <br />
+        </p>
+        <p>
+            We generated points every 400 meters along transit-services in
+            Toronto, then created 800-meter buffers around the generated points.
+            Since transit stations are not 400m apart, We also used Thiessen
+            Polygon to determine the closest station for each of the point we
+            generated.
+            <br />
+        </p>
+        <p>
+            All transit layers, including the transit line and transit stations,
+            were downloaded from <a
+                href="https://www.metrolinx.com/en/about-us/open-data"
+            >
+                Metrolinx's Open Data Catalogue</a
+            >
+        </p>
+    </div>
+</main>
 
 <style>
-    h1 {
-        margin-left: 5%;
-        margin-top: 1%;
-    }
-    h2 {
-        margin-left: 5%;
-        margin-top: 1%;
-    }
 
     select {
-        padding-left: 0%;
-        max-width: 600px;
-        max-width: calc(100vw - 30px);
-        background-color: var(--brandGray90);
-        border: 1px solid var(--brandDarkBlue);
+        padding: 3px;
+        padding-left: 5px;
+        width: 340px;
+        background-color: var(--brandBlack);
+        border: 1px solid var(--brandBlack);
         color: white;
-        font-size: 22px;
-    }
-    #transit {
-        margin-left: 5%;
-        margin-bottom: 1%;
-    }
-    #census {
-        margin-left: 0%;
+        font-size: 16px;
+        border-color: var(--brandGray70);
+        border-radius: 1px;
     }
     select option {
-        padding-left: 5%;
         background-color: var(--brandGray90);
         color: white;
+        stroke: white;
     }
 
     select:hover {
         cursor: pointer;
         background-color: var(--brandDarkBlue);
     }
-    p {
-        padding-left: 5%;
-        padding-right: 5%;
-        padding-bottom: 2px;
-        font-size: 20px;
+
+    .chart {
+        max-width: 1046px;
+        background-color: none;
+        margin: 0 auto;
+        position: relative;
     }
 
-    @media only screen and (max-width: 1258px) {
-        h1 {
-            margin-left: 5%;
-            margin-right: 0%;
-        }
-        h2 {
-            margin-left: 5%;
-        }
-        #transit {
-            margin-left: 5%;
-        }
-        #census {
-            margin-left: 5%;
-        }
-        p {
-            padding-left: 5%;
-        }
-        select option {
-            padding-left: 20%;
-            padding-right: 20%;
-            background-color: var(--brandGray90);
-            color: white;
-        }
-    }
-    @media only screen and (max-width: 800px) {
-        h1 {
-            margin-left: 2%;
-            margin-right: 0%;
-        }
-        h2 {
-            margin-left: 2%;
-        }
-        #transit {
-            margin-left: 2%;
-        }
-        #census {
-            margin-left: 2%;
-        }
-        p {
-            padding-left: 2%;
-        }
-        select option {
-            padding-left: 2%;
-            padding-right: 2%;
-            background-color: var(--brandGray90);
-            color: white;
-        }
-    }
 </style>

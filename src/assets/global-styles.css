@@ -36,7 +36,7 @@
 body {
     padding: 0px;
     margin: 0px;
-    background-color: var(--brandBlack);
+    background-color: var(--brandGray90);
 }
 
 main {
@@ -51,8 +51,9 @@ main {
     background-color: none;
     max-width: 750px;
     margin: 0 auto;
+    margin-top: 150px;
     padding-bottom: 15px;
-    border-bottom: dotted 3px var(--brandYellow);
+    border-bottom: solid 1px var(--brandGray70);
     position: relative;
     padding-left: 15px;
     padding-right: 15px;
@@ -66,21 +67,21 @@ main {
     position: relative;
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 20px;
 }
 
 h1 {
     font-family: TradeGothicBold;
-    font-size: 36px;
+    font-size: 32px;
     color: var(--brandWhite);
-    text-decoration: underline;
-    padding-top: 50px;
+    padding-top: 0px;
 }
 
 h2 {
     text-align: left;
     font-family: TradeGothicBold;
     font-size: 30px;
-    color: var(--brandYellow);
+    color: var(--brandWhite);
 }
 
 h3 {
@@ -93,7 +94,7 @@ h3 {
 
 p {
     font-family: RobotoRegular;
-    color: var(--brandWhite);
+    color: var(--brandGray);
     text-align: left;
     font-size: 17px;
     line-height: 25px;
@@ -105,11 +106,16 @@ p {
 }
 
 a {
-    color: var(--brandWhite);
+    color: var(--brandLightBlue);
     text-decoration: underline;
+    font-weight: bold;
 }
 a:hover {
     color: var(--brandLightBlue);
+}
+
+b {
+    color: var(--brandWhite);
 }
 
 .topImg {
