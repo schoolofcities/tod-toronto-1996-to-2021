@@ -103,7 +103,7 @@
         
           
 
-        <h1>25 Years of Transit-Oriented Development:<br />What Has Changed?</h1>
+        <h1>25 Years of Transit-Oriented Development in Toronto: What Has Changed?</h1>
 
         <p>
             <a href="">Michael Liu</a> and <a href="">Jeff Allen</a>
@@ -113,26 +113,12 @@
     <div class="text">
 
         <p>
-            Toronto has been encouraging building new housing units along places
-            where there is easy access to transit services, especially along
-            subway and light-rail services, usually in areas within 500 to 800
-            metres. This urban development approach is also known as
-            Transit-Oriented Developments (TOD).
+            Toronto has had mixed results in encouraging building new housing units where there is easy access to transit services, especially along subway and light-rail lines.
         </p>
         <p>
-            This widget is designed to show changes along Toronto Transit
-            Commission (TTC)'s Light Rail and Subway lines, for areas within 800
-            metres (15-minute walk). You can view the changes for existing and
-            planned transit services. In addition, we have also picked a few
-            interesting aspects of TOD that we would like to explore, these
-            aspects include population, income and dwelling types.
+            We've created an interactive chart for exploring Transit-Oriented Development (TOD), or lack there-of, along Toronto's existing and planned major transit lines, specifically for areas within 800
+            metres (approx. a 10-15 minute walk) from these lines. The dropdowns allow for selecting between lines and different aspects of TOD and it's impact on neighbourhoods, including population, dwelling types, and income. The chart has two curves, one for 1996 and one for 2021, to compare and show changes over this 25 year period.
         </p>
-        <p>
-            The chart is currently showing the <b>{variableName}</b> that is within an <b>800m</b> distance from each point on the <b>{transitName}</b>
-        </p>
-
-
-        
         <p>
             <select id="transit" value={transitName} on:change={handleTransitChange}>
                 {#each transit_lines as value}
@@ -146,6 +132,10 @@
                     <option {value}>{value}</option>
                 {/each}
             </select>
+        </p>
+
+        <p>
+            The chart is currently showing the <b>{variableName}</b> that is within an <b>800m</b> distance from each point on the <b>{transitName}</b>
         </p>
 
 </div>
