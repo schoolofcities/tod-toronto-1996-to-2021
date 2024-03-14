@@ -137,7 +137,12 @@
         <p>
             The chart is currently showing the <b>{variableName}</b> that is within an <b>800m</b> distance from each point on the <b>{transitName}</b>
         </p>
-
+        <svg class = "legend" height = "30px" width = {600}>
+            <line class="dashed-lines" x1="10px" y1="15" x2="60px" y2="15"></line>
+            <text x="70px" y="20" font-size="14" fill="white">1996 Census</text>
+            <line class="lines" x1="190px" y1="15" x2="240px" y2="15"></line>
+            <text x="250px" y="20" font-size="14" fill="white" >2021 Census</text>
+          </svg>
 </div>
 
     <!-- key is a function that would destroy the element and rebuilt it upon variable change-->
@@ -230,7 +235,9 @@
                 Metrolinx's Open Data Catalogue</a
             >
         </p>
+        
     </div>
+    
 </main>
 
 <style>
@@ -263,5 +270,29 @@
         margin: 0 auto;
         position: relative;
     }
+    .legend {
+    position: relative;
+    max-width: 1000px;
+    min-width: 500px;
+    top: 10px;
+    margin: 0 auto;
+  }
 
+  .dashed-lines{
+    position: relative;
+    stroke: white;
+    margin: 0 auto;
+    stroke-dasharray: 6 3;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    stroke-width: 5px;
+  }
+  .lines{
+    position: relative;
+    margin: 0 auto;
+    stroke: white;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    stroke-width: 5px;
+  }
 </style>
