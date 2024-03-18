@@ -141,6 +141,7 @@
     .x((d) => xScale(d[variable21]))
     .y((d, i) => yScale(i) + barPadding + padding.top)(data);
 
+
   // Define the area generators
 
   /* ======= SET UP DATA LABELLING ========== */
