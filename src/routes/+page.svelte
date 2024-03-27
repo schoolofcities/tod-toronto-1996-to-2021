@@ -156,7 +156,7 @@
                 <text x="70px" y="20" font-size="14" fill="white"
                     >1996 Census</text
                 >
-            </svg>
+            </svg></p><p>
             <svg class="legend" height="30px" width={600}>
                 <line class="lines" x1="0px" y1="15" x2="60px" y2="15"></line>
                 <text x="70px" y="20" font-size="14" fill="white"
