@@ -15,6 +15,7 @@
   console.log(transitName);
 
   let scrollY = 0; // Variable to store scroll position
+  let windowWidth
 
   // Add event listener for scroll event using onMount
   onMount(() => {
@@ -23,11 +24,24 @@
 
   // Function to handle scroll event
   function handleScroll() {
-    scrollY = window.scrollY - 800;
+    scrollY = window.scrollY-600;
+    windowWidth = window.innerWidth;
+    if(windowWidth < 500){
+      scrollY = window.scrollY - 1000;
+    } else if (windowWidth > 500 && windowWidth <= 700){
+      scrollY = window.scrollY-850
+    }else if (windowWidth > 700 && windowWidth <= 900){
+      scrollY = window.scrollY-700
+    }else if (windowWidth > 900){
+      scrollY = window.scrollY-600
+    }
   }
 
   // Calculate x-axis position based on scroll
   $: xAxisY = padding.top + scrollY;
+  $: windowWidth = windowWidth
+
+  $: console.log(windowWidth)
 
   const lineColour = {
     "Line 1: Yonge-University Subway": "#F1C500",
@@ -53,7 +67,7 @@
     "Other single-attached house 96": [0, 100, 200, 300, 400],
     "Owner 96": [0, 7500, 15000, 22500, 30000],
     "Owner Renter Ratio 96": [0, 8.75, 17.5, 26.25, 35], // Updated value
-    "Population 96": [0, 25000, 50000, 75000, 100000],
+    "Population 96": [0, 25000, 50000, 75000],
     "Renter 96": [0, 8750, 17500, 26250, 35000],
     "Row house 96": [0, 875, 1750, 2625, 3500],
     "Semi-detached house 96": [0, 1375, 2750, 4125, 5500],
@@ -148,6 +162,8 @@
 
   /* MOUSEOVER EVENT */
   let mouse_x, mouse_y;
+
+  
 </script>
 
 <div
@@ -169,7 +185,7 @@
         {#if point.Label === "Label"}
           <g class="station-tick">
             <text
-              x={padding.left - 22}
+              x={padding.left - 35}
               y={yScale(i) + barPadding + padding.top + 5}
               text-anchor="end"
               font-size="14"
@@ -196,10 +212,10 @@
         stroke-width={1}
         stroke={"#fff"}
       />
-      {#if innerWidth > 300}
+
         {#each xTicks as tick, i}
         <!--X LABEL TEXT-->
-          <text class="text" x={xScale(tick)} y={padding.top-2} text-anchor="middle"
+          <text class="x-text" x={xScale(tick)} y={padding.top-2} text-anchor="middle"
             >{thousandToK(tick)}
           </text>
           <!--X AXIS-->
@@ -221,18 +237,18 @@
             stroke={"#4d4d4d"}
           />
         {/each}
-      {/if}
+
 
     {:else if xAxisY > 0}
       <line
         x1={padding.left}
-        y1={xAxisY + 10}
+        y1={xAxisY }
         x2={padding.left + innerWidth}
-        y2={xAxisY + 10}
+        y2={xAxisY }
         stroke-width={1}
         stroke={"#fff"}
       />
-      {#if innerWidth > 300}
+
         {#each xTicks as tick, i}
         <line
             x1={xScale(tick)}
@@ -242,7 +258,7 @@
             stroke-width={1}
             stroke={"#4d4d4d"}
           />
-          <text class="text" x={xScale(tick)} y={xAxisY} text-anchor="middle"
+          <text class="x-text" x={xScale(tick)} y={xAxisY} text-anchor="middle"
             >{thousandToK(tick)}
           </text>
           <line
@@ -255,15 +271,15 @@
           />
           
         {/each}
-      {/if}
+
     {/if}
 
     <!-- y axis -->
     <line
       class="axis y-axis"
-      x1={padding.left - 12}
+      x1={padding.left - 24}
       y1={padding.top + 30}
-      x2={padding.left - 12}
+      x2={padding.left - 24}
       y2={height - padding.bottom - 2 * barWidth}
       stroke-width={6}
       stroke={lineColour[transitName]}
@@ -288,7 +304,7 @@
           <circle
             class="point"
             r={6}
-            cx={padding.left - 12}
+            cx={padding.left - 24}
             cy={yScale(i) + barPadding + padding.top}
             stroke-width="4px"
             stroke={lineColour[transitName]}
@@ -312,7 +328,7 @@
           <circle
             class="point"
             r={6}
-            cx={padding.left - 12}
+            cx={padding.left - 24}
             cy={yScale(i) + barPadding + padding.top}
             stroke-width="4px"
             stroke={lineColour[transitName]}
@@ -328,10 +344,10 @@
   /* CHART */
   .chart {
     /* width: 80%; */
-    /* left: 0%; */
+    /*  left: 0%; */
     padding-top: 20px;
     max-width: 1000px;
-    min-width: 500px;
+
     z-index: 1;
   }
 
@@ -339,11 +355,13 @@
     position: relative;
     /* width: 90%; */
     /* left: 5%; */
+    max-width: 1000px;
+
     z-index: 1;
   }
 
   /* XY axis */
-  .text {
+  .x-text {
     fill: white;
     font-size: 16px;
     background-color: lightgrey;

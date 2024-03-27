@@ -34,16 +34,15 @@
 }
 
 body {
-    padding: 0px;
-    margin: 0px;
+
     background-color: var(--brandGray90);
 }
 
 main {
-    margin: 0 auto;
-    width: calc(100% - 40px);
-    min-width: 420px;
-    max-width: 1300px;
+    /*margin: 0 auto;*/
+    width: calc(100%);
+    /*min-width: 420px;*/
+    /*max-width: 1300px;*/
     position: relative;
 }
 
@@ -51,7 +50,7 @@ main {
     background-color: none;
     max-width: 750px;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 70px;
     padding-bottom: 15px;
     border-bottom: solid 1px var(--brandGray70);
     position: relative;
@@ -67,7 +66,7 @@ main {
     position: relative;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 20px;
+    
 }
 
 h1 {
@@ -95,9 +94,10 @@ h3 {
 p {
     font-family: RobotoRegular;
     color: var(--brandGray);
-    text-align: left;
+    text-align: justify;
     font-size: 17px;
     line-height: 25px;
+
 }
 
 .note {
@@ -124,10 +124,12 @@ b {
     height: 500px;
     overflow: hidden;
     background-color: none;
+    margin-top: 70px;
 }
 
 .topImg img {
     width: 100%;  /* Fill the container width */
     height: 500px;
     object-fit: none;
+    margin-top: 70px;
 }
