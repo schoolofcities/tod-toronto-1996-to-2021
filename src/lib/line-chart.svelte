@@ -205,7 +205,7 @@
         stroke-width={6}
         stroke={lineColour[transitName]}
       />
-      {#if windowWidth > 600}
+      {#if windowWidth > 400}
         {#each xTicks as tick, i}
           <!--X LABEL TEXT-->
           <text
@@ -259,7 +259,7 @@
         stroke-width={6}
         stroke={lineColour[transitName]}
       />
-      {#if windowWidth > 600}
+      {#if windowWidth > 400}
       {#each xTicks as tick, i}
         <line
           x1={xScale(tick)}
