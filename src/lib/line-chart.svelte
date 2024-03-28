@@ -15,7 +15,7 @@
   console.log(transitName);
 
   let scrollY = 0; // Variable to store scroll position
-  let windowWidth
+  let windowWidth;
 
   // Add event listener for scroll event using onMount
   onMount(() => {
@@ -24,24 +24,45 @@
 
   // Function to handle scroll event
   function handleScroll() {
-    scrollY = window.scrollY-600;
+    //scrollY = window.scrollY-600;
+
     windowWidth = window.innerWidth;
-    if(windowWidth < 500){
+    console.log("Window Width is ", windowWidth);
+    if (windowWidth < 500) {
       scrollY = window.scrollY - 1000;
-    } else if (windowWidth > 500 && windowWidth <= 700){
-      scrollY = window.scrollY-850
-    }else if (windowWidth > 700 && windowWidth <= 900){
-      scrollY = window.scrollY-700
-    }else if (windowWidth > 900){
-      scrollY = window.scrollY-600
+      console.log("smaller than 500");
+      console.log(window.scrollY, scrollY);
+      console.log("Difference is ", window.scrollY - scrollY);
+    } else if (windowWidth > 500 && windowWidth <= 700) {
+      scrollY = window.scrollY - 850;
+      console.log("500 - 700");
+      console.log(window.scrollY, scrollY);
+      console.log("Difference is ", window.scrollY - scrollY);
+    } else if (windowWidth > 700 && windowWidth <= 900) {
+      scrollY = window.scrollY - 700;
+      console.log("700 - 900");
+      console.log(window.scrollY, scrollY);
+      console.log("Difference is ", window.scrollY - scrollY);
+    } else if (windowWidth > 900) {
+      scrollY = window.scrollY - 600;
+      console.log("900 and up");
+      console.log(window.scrollY, scrollY);
+      console.log("Difference is ", window.scrollY - scrollY);
     }
   }
+/*
+  function getPositionXY(element) {
+    let elm = document.querySelector(element);
+    let rect = elm.getBoundingClientRect();
+    document.getElementById("gfg").innerHTML =
+      "X: " + rect.x + ", " + "Y: " + rect.y;
+  }*/
+
+  //console.log(getPositionXY("chart"))
 
   // Calculate x-axis position based on scroll
   $: xAxisY = padding.top + scrollY;
-  $: windowWidth = windowWidth
-
-  $: console.log(windowWidth)
+  $: windowWidth = windowWidth;
 
   const lineColour = {
     "Line 1: Yonge-University Subway": "#F1C500",
@@ -155,15 +176,12 @@
     .x((d) => xScale(d[variable21]))
     .y((d, i) => yScale(i) + barPadding + padding.top)(data);
 
-
   // Define the area generators
 
   /* ======= SET UP DATA LABELLING ========== */
 
   /* MOUSEOVER EVENT */
   let mouse_x, mouse_y;
-
-  
 </script>
 
 <div
@@ -178,7 +196,6 @@
       padding.bottom}
     {width}
   >
-  
     <!-- TEXT LABEL FOR THE STATION NAMES-->
     <g>
       {#each data as point, i}
@@ -203,7 +220,7 @@
     <!-- X AND Y AXIS-->
     <!-- x axis -->
     {#if xAxisY <= 0}
-    <!--X AXIS LINE-->
+      <!--X AXIS LINE-->
       <line
         x1={padding.left}
         y1={padding.top + 4}
@@ -213,65 +230,65 @@
         stroke={"#fff"}
       />
 
-        {#each xTicks as tick, i}
+      {#each xTicks as tick, i}
         <!--X LABEL TEXT-->
-          <text class="x-text" x={xScale(tick)} y={padding.top-2} text-anchor="middle"
-            >{thousandToK(tick)}
-          </text>
-          <!--X AXIS-->
-          <line
-            x1={xScale(tick)}
-            y1={padding.top}
-            x2={xScale(tick)}
-            y2={padding.top}
-            stroke-width={1}
-            stroke={"#fff"}
-          />
-          <!--X TICKS LINE-->
-          <line
-            x1={xScale(tick)}
-            y1={padding.top + 30}
-            x2={xScale(tick)}
-            y2={height - padding.bottom - 2 * barWidth}
-            stroke-width={1}
-            stroke={"#4d4d4d"}
-          />
-        {/each}
-
-
+        <text
+          class="x-text"
+          x={xScale(tick)}
+          y={padding.top - 2}
+          text-anchor="middle"
+          >{thousandToK(tick)}
+        </text>
+        <!--X AXIS-->
+        <line
+          x1={xScale(tick)}
+          y1={padding.top}
+          x2={xScale(tick)}
+          y2={padding.top}
+          stroke-width={1}
+          stroke={"#fff"}
+        />
+        <!--X TICKS LINE-->
+        <line
+          x1={xScale(tick)}
+          y1={padding.top + 30}
+          x2={xScale(tick)}
+          y2={height - padding.bottom - 2 * barWidth}
+          stroke-width={1}
+          stroke={"#4d4d4d"}
+        />
+      {/each}
     {:else if xAxisY > 0}
       <line
         x1={padding.left}
-        y1={xAxisY }
+        y1={xAxisY}
         x2={padding.left + innerWidth}
-        y2={xAxisY }
+        y2={xAxisY}
         stroke-width={1}
         stroke={"#fff"}
       />
 
-        {#each xTicks as tick, i}
+      {#each xTicks as tick, i}
         <line
-            x1={xScale(tick)}
-            y1={padding.top + 30}
-            x2={xScale(tick)}
-            y2={height - padding.bottom - 2 * barWidth}
-            stroke-width={1}
-            stroke={"#4d4d4d"}
-          />
-          <text class="x-text" x={xScale(tick)} y={xAxisY} text-anchor="middle"
-            >{thousandToK(tick)}
-          </text>
-          <line
-            x1={xScale(tick)}
-            y1={xAxisY}
-            x2={xScale(tick)}
-            y2={xAxisY}
-            stroke-width={1}
-            stroke={"#fff"}
-          />
-          
-        {/each}
-
+          x1={xScale(tick)}
+          y1={padding.top + 30}
+          x2={xScale(tick)}
+          y2={height - padding.bottom - 2 * barWidth}
+          stroke-width={1}
+          stroke={"#4d4d4d"}
+        />
+        <text class="x-text" x={xScale(tick)} y={xAxisY} text-anchor="middle"
+          >{thousandToK(tick)}
+        </text>
+        <line
+          x1={xScale(tick)}
+          y1={xAxisY}
+          x2={xScale(tick)}
+          y2={xAxisY}
+          stroke-width={1}
+          stroke={"#fff"}
+        />
+      {/each}
     {/if}
 
     <!-- y axis -->
@@ -401,6 +418,4 @@
     stroke-linejoin: round;
     z-index: 40;
   }
-
-
 </style>
