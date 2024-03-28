@@ -65,6 +65,19 @@
         "Ontario Line": "#1F99D5",
     };
 
+    const textName = {
+        "Population":  "population count",
+        "Weighted Average Total Individual Income": "weighted average total individual income",
+        "Weighted Average Total Household Income": "weighted average total household income",
+        "Total Occupied Dwellings": "total count of occupied dwellings",
+        "Single-detached house": "count of people who live in single-detached house",
+        "Semi-detached house": "count of people who live in semi-detached house",
+        "Row house": "count of people who live in row house ",
+        "Apartment or flat in a -plex*": "count of people who live in apartments or flats in a du-, tri-, four-, multi-plex",
+        "Apartment fewer than five storeys": "count of people who live in apartments that are less than five storeys",
+        "Apartment five or more storeys": "count of people who live in apartments that are in buildings five or more storeys",
+    }
+
     let topWidth = 200;
 </script>
 
@@ -146,8 +159,8 @@
         </p>
 
         <p>
-            The chart is currently showing the <b>{variableName}</b> that is
-            within an <b>800m</b> distance from each point on the
+            The chart is currently showing <b>{textName[variableName]}</b> in the area that is within
+            <b>800m</b> distance of 
             <b>{transitName}</b><br />
 
             <svg class="legend" height="30px" width={600}>

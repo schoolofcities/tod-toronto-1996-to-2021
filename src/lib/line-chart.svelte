@@ -22,35 +22,56 @@
     window.addEventListener("scroll", handleScroll);
   });
 
+  let xAxisElement; // Declare a variable to hold reference to the x-axis element
+
+  // Function to get the Y location of the x-axis on the page
+  function getXAxisYLocation() {
+    if (xAxisElement) {
+      const xAxisRect = xAxisElement.getBoundingClientRect();
+      console.log("Y location of the x-axis on the page:", xAxisRect.top);
+      return xAxisRect.top;
+    }
+  }
+
+  // Call the function after the component is mounted
+  onMount(getXAxisYLocation);
+
   // Function to handle scroll event
   function handleScroll() {
     //scrollY = window.scrollY-600;
-
+    
     windowWidth = window.innerWidth;
-    console.log("Window Width is ", windowWidth);
-    if (windowWidth < 500) {
-      scrollY = window.scrollY - 1000;
-      console.log("smaller than 500");
-      console.log(window.scrollY, scrollY);
-      console.log("Difference is ", window.scrollY - scrollY);
-    } else if (windowWidth > 500 && windowWidth <= 700) {
-      scrollY = window.scrollY - 850;
-      console.log("500 - 700");
-      console.log(window.scrollY, scrollY);
-      console.log("Difference is ", window.scrollY - scrollY);
-    } else if (windowWidth > 700 && windowWidth <= 900) {
-      scrollY = window.scrollY - 700;
-      console.log("700 - 900");
-      console.log(window.scrollY, scrollY);
-      console.log("Difference is ", window.scrollY - scrollY);
-    } else if (windowWidth > 900) {
-      scrollY = window.scrollY - 600;
-      console.log("900 and up");
-      console.log(window.scrollY, scrollY);
-      console.log("Difference is ", window.scrollY - scrollY);
+    var minus = 0.002*windowWidth**2 - 3.5464*windowWidth + 2151.4
+  /*
+    if (windowWidth <= 350) {
+      scrollY = window.scrollY - 1300
+
+    } else if (windowWidth > 350 && windowWidth <= 450) {
+      scrollY = window.scrollY - 1050;
+
+    } else if (windowWidth > 450 && windowWidth <= 550) {
+      scrollY = window.scrollY - 1100;
+
+    } else if (windowWidth > 550 && windowWidth <= 650) {
+      scrollY = window.scrollY - 950;
+
+    }  else if (windowWidth > 650 && windowWidth <= 750) {
+      scrollY = window.scrollY - 875;
+
+    } 
+    else if (windowWidth > 750) {
+      scrollY = window.scrollY - 750;
+
+    }*/
+    if (windowWidth < 800){
+      scrollY =window.scrollY - minus
+
+    } else {
+      scrollY = window.scrollY - 750;
     }
+    //scrollY = window.scrollY - 600
   }
-/*
+  /*
   function getPositionXY(element) {
     let elm = document.querySelector(element);
     let rect = elm.getBoundingClientRect();
@@ -222,6 +243,7 @@
     {#if xAxisY <= 0}
       <!--X AXIS LINE-->
       <line
+        id="x-axis"
         x1={padding.left}
         y1={padding.top + 4}
         x2={padding.left + innerWidth}
@@ -260,6 +282,8 @@
       {/each}
     {:else if xAxisY > 0}
       <line
+        class="axis x-axis"
+        bind:this={xAxisElement}
         x1={padding.left}
         y1={xAxisY}
         x2={padding.left + innerWidth}
