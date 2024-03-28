@@ -22,65 +22,19 @@
     window.addEventListener("scroll", handleScroll);
   });
 
-  let xAxisElement; // Declare a variable to hold reference to the x-axis element
-
-  // Function to get the Y location of the x-axis on the page
-  function getXAxisYLocation() {
-    if (xAxisElement) {
-      const xAxisRect = xAxisElement.getBoundingClientRect();
-      console.log("Y location of the x-axis on the page:", xAxisRect.top);
-      return xAxisRect.top;
-    }
-  }
-
-  // Call the function after the component is mounted
-  onMount(getXAxisYLocation);
-
   // Function to handle scroll event
   function handleScroll() {
     //scrollY = window.scrollY-600;
-    
+
     windowWidth = window.innerWidth;
-    var minus = 0.002*windowWidth**2 - 3.5464*windowWidth + 2151.4
-  /*
-    if (windowWidth <= 350) {
-      scrollY = window.scrollY - 1300
+    var minus = 0.002 * windowWidth ** 2 - 3.5464 * windowWidth + 2151.4;
 
-    } else if (windowWidth > 350 && windowWidth <= 450) {
-      scrollY = window.scrollY - 1050;
-
-    } else if (windowWidth > 450 && windowWidth <= 550) {
-      scrollY = window.scrollY - 1100;
-
-    } else if (windowWidth > 550 && windowWidth <= 650) {
-      scrollY = window.scrollY - 950;
-
-    }  else if (windowWidth > 650 && windowWidth <= 750) {
-      scrollY = window.scrollY - 875;
-
-    } 
-    else if (windowWidth > 750) {
-      scrollY = window.scrollY - 750;
-
-    }*/
-    if (windowWidth < 800){
-      scrollY =window.scrollY - minus
-
+    if (windowWidth < 800) {
+      scrollY = window.scrollY - minus;
     } else {
       scrollY = window.scrollY - 750;
     }
-    //scrollY = window.scrollY - 600
   }
-  /*
-  function getPositionXY(element) {
-    let elm = document.querySelector(element);
-    let rect = elm.getBoundingClientRect();
-    document.getElementById("gfg").innerHTML =
-      "X: " + rect.x + ", " + "Y: " + rect.y;
-  }*/
-
-  //console.log(getPositionXY("chart"))
-
   // Calculate x-axis position based on scroll
   $: xAxisY = padding.top + scrollY;
   $: windowWidth = windowWidth;
@@ -248,50 +202,64 @@
         y1={padding.top + 4}
         x2={padding.left + innerWidth}
         y2={padding.top + 4}
-        stroke-width={1}
-        stroke={"#fff"}
+        stroke-width={6}
+        stroke={lineColour[transitName]}
       />
+      {#if windowWidth > 600}
+        {#each xTicks as tick, i}
+          <!--X LABEL TEXT-->
+          <text
+            class="x-text"
+            x={xScale(tick)}
+            y={padding.top - 2}
+            text-anchor="middle"
+            >{thousandToK(tick)}
+          </text>
+          <!--X TICKS LINE-->
+          <line
+            x1={xScale(tick)}
+            y1={padding.top + 30}
+            x2={xScale(tick)}
+            y2={height - padding.bottom - 2 * barWidth}
+            stroke-width={1}
+            stroke={"#4d4d4d"}
+          />
+        {/each}
+        {:else}
+        
+        {#each xTicks as tick, i}
+        {#if (i+1)%2 === 0}
+          <!--X LABEL TEXT-->
+          <text
+            class="x-text"
+            x={xScale(tick)}
+            y={padding.top - 2}
+            text-anchor="middle"
+            >{thousandToK(tick)}
+          </text>
+          <!--X TICKS LINE-->
+          <line
+            x1={xScale(tick)}
+            y1={padding.top + 30}
+            x2={xScale(tick)}
+            y2={height - padding.bottom - 2 * barWidth}
+            stroke-width={1}
+            stroke={"#4d4d4d"}
+          />
+          {/if}
+        {/each}
 
-      {#each xTicks as tick, i}
-        <!--X LABEL TEXT-->
-        <text
-          class="x-text"
-          x={xScale(tick)}
-          y={padding.top - 2}
-          text-anchor="middle"
-          >{thousandToK(tick)}
-        </text>
-        <!--X AXIS-->
-        <line
-          x1={xScale(tick)}
-          y1={padding.top}
-          x2={xScale(tick)}
-          y2={padding.top}
-          stroke-width={1}
-          stroke={"#fff"}
-        />
-        <!--X TICKS LINE-->
-        <line
-          x1={xScale(tick)}
-          y1={padding.top + 30}
-          x2={xScale(tick)}
-          y2={height - padding.bottom - 2 * barWidth}
-          stroke-width={1}
-          stroke={"#4d4d4d"}
-        />
-      {/each}
+      {/if}
     {:else if xAxisY > 0}
       <line
-        class="axis x-axis"
-        bind:this={xAxisElement}
         x1={padding.left}
-        y1={xAxisY}
+        y1={xAxisY + 4}
         x2={padding.left + innerWidth}
-        y2={xAxisY}
-        stroke-width={1}
-        stroke={"#fff"}
+        y2={xAxisY + 4}
+        stroke-width={6}
+        stroke={lineColour[transitName]}
       />
-
+      {#if windowWidth > 600}
       {#each xTicks as tick, i}
         <line
           x1={xScale(tick)}
@@ -313,6 +281,30 @@
           stroke={"#fff"}
         />
       {/each}
+      {:else}
+      {#each xTicks as tick, i}
+      {#if (i+1)%2 === 0}
+        <line
+          x1={xScale(tick)}
+          y1={padding.top + 30}
+          x2={xScale(tick)}
+          y2={height - padding.bottom - 2 * barWidth}
+          stroke-width={1}
+          stroke={"#4d4d4d"}
+        />
+        <text class="x-text" x={xScale(tick)} y={xAxisY} text-anchor="middle"
+          >{thousandToK(tick)}
+        </text>
+        <line
+          x1={xScale(tick)}
+          y1={xAxisY}
+          x2={xScale(tick)}
+          y2={xAxisY}
+          stroke-width={1}
+          stroke={"#fff"}
+        />{/if}
+      {/each}
+      {/if}
     {/if}
 
     <!-- y axis -->
