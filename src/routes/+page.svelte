@@ -73,9 +73,9 @@
         "Single-detached house": "count of people who live in single-detached house",
         "Semi-detached house": "count of people who live in semi-detached house",
         "Row house": "count of people who live in row house ",
-        "Apartment or flat in a -plex*": "count of people who live in apartments or flats in a du-, tri-, four-, multi-plex",
-        "Apartment fewer than five storeys": "count of people who live in apartments that are less than five storeys",
-        "Apartment five or more storeys": "count of people who live in apartments that are in buildings five or more storeys",
+        "Apartment or flat in a -plex*": "number of apartments or flats in a du-, tri-, four-, multi-plex",
+        "Apartment fewer than five storeys": "number of apartments that are less than five storeys",
+        "Apartment five or more storeys": "number of apartments that are in buildings five or more storeys",
     }
 
     let topWidth = 200;

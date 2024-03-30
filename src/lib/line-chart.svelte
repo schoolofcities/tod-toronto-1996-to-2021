@@ -22,6 +22,19 @@
     window.addEventListener("scroll", handleScroll);
   });
 
+  let xAxisElement; // Declare a variable to hold reference to the x-axis element
+  let xAxisYLocation;
+  // Function to get the Y location of the x-axis on the page
+  function getXAxisYLocation() {
+    if (xAxisElement) {
+      const xAxisRect = xAxisElement.getBoundingClientRect();
+      xAxisYLocation = xAxisRect.top
+      console.log('Y location of the x-axis on the page:', xAxisRect.top);
+    }
+  }
+
+  // Call the function after the component is mounted
+  onMount(getXAxisYLocation);
   // Function to handle scroll event
   function handleScroll() {
     //scrollY = window.scrollY-600;
@@ -29,11 +42,18 @@
     windowWidth = window.innerWidth;
     var minus = 0.002 * windowWidth ** 2 - 3.5464 * windowWidth + 2151.4;
 
+    if (window.scrollY <= xAxisYLocation){
+      console.log("____", window.scrollY - xAxisYLocation )
+    } else {
+      console.log(window.scrollY - xAxisYLocation )
+      scrollY = xAxisYLocation + (window.scrollY - xAxisYLocation)
+    }
+    /*
     if (windowWidth < 800) {
       scrollY = window.scrollY - minus;
     } else {
       scrollY = window.scrollY - 750;
-    }
+    }*/
   }
   // Calculate x-axis position based on scroll
   $: xAxisY = padding.top + scrollY;
@@ -196,7 +216,8 @@
     <!-- x axis -->
     {#if xAxisY <= 0}
       <!--X AXIS LINE-->
-      <line
+      <line 
+      
         id="x-axis"
         x1={padding.left}
         y1={padding.top + 4}
@@ -251,7 +272,8 @@
 
       {/if}
     {:else if xAxisY > 0}
-      <line
+      <line class="axis x-axis"
+      bind:this={xAxisElement}
         x1={padding.left}
         y1={xAxisY + 4}
         x2={padding.left + innerWidth}
