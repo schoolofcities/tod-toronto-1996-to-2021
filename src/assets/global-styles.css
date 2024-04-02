@@ -1,133 +1,144 @@
 @font-face {
-    font-family: TradeGothicBold;
-    src: url("Trade Gothic LT Bold.ttf");
+	font-family: TradeGothicBold;
+	src: url("Trade Gothic LT Bold.ttf");
 }
 
 @font-face {
-    font-family: RobotoRegular;
-    src: url("Roboto-Regular.ttf");
+	font-family: RobotoRegular;
+	src: url("Roboto-Regular.ttf");
 }
 
 @font-face {
-    font-family: RobotoBold;
-    src: url("Roboto-Bold.ttf");
+	font-family: RobotoBold;
+	src: url("Roboto-Bold.ttf");
 }
 
 :root {
-    font-family: Roboto, sans-serif;
-    --brandDarkBlue: #1E3765;
-    --brandMedBlue: #007FA3;
-    --brandLightBlue: #6FC7EA;
-    --brandPurple: #6D247A;
-    --brandPink: #AB1368;
-    --brandDarkGreen: #0D534D;
-    --brandMedGreen: #00A189;
-    --brandLightGreen: #8DBF2E;
-    --brandRed: #DC4633; 
-    --brandYellow: #F1C500;
-    --brandBlack: #000000;
-    --brandWhite: #ffffff;
-    --brandGray: #D0D1C9;
-    --brandGray70: #4d4d4d;
-    --brandGray80: #333333;
-    --brandGray90: #191919;
+	font-family: Roboto, sans-serif;
+	--brandDarkBlue: #1E3765;
+	--brandMedBlue: #007FA3;
+	--brandLightBlue: #6FC7EA;
+	--brandPurple: #6D247A;
+	--brandPink: #AB1368;
+	--brandDarkGreen: #0D534D;
+	--brandMedGreen: #00A189;
+	--brandLightGreen: #8DBF2E;
+	--brandRed: #DC4633; 
+	--brandYellow: #F1C500;
+	--brandBlack: #000000;
+	--brandWhite: #ffffff;
+	--brandGray: #D0D1C9;
+	--brandGray70: #4d4d4d;
+	--brandGray80: #333333;
+	--brandGray90: #191919;
 }
 
 body {
-    padding: 0px;
-    margin: 0px;
-    background-color: var(--brandGray90);
+
+	background-color: var(--brandGray90);
 }
 
 main {
-    margin: 0 auto;
-    width: calc(100% - 40px);
-    min-width: 420px;
-    max-width: 1300px;
-    position: relative;
+	/*margin: 0 auto;*/
+	width: calc(100%);
+	/*min-width: 420px;*/
+	/*max-width: 1300px;*/
+	position: relative;
+	margin-bottom: -50px;
+	margin-top: 0px;
+	padding-top: 30px;
+	z-index: 7;
+	background-color: var(--brandGray90);
 }
 
 .title {
-    background-color: none;
-    max-width: 750px;
-    margin: 0 auto;
-    margin-top: 150px;
-    padding-bottom: 15px;
-    border-bottom: solid 1px var(--brandGray70);
-    position: relative;
-    padding-left: 15px;
-    padding-right: 15px;
+	background-color: none;
+	max-width: 750px;
+	margin: 0 auto;
+	margin-top: 70px;
+	padding-bottom: 15px;
+	border-bottom: solid 1px var(--brandGray70);
+	position: relative;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 
 .text {
-    background-color: none;
-    max-width: 750px;
-    margin: 0 auto;
-    position: relative;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 20px;
+	background-color: var(--brandGray90);
+	max-width: 750px;
+	width: calc(100% - 30px);
+	margin: 0 auto;
+	position: relative;
+	padding-left: 15px;
+	padding-right: 15px;
+	z-index: 8;
 }
 
 h1 {
-    font-family: TradeGothicBold;
-    font-size: 32px;
-    color: var(--brandWhite);
-    padding-top: 0px;
+	font-family: TradeGothicBold;
+	font-size: 32px;
+	color: var(--brandWhite);
+	padding-top: 0px;
 }
 
 h2 {
-    text-align: left;
-    font-family: TradeGothicBold;
-    font-size: 30px;
-    color: var(--brandWhite);
+	text-align: left;
+	font-family: TradeGothicBold;
+	font-size: 30px;
+	color: var(--brandWhite);
 }
 
 h3 {
-    text-align: left;
-    font-family: TradeGothicBold;
-    font-size: 22px;
-    text-decoration: underline;
-    color: var(--brandWhite);
+	text-align: left;
+	font-family: TradeGothicBold;
+	font-size: 22px;
+	text-decoration: underline;
+	color: var(--brandWhite);
 }
 
 p {
-    font-family: RobotoRegular;
-    color: var(--brandGray);
-    text-align: left;
-    font-size: 17px;
-    line-height: 25px;
+	font-family: RobotoRegular;
+	color: var(--brandWhite);
+	text-align: left;
+	font-size: 17px;
+	line-height: 25px;
+	opacity: 0.95;
+
 }
 
 .note {
-    margin-top: -12px;
-    font-size: 14px;
+	margin-top: -12px;
+	font-size: 14px;
 }
 
 a {
-    color: var(--brandLightBlue);
-    text-decoration: underline;
-    font-weight: bold;
+	color: var(--brandLightBlue);
+	text-decoration: underline;
+	/* font-weight: bold; */
 }
 a:hover {
-    color: var(--brandLightBlue);
+	color: var(--brandMedBlue);
 }
 
 b {
-    color: var(--brandWhite);
+	color: var(--brandWhite);
+	font-family: Roboto;
+	text-decoration: underline;
 }
 
 .topImg {
-    width: 100%;
-    min-width: 420px;
-    height: 500px;
-    overflow: hidden;
-    background-color: none;
+	width: 100%;
+	min-width: 420px;
+	height: 500px;
+	overflow: hidden;
+	background-color: none;
+	margin-top: 70px;
 }
 
 .topImg img {
-    width: 100%;  /* Fill the container width */
-    height: 500px;
-    object-fit: none;
+	width: 100%;  /* Fill the container width */
+	height: 500px;
+	object-fit: none;
+	margin-top: 70px;
 }
