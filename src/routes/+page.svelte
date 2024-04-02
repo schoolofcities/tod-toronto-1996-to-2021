@@ -67,15 +67,15 @@
 
 	const textName = {
 		"Population":  "the population",
-		"Weighted Average Total Individual Income": "weighted average total individual income",
-		"Weighted Average Total Household Income": "weighted average total household income",
-		"Total Occupied Dwellings": "total count of occupied dwellings",
-		"Single-detached house": "count of people who live in single-detached house",
-		"Semi-detached house": "count of people who live in semi-detached house",
-		"Row house": "count of people who live in row house ",
-		"Apartment or flat in a -plex*": "number of apartments or flats in a du-, tri-, four-, multi-plex",
-		"Apartment fewer than five storeys": "number of apartments that are less than five storeys",
-		"Apartment five or more storeys": "number of apartments that are in buildings five or more storeys",
+		"Weighted Average Total Individual Income": "the weighted average total individual income",
+		"Weighted Average Total Household Income": "the weighted average total household income",
+		"Total Occupied Dwellings": "the total count of occupied dwellings",
+		"Single-detached house": "the number of households that live in single-detached houses",
+		"Semi-detached house": "the number of households that live in semi-detached houses",
+		"Row house": "the number of households that live in row houses",
+		"Apartment or flat in a -plex*": "the number of households that live in a du-, tri-, four-, multi-plex",
+		"Apartment fewer than five storeys": "the number of households that live in apartments/condos that are less than five storeys",
+		"Apartment five or more storeys": "the number of households that live in apartments/condos that are in buildings of five or more storeys",
 	}
 
 	let topWidth = 200;
@@ -160,8 +160,8 @@
 		</p>
 
 		<p>
-			The chart is currently showing <b>{textName[variableName]}</b> in the area that is within
-			<b>800m</b> distance of 
+			The chart is currently showing <b>{textName[variableName]}</b> within an
+			<b>800m</b> distance of
 			<b>{transitName}</b><br />
 
 			<svg class="legend" height="30px" width={600}>
@@ -181,17 +181,21 @@
 			>
 			<!-- key is a function that would destroy the element and rebuilt it upon variable change-->
 		</p>
-		{#key [transitName, variableName]}
-			<LineChart
-				variable96={variableName + " 96"}
-				variable21={variableName + " 21"}
-				{transitName}
-				colour96="#6FC7EA"
-				colour21="#DC4633"
-			/>
-		{/key}
+		
 	</div>
+	</main>
 
+	{#key [transitName, variableName]}
+		<LineChart
+			variable96={variableName + " 96"}
+			variable21={variableName + " 21"}
+			{transitName}
+			colour96="#6FC7EA"
+			colour21="#DC4633"
+		/>
+	{/key}
+
+	<main>
 	<div class="text">
 		<h2>What Is Transit Oriented Development?</h2>
 		<p>
@@ -226,7 +230,9 @@
 			caused by it. It is also beneficial to our environment as we reduce
 			the amount of carbon emissions and harmful air pollution particles
 			that would cause respiratory issues.
+
 			<br /> <br />
+
 			TOD is also beneficial to city governments, as TOD would locate a large
 			number of residents and jobs, which would encourage people to use public
 			transit and justify the cost of operating these systems. By building
@@ -268,6 +274,9 @@
 				Metrolinx's Open Data Catalogue</a
 			>
 		</p>
+		<br>
+		<br>
+		<br>
 	</div>
 </main>
 
@@ -288,7 +297,6 @@
 		color: white;
 		stroke: white;
 	}
-
 	select:hover {
 		cursor: pointer;
 		background-color: var(--brandDarkBlue);
@@ -299,7 +307,6 @@
 		top: 10px;
 		margin: 0 auto;
 	}
-
 	.dashed-lines {
 		position: relative;
 		stroke: white;

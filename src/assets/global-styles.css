@@ -44,6 +44,9 @@ main {
 	/*min-width: 420px;*/
 	/*max-width: 1300px;*/
 	position: relative;
+	margin-bottom: -50px;
+	z-index: 7;
+	background-color: var(--brandGray90);
 }
 
 .title {
@@ -60,13 +63,14 @@ main {
 
 
 .text {
-	background-color: none;
+	background-color: var(--brandGray90);
 	max-width: 750px;
+	width: 100%;
 	margin: 0 auto;
 	position: relative;
 	padding-left: 15px;
 	padding-right: 15px;
-	
+	z-index: 8;
 }
 
 h1 {
@@ -97,7 +101,7 @@ p {
 	text-align: left;
 	font-size: 17px;
 	line-height: 25px;
-	opacity: 0.9;
+	opacity: 0.95;
 
 }
 
@@ -117,7 +121,7 @@ a:hover {
 
 b {
 	color: var(--brandWhite);
-	font-family: RobotoBold;
+	font-family: Roboto;
 	text-decoration: underline;
 }
 
