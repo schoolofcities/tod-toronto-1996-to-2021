@@ -317,13 +317,15 @@
 
 		<path d={line_gen96} 
 			stroke={"white"} 
-			stroke-dasharray="6 3" 
+			stroke-dasharray="2 6" 
+			stroke-linecap="round" 
 			stroke-width= 4
 			fill-opacity=0
 		/>
 
 		<path d={line_gen21} 
 			stroke={"white"} 
+			stroke-linecap="round" 
 			stroke-width= 4
 			fill-opacity=0
 
