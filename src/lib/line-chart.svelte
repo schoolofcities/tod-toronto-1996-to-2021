@@ -4,7 +4,7 @@
 	import { line, curveNatural, area } from "d3";
 	import "../assets/global-styles.css";
 	import { onMount } from "svelte";
-	import cityAverage from "../data/cityAverage.json";
+	// import cityAverage from "../data/cityAverage.json";
 
 	export let variable96; //get the selected variable name for 2021
 	export let variable21; //get the selected variable name for 2021
@@ -166,6 +166,8 @@
 
 	// Define the area generators
 
+	$: console.log(line_gen96);
+
 	/* ======= SET UP DATA LABELLING ========== */
 
 	/* MOUSEOVER EVENT */
@@ -300,9 +302,34 @@
 				{/if}
 			{/each}
 		</g>
-		<path d={line_gen96} stroke={"white"} stroke-dasharray="6 3" />
-		<path d={line_gen21} stroke={"white"} />
-		<!-- CREATE THE LINES ON THE LINE GRAPH-->
+
+		<path d={line_gen96 + "H" + padding.left + "V" + (padding.top + 32) +"Z"} 
+			stroke={"none"} 
+			fill="#DC4633"
+			fill-opacity=0.15
+		/>
+
+		<path d={line_gen21 + "H" + padding.left + "V" + (padding.top + 32) +"Z"} 
+			stroke={"none"} 
+			fill="#6FC7EA"
+			fill-opacity=0.15
+		/>
+
+		<path d={line_gen96} 
+			stroke={"white"} 
+			stroke-dasharray="6 3" 
+			stroke-width= 4
+			fill-opacity=0
+		/>
+
+		<path d={line_gen21} 
+			stroke={"white"} 
+			stroke-width= 4
+			fill-opacity=0
+
+		/>
+
+		
 
 
 		<!-- y axis -->
@@ -447,9 +474,6 @@
 	}
 
 	path {
-		fill: transparent;
-		stroke-width: 4;
 		stroke-linejoin: round;
-		z-index: 40;
 	}
 </style>
