@@ -42,18 +42,11 @@
     windowWidth = window.innerWidth;
     var minus = 0.002 * windowWidth ** 2 - 3.5464 * windowWidth + 2151.4;
 
-    if (window.scrollY <= xAxisYLocation){
-      console.log("____", window.scrollY - xAxisYLocation )
-    } else {
-      console.log(window.scrollY - xAxisYLocation )
-      scrollY = xAxisYLocation + (window.scrollY - xAxisYLocation)
-    }
-    /*
     if (windowWidth < 800) {
       scrollY = window.scrollY - minus;
     } else {
       scrollY = window.scrollY - 750;
-    }*/
+    }
   }
   // Calculate x-axis position based on scroll
   $: xAxisY = padding.top + scrollY;
@@ -83,7 +76,7 @@
     "Other single-attached house 96": [0, 100, 200, 300, 400],
     "Owner 96": [0, 7500, 15000, 22500, 30000],
     "Owner Renter Ratio 96": [0, 8.75, 17.5, 26.25, 35], // Updated value
-    "Population 96": [0, 25000, 50000, 75000],
+    "Population 96": [0, 20000, 40000, 60000, 80000],
     "Renter 96": [0, 8750, 17500, 26250, 35000],
     "Row house 96": [0, 875, 1750, 2625, 3500],
     "Semi-detached house 96": [0, 1375, 2750, 4125, 5500],
@@ -134,7 +127,7 @@
   // converts thousands and million to K and M i.e. (1,000 ==> 1K , 1,000,000 ==> 1M)
   function thousandToK(tick) {
     var newtick;
-    if (tick < 400) {
+    if (tick < 500) {
       newtick = tick;
     } else if (tick >= 1000 && tick < 1000000) {
       newtick = tick / 1000 + "K";
@@ -226,7 +219,7 @@
         stroke-width={6}
         stroke={lineColour[transitName]}
       />
-      {#if windowWidth > 400}
+      {#if windowWidth > 500}
         {#each xTicks as tick, i}
           <!--X LABEL TEXT-->
           <text
@@ -249,7 +242,7 @@
         {:else}
         
         {#each xTicks as tick, i}
-        {#if (i+1)%2 === 0}
+        {#if (i+1)%2 === 1}
           <!--X LABEL TEXT-->
           <text
             class="x-text"
@@ -305,7 +298,7 @@
       {/each}
       {:else}
       {#each xTicks as tick, i}
-      {#if (i+1)%2 === 0}
+      {#if (i+1)%2 === 1}
         <line
           x1={xScale(tick)}
           y1={padding.top + 30}
