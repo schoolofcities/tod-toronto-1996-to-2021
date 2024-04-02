@@ -103,7 +103,7 @@
 	var data = jsondata.filter(filterDesignation);
 
 	/* ======= SETTING UP CHARTING AREAS ==========*/
-	const padding = { top: 20, right: 25, bottom: 10, left: 150 };
+	const padding = { top: 20, right: 25, bottom: -40, left: 150 };
 	let width = 600; // set the base width
 	let height = data.length * 5 + padding.top + padding.bottom; // set the base width
 
@@ -306,13 +306,13 @@
 		<path d={line_gen96 + "H" + padding.left + "V" + (padding.top + 32) +"Z"} 
 			stroke={"none"} 
 			fill="#DC4633"
-			fill-opacity=0.15
+			fill-opacity=0.2
 		/>
 
 		<path d={line_gen21 + "H" + padding.left + "V" + (padding.top + 32) +"Z"} 
 			stroke={"none"} 
 			fill="#6FC7EA"
-			fill-opacity=0.15
+			fill-opacity=0.2
 		/>
 
 		<path d={line_gen96} 
@@ -398,6 +398,91 @@
 	</svg>
 </div>
 
+<div 
+		id="bottom">
+		
+			<svg
+			height=20
+			width={width}
+		>
+		<line 
+			id="x-axis"
+			x1={padding.left}
+			y1={19}
+			x2={padding.left + innerWidth}
+			y2={19}
+			stroke-width={6}
+			stroke="black"
+		/>
+		<line 
+			id="x-axis"
+			x1={padding.left}
+			y1={18}
+			x2={padding.left + innerWidth}
+			y2={18}
+			stroke-width={2}
+			stroke="white"
+		/>
+
+		{#if windowWidth > 500}
+			{#each xTicks as tick, i}
+				<line
+					x1={xScale(tick)}
+					y1={15}
+					x2={xScale(tick)}
+					y2={20}
+					stroke-width={2}
+					stroke={"white"}
+				/>
+				<text
+					class="x-text-bg"
+					x={xScale(tick)}
+					y={14}
+					text-anchor="middle"
+					>{thousandToK(tick)}
+				</text>
+				<text
+					class="x-text"
+					x={xScale(tick)}
+					y={14}
+					text-anchor="middle"
+					>{thousandToK(tick)}
+				</text>
+			{/each}
+		{:else}
+			{#each xTicks as tick, i}
+				<line
+					x1={xScale(tick)}
+					y1={15}
+					x2={xScale(tick)}
+					y2={20}
+					stroke-width={2}
+					stroke={"white"}
+				/>
+				{#if (i+1)%2 === 1}
+					<text
+						class="x-text-bg"
+						x={xScale(tick)}
+						y={14}
+						text-anchor="middle"
+						>{thousandToK(tick)}
+					</text>
+					<text
+						class="x-text"
+						x={xScale(tick)}
+						y={14}
+						text-anchor="middle"
+						>{thousandToK(tick)}
+					</text>
+				{/if}
+			{/each}
+
+		{/if}
+
+
+		</svg>
+	</div>
+
 <style>
 
 	#top {
@@ -410,6 +495,15 @@
 		margin: 0 auto;
 	}
 
+	#bottom {
+		z-index: 7;
+		width: 100%;
+		max-width: 1000px;
+		margin: 0 auto;
+		padding-top: 10px;
+		background-color: var(--brandGray90);
+	}
+
 	/* CHART */
 	.chart {
 		/* width: 80%; */
@@ -419,6 +513,7 @@
 		z-index: 0;
 		margin: 0 auto;
 		margin-top: -30px;
+		background-color: var(--brandGray90);
 	}
 
 	svg {

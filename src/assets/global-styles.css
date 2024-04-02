@@ -45,6 +45,8 @@ main {
 	/*max-width: 1300px;*/
 	position: relative;
 	margin-bottom: -50px;
+	margin-top: 0px;
+	padding-top: 30px;
 	z-index: 7;
 	background-color: var(--brandGray90);
 }
