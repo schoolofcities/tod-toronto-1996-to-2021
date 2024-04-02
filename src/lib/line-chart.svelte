@@ -166,15 +166,23 @@
 
 	// Define the area generators
 
-	$: console.log(line_gen96);
+	$: console.log(width);
 
 	/* ======= SET UP DATA LABELLING ========== */
 
 	/* MOUSEOVER EVENT */
 	let mouse_x, mouse_y;
+
+
+	let scrollPosition = 0;
+
+	$: console.log(scrollPosition);
+
+
+
 </script>
 
-
+<svelte:window bind:scrollX={scrollPosition} />
 
 <div
 	id="barchart"
@@ -184,84 +192,55 @@
 >
 	<div 
 		id="top">
-		
 			<svg
 			height=20
 			width={width}
 		>
 		<line 
 			id="x-axis"
-			x1={padding.left}
+			x1={padding.left - scrollPosition}
 			y1={19}
-			x2={padding.left + innerWidth}
+			x2={padding.left + innerWidth- scrollPosition}
 			y2={19}
 			stroke-width={6}
 			stroke="black"
 		/>
 		<line 
 			id="x-axis"
-			x1={padding.left}
+			x1={padding.left - scrollPosition}
 			y1={18}
-			x2={padding.left + innerWidth}
+			x2={padding.left + innerWidth - scrollPosition}
 			y2={18}
 			stroke-width={2}
 			stroke="white"
 		/>
 
-		{#if windowWidth > 500}
+
 			{#each xTicks as tick, i}
 				<line
-					x1={xScale(tick)}
+					x1={xScale(tick) - scrollPosition}
 					y1={15}
-					x2={xScale(tick)}
+					x2={xScale(tick) - scrollPosition}
 					y2={20}
 					stroke-width={2}
 					stroke={"white"}
 				/>
 				<text
 					class="x-text-bg"
-					x={xScale(tick)}
+					x={xScale(tick) - scrollPosition}
 					y={14}
 					text-anchor="middle"
 					>{thousandToK(tick)}
 				</text>
 				<text
 					class="x-text"
-					x={xScale(tick)}
+					x={xScale(tick)- scrollPosition}
 					y={14}
 					text-anchor="middle"
 					>{thousandToK(tick)}
 				</text>
 			{/each}
-		{:else}
-			{#each xTicks as tick, i}
-				<line
-					x1={xScale(tick)}
-					y1={15}
-					x2={xScale(tick)}
-					y2={20}
-					stroke-width={2}
-					stroke={"white"}
-				/>
-				{#if (i+1)%2 === 1}
-					<text
-						class="x-text-bg"
-						x={xScale(tick)}
-						y={14}
-						text-anchor="middle"
-						>{thousandToK(tick)}
-					</text>
-					<text
-						class="x-text"
-						x={xScale(tick)}
-						y={14}
-						text-anchor="middle"
-						>{thousandToK(tick)}
-					</text>
-				{/if}
-			{/each}
-
-		{/if}
+		
 
 
 		</svg>
@@ -400,13 +379,11 @@
 	</svg>
 </div>
 
-<div 
-		id="bottom">
-		
-			<svg
-			height=20
-			width={width}
-		>
+<div id="bottom">
+	<svg
+		height=20
+		width={width}
+	>
 		<line 
 			id="x-axis"
 			x1={padding.left}
@@ -492,9 +469,9 @@
 		background-color: none;
 		bottom: 2px;
 		width: 100%;
+		min-width: 500px;
 		max-width: 1000px;
 		position: fixed;
-		margin: 0 auto;
 	}
 
 	#bottom {
@@ -512,6 +489,7 @@
 		/*  left: 0%; */
 		padding-top: 0px;
 		max-width: 1000px;
+		min-width: 800px;
 		z-index: 0;
 		margin: 0 auto;
 		margin-top: -30px;
@@ -523,7 +501,6 @@
 		/* width: 90%; */
 		/* left: 5%; */
 		max-width: 1000px;
-
 		z-index: 1;
 	}
 
@@ -573,4 +550,5 @@
 	path {
 		stroke-linejoin: round;
 	}
+
 </style>

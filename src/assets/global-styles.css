@@ -67,7 +67,7 @@ main {
 .text {
 	background-color: var(--brandGray90);
 	max-width: 750px;
-	width: 100%;
+	width: calc(100% - 30px);
 	margin: 0 auto;
 	position: relative;
 	padding-left: 15px;
@@ -118,7 +118,7 @@ a {
 	/* font-weight: bold; */
 }
 a:hover {
-	color: var(--brandLightBlue);
+	color: var(--brandMedBlue);
 }
 
 b {
