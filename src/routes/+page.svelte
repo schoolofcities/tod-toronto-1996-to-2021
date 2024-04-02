@@ -146,8 +146,7 @@
 					<option {value}>{value}</option>
 				{/each}
 			</select>
-		</p>
-		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;
 			<select
 				id="census"
 				value={variableName}
@@ -160,26 +159,33 @@
 		</p>
 
 		<p>
+
 			The chart is currently showing <b>{textName[variableName]}</b> within an
 			<b>800m</b> distance of
-			<b>{transitName}</b><br />
+			<b>{transitName}</b>
 
-			<svg class="legend" height="30px" width={600}>
+			<br><br>
+
+			
+			<svg class="legend" height="30px" width={180}>
 				<line class="dashed-lines" x1="0px" y1="15" x2="60px" y2="15"
 				></line>
 				<text x="70px" y="20" font-size="14" fill="white"
 					>1996 Census</text
 				>
 			</svg>
-		</p>
-		<p>
-			<svg class="legend" height="30px" width={600}>
+			<svg class="legend" height="30px" width={180}>
 				<line class="lines" x1="0px" y1="15" x2="60px" y2="15"></line>
 				<text x="70px" y="20" font-size="14" fill="white"
 					>2021 Census</text
 				></svg
 			>
 			<!-- key is a function that would destroy the element and rebuilt it upon variable change-->
+			
+			<br>
+
+			
+			<br>
 		</p>
 		
 	</div>
@@ -291,6 +297,8 @@
 		font-size: 16px;
 		border-color: var(--brandGray70);
 		border-radius: 1px;
+		margin-top: 8px;
+		margin-bottom: 8px;
 	}
 	select option {
 		background-color: var(--brandGray90);
@@ -303,8 +311,8 @@
 	}
 	.legend {
 		position: relative;
-		max-width: 300px;
-		top: 10px;
+		/* max-width: 300px; */
+		/* top: 0px; */
 		margin: 0 auto;
 	}
 	.dashed-lines {
