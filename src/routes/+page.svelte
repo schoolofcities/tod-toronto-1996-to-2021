@@ -115,21 +115,20 @@
 		</h1>
 
 		<p>
-			<a href="https://www.linkedin.com/in/chun-fu-liu/">Michael Liu</a> and <a href="http://jamaps.github.io/">Jeff Allen</a> | April 2024
+			<a href="https://www.linkedin.com/in/chun-fu-liu/" target="_blank">Michael Liu</a> and <a href="http://jamaps.github.io/" target="_blank">Jeff Allen</a> | April 2024
 		</p>
 	</div>
 
 	<div class="text">
 		<p>
-			Toronto has had mixed success in building new housing
-			units where there is easy access to transit services, especially
-			along subway and light-rail lines.
+			Toronto has had mixed success in building new housing units where there is easy access to transit service, especially
+			along existing and planned subway and light-rail lines.
 		</p>
 		<p>
-			We've created an interactive chart for exploring Transit-Oriented
-			Development (TOD), or lack there-of, along Toronto's existing and
+			We've created an interactive chart for exploring <a href="https://en.wikipedia.org/wiki/Transit-oriented_development" target="_blank">Transit-Oriented
+			Development</a> (TOD), or lack there-of, along Toronto's existing and
 			planned major transit lines, specifically for areas within 800
-			metres (approx. a 10-15 minute walk) from these lines. 
+			metres (approximately a 10 minute walk) from these lines. 
 		</p>
 		<p>	
 			Select between lines and different housing data to examine TOD in Toronto. 
@@ -160,9 +159,9 @@
 
 		<p>
 
-			The chart is currently showing <b>{textName[variableName]}</b> within an
-			<b>800m</b> distance of
-			<b>{transitName}</b>
+			The chart is currently showing {textName[variableName]} within an
+			800m distance of
+			{transitName}
 
 			<br><br>
 
@@ -206,34 +205,33 @@
 		
 		<h2>Benefits of TOD</h2>
 		<p>
-			Transit-oriented developments (TOD) aim for higher density, pedestrian friendly, neighbourhoods near major transit stations. At a local scale, TODs allow people to reduce their reliance on cars for many day-to-day errands and trips. For instance, a resident can safely walk to a nearby stores to get groceries, bike to school, and access the park nearby, all without having the need to rely on cars. For longer trips, living or working to major transit reduces need to travel to work and other further away destinations by car. Overall, reducing car reliance means more physical activity lead to better health outcomes, less carbon emissions and pollution, and fewer traffic collisions.
+			Transit-oriented developments (TOD) aim for higher density, pedestrian friendly, neighbourhoods near major transit stations. At a local scale, TODs allow people to reduce their reliance on cars for many day-to-day errands and trips. For instance, a resident can safely walk to a nearby stores to get groceries, bike to school, and access the park nearby, all without having the need to rely on cars. For longer trips, living or working to major transit reduces need to travel to work and other further away destinations by car. Overall, reducing car reliance means more physical activity lead to better health outcomes, as well as less carbon emissions and pollution.
 		</p>
 		<p>
 			TOD is also beneficial to city governments, as TOD would locate a large number of residents and jobs, which would encourage people to use public transit and justify the cost of operating and improving these systems. By building more densely, cities can also cut operation and maintenance costs of their infrastructures, such as roads, sewage, water, and waste collection.
 		</p>
 		<p>
-			The charts above show that while a few stations have seen ample development in this 25-year period, most neighbourhoods have seen very little change, and in a few cases, population decline. As Toronto continues to grow and experience population growth, it is imperitive to locate new housing near major transit lines, both existing and those expected to be completed over the coming years. 
+			The charts above show that while a few stations have seen ample development during this 25-year period (e.g. downtown, midtown), most neighbourhoods have seen very little change, and in a few cases, population decline. As Toronto continues to grow and experience population growth, it is imperitive to locate new housing near major transit lines, both existing and those planned to be completed over the coming years. 
 		</p>
 		<h2>How we created these charts</h2>
 		<p>
-			Transit-Oriented Developments are often defined as areas within 5-to-15
-			minute walk to major transit stations (e.g. along subway/metro, commuter rail, and BRT/LRT routes). 
-		</p>
-		<p>
-			The chart above specifically compares data from <a
-				href="https://www12.statcan.gc.ca/census-recensement/index-eng.cfm"
+			Demographic and housing data comes from <a
+				href="https://www12.statcan.gc.ca/census-recensement/index-eng.cfm" target="_blank"
 				>Statistics Canada’s
 			</a>
-			Census for 1996 and 2021 within an 800m buffer along major transit routes in Toronto (existing and planned). Specifically, we used census data aggregated at the Dissemination Area level data for 2021 and Enumeration Area level data for 1996. These are the smallest geographic areas in which census data is available publicly for each year, respectively. These areas typically consist of a few city blocks. We then used areal interpolation to join this census data to 800 metre buffers, at 400 metre intervals, along each transit line. We also used Thiessen
+			Census for 1996 and 2021, respectively. Specifically, we used census data aggregated at the Dissemination Area level data for 2021 and Enumeration Area level data for 1996. These are the smallest geographic areas in which census data is available publicly for each year, respectively. These areas typically consist of a few city blocks. 
+		</p>
+		<p>
+			Transit data on existing and future transit line and transit stations
+			were downloaded from <a
+				href="https://www.metrolinx.com/en/about-us/open-data" target="_blank"
+			>
+				Metrolinx's Open Data Catalogue</a
+			>. We then used areal interpolation to spatially join this census data to 800 metre buffers, at 400 metre intervals, along each transit line. 800 metres approximately corresponds to a 10 minute walk. We also used Thiessen
 			Polygons to determine the closest station for each of the point we generated for display on the charts.
 		</p>
 		<p>
-			All transit layers, including the transit line and transit stations,
-			were downloaded from <a
-				href="https://www.metrolinx.com/en/about-us/open-data"
-			>
-				Metrolinx's Open Data Catalogue</a
-			>
+			The chart was built using <a href="https://d3js.org/" target="_blank">D3</a> and <a href="https://svelte.dev/" target="_blank">Svelte</a>. All our code and data are on <a href="https://github.com/schoolofcities/tod-toronto-1996-to-2021" target="_blank">GitHub</a>.
 		</p>
 		
 

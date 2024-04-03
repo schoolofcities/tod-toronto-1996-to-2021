@@ -123,12 +123,6 @@ a:hover {
 	color: var(--brandMedBlue);
 }
 
-b {
-	color: var(--brandWhite);
-	font-family: Roboto;
-	text-decoration: underline;
-}
-
 .topImg {
 	width: 100%;
 	min-width: 420px;
