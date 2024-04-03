@@ -489,7 +489,7 @@
 		/*  left: 0%; */
 		padding-top: 0px;
 		max-width: 1000px;
-		min-width: 800px;
+		min-width: 600px;
 		z-index: 0;
 		margin: 0 auto;
 		margin-top: -30px;

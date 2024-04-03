@@ -54,6 +54,7 @@ main {
 .title {
 	background-color: none;
 	max-width: 750px;
+	min-width: 600px;
 	margin: 0 auto;
 	margin-top: 70px;
 	padding-bottom: 15px;
@@ -68,6 +69,7 @@ main {
 	background-color: var(--brandGray90);
 	max-width: 750px;
 	width: calc(100% - 30px);
+	min-width: 600px;
 	margin: 0 auto;
 	position: relative;
 	padding-left: 15px;
